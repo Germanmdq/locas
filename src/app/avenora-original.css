@@ -28,7 +28,7 @@ html.w-mod-js:not(.w-mod-ix3) :is(.gallary-wrap, [data-wf-component-id="be3d7ba0
 /* Locas hero title: original Avenora fade. */
 .home-hero-area .hero-title-wrapper {
   -webkit-text-fill-color: transparent !important;
-  background-image: linear-gradient(185deg, #fff 50.59%, #9990 90%) !important;
+  background-image: linear-gradient(185deg, rgba(255,255,255,1) 0%, rgba(255,255,255,.98) 68%, rgba(255,255,255,.72) 84%, rgba(255,255,255,.22) 100%) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
 }
