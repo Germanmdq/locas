@@ -69,6 +69,17 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
   const trip = trips[slug as TripKey];
   if (!trip) notFound();
   const related = [...tripEntries, ...tripEntries];
+  const visualImages = slug === "ushuaia" ? [
+    "/destinations/ushuaia/arrival-group.jpg",
+    "/destinations/ushuaia/park.jpg",
+    "/destinations/ushuaia.jpg",
+    "/destinations/ushuaia/laguna-esmeralda.jpg",
+    "/destinations/ushuaia/community.webp"
+  ] : trip.itinerary.map(() => trip.image);
+  const blogCardImage = slug === "ushuaia" ? "/destinations/ushuaia/community.webp" : trip.image;
+  const editorialImage = slug === "ushuaia" ? "/destinations/ushuaia/park.jpg" : trip.image;
+  const communityImage = slug === "ushuaia" ? "/destinations/ushuaia/community.webp" : trip.image;
+  const closingImage = slug === "ushuaia" ? "/destinations/ushuaia/laguna-esmeralda.jpg" : trip.image;
 
   return (
     <main className="locas-trip-page">
@@ -77,7 +88,7 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
         <div className="locas-trip-overlay" />
         <header className="locas-trip-nav">
           <Link href="/" className="locas-trip-brand">Locas por la aventura</Link>
-          <nav><Link href="/">Inicio</Link><Link href="/#destinos">Destinos</Link><Link href="/viajes">Paquetes</Link><Link href="/#Contact">Contacto</Link></nav>
+          <nav><Link href="/">Inicio</Link><Link href="/viajes">Viajes</Link><Link href={`/blog/${slug}`}>Revista</Link><Link href="/mi-locas">Mi Locas</Link><Link href="/mi-viaje">Mi Viaje</Link></nav>
           <Link href="/viajes" className="locas-trip-nav-cta">Comenzá a explorar <span>→</span></Link>
         </header>
         <div className="locas-trip-hero-grid">
@@ -106,16 +117,16 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
               {trip.itinerary.map(([day, title, text], index) => (
                 <article key={day} className="trip-itinerary-day trip-itinerary-day-photo">
                   <span>{day}</span><div className="trip-itinerary-day-copy"><h3>{title}</h3><p>{text}</p><small>Un día pensado para vivir el destino en grupo, compartir el momento y volver con una historia.</small></div>
-                  <figure><Image src={trip.image} alt={`${trip.title} · ${day}`} fill sizes="(max-width: 700px) 92vw, 300px" style={{objectPosition: `${50 + (index % 3) * 10}% center`}} /></figure>
+                  <figure><Image src={visualImages[index % visualImages.length]} alt={`${trip.title} · ${day}`} fill sizes="(max-width: 700px) 92vw, 300px" style={{objectPosition: `${50 + (index % 3) * 10}% center`}} /></figure>
                 </article>
               ))}
             </div>
           </section>
           <Link href={`/blog/${slug}`} data-trip-reveal className="locas-trip-reveal trip-blog-card">
             <div><span>REVISTA LOCAS</span><h3>Qué nos enamora de {trip.title}</h3><p>Una guía para imaginar el viaje antes de salir: lugares, momentos, sabores, historias y por qué este destino funciona tan bien para vivirlo en grupo.</p><b>Leer la historia completa →</b></div>
-            <figure><Image src={trip.image} alt={`Guía de ${trip.title}`} fill sizes="(max-width: 800px) 92vw, 420px" /></figure>
+            <figure><Image src={blogCardImage} alt={`Guía de ${trip.title}`} fill sizes="(max-width: 800px) 92vw, 420px" /></figure>
           </Link>
-          <figure data-trip-reveal className="locas-trip-reveal locas-trip-wide-image"><Image src={trip.image} alt={trip.title} fill sizes="(max-width: 900px) 94vw, 72vw" /></figure>
+          <figure data-trip-reveal className="locas-trip-reveal locas-trip-wide-image"><Image src={editorialImage} alt={trip.title} fill sizes="(max-width: 900px) 94vw, 72vw" /></figure>
           <div data-trip-reveal className="locas-trip-reveal locas-trip-copy-block">
             <h2>Qué incluye la experiencia</h2>
             <ul>{trip.included.map((item) => <li key={item}>{item}</li>)}</ul>
@@ -146,6 +157,7 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
             ].map(([q,a]) => <details key={q}><summary>{q}<b>+</b></summary><p>{a}</p></details>)}
           </div>
           <section data-trip-reveal className="locas-trip-reveal trip-community-story">
+            <figure className="trip-community-photo"><Image src={communityImage} alt={`Comunidad Locas en ${trip.title}`} fill sizes="(max-width: 800px) 92vw, 850px" /></figure>
             <div className="trip-community-copy">
               <span>COMUNIDAD LOCAS</span>
               <h2>El viaje empieza con el grupo.</h2>
@@ -159,7 +171,7 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
           </section>
           <LeadCapture title={trip.title} departures={[...trip.departures]} alternatives={tripEntries.filter(([key]) => key !== slug).map(([,item]) => item.title)} />
           <TripAssistant title={trip.title} status={trip.status} price={trip.price} deposit={trip.deposit} departures={[...trip.departures]} docs={trip.docs} included={trip.included} />
-          <figure data-trip-reveal className="locas-trip-reveal locas-trip-wide-image locas-trip-wide-image-second"><Image src={trip.image} alt={`${trip.title} - viaje`} fill sizes="(max-width: 900px) 94vw, 72vw" /></figure>
+          <figure data-trip-reveal className="locas-trip-reveal locas-trip-wide-image locas-trip-wide-image-second"><Image src={closingImage} alt={`${trip.title} - viaje`} fill sizes="(max-width: 900px) 94vw, 72vw" /></figure>
           <section data-trip-reveal className="locas-trip-reveal trip-service-proof">
             <div className="trip-service-card"><span>HOTEL</span><h3>Alojamiento centralizado en Mi Viaje</h3><p>Nombre del hotel, tipo de habitación, check-in, dirección y archivos de la reserva quedan disponibles en un solo lugar después de confirmar.</p></div>
             <div className="trip-service-card"><span>EXPERIENCIAS</span><h3>Actividades con estado claro</h3><p>Cada experiencia puede mostrar si está incluida, opcional, confirmada o pendiente, evitando preguntas repetidas por WhatsApp.</p></div>
