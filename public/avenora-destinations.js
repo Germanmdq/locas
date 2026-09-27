@@ -87,11 +87,32 @@
 
     function render() {
       if (window.innerWidth < 992) {
-        stage.style.display = 'none';
-        sourceList.style.removeProperty('display');
+        stage.style.display = 'block';
+        sourceList.style.setProperty('display', 'none', 'important');
+        stage.style.position = 'relative';
+        stage.style.inset = 'auto';
+        slides.forEach(function(slide, index){
+          slide.style.position = 'relative';
+          slide.style.left = 'auto';
+          slide.style.top = 'auto';
+          slide.style.transform = 'none';
+          slide.style.opacity = '1';
+          slide.style.zIndex = '1';
+          slide.style.pointerEvents = 'auto';
+          slide.style.marginBottom = index === slides.length - 1 ? '0' : '18px';
+        });
         railItems.forEach(function(item){ item.classList.remove('is-active'); });
         return;
       }
+
+      stage.style.position = '';
+      stage.style.inset = '';
+      slides.forEach(function(slide){
+        slide.style.position = '';
+        slide.style.left = '';
+        slide.style.top = '';
+        slide.style.marginBottom = '';
+      });
 
       stage.style.display = 'block';
       sourceList.style.setProperty('display', 'none', 'important');

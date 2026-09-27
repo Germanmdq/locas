@@ -3,6 +3,7 @@ import { useEffect } from "react";
 
 export default function TripEffects() {
   useEffect(() => {
+    document.documentElement.classList.add("trip-effects-enabled");
     const els = Array.from(document.querySelectorAll<HTMLElement>("[data-trip-reveal]"));
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -27,7 +28,7 @@ export default function TripEffects() {
       raf = requestAnimationFrame(animate);
     };
     raf = requestAnimationFrame(animate);
-    return () => { io.disconnect(); cancelAnimationFrame(raf); };
+    return () => { io.disconnect(); cancelAnimationFrame(raf); document.documentElement.classList.remove("trip-effects-enabled"); };
   }, []);
   return null;
 }
