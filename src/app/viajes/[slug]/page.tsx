@@ -139,11 +139,12 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
         <div className="trip-commerce-layout">
           <div className="trip-commerce-intro">
             <h2>Reservá tu lugar.</h2>
-            <p>Ya viste cómo es la experiencia. Ahora elegí la salida, la habitación y la forma de pago. Si necesitás ayuda, la consulta se abre con todos los datos de este viaje cargados.</p>
+            <p>Elegí salida, habitación y forma de pago desde acá. La idea es que puedas avanzar en la reserva sin depender de una conversación manual.</p>
             <div className="trip-commerce-trust">
-              <div><b>Salida acompañada</b><span>Coordinación antes y durante el viaje.</span></div>
-              <div><b>Información centralizada</b><span>Fechas, documentación y pagos en un solo lugar.</span></div>
-              <div><b>Asistencia directa</b><span>Podés consultar antes de confirmar tu lugar.</span></div>
+              <div><b>Cupos y estado</b><span>La salida informa disponibilidad, últimos lugares o lista de espera.</span></div>
+              <div><b>Reserva online</b><span>Selección, datos y próximo paso comercial dentro del mismo recorrido.</span></div>
+              <div><b>Mi Viaje</b><span>Pagos, saldo, vencimientos, documentación e itinerario centralizados.</span></div>
+              <div><b>Seguimiento automático</b><span>Recordatorios de pago, documentación pendiente y cambios sin perseguir mensajes.</span></div>
             </div>
           </div>
           <CommercialPanel title={trip.title} price={trip.price} deposit={trip.deposit} status={trip.status} departures={[...trip.departures]} />

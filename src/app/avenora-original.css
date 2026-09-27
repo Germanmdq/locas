@@ -1146,3 +1146,29 @@ a.w-webflow-badge,
   .trip-faq-commercial details p{margin:14px 34px 0 0;font-size:.95rem}
   .trip-faq-commercial + .locas-trip-wide-image{margin-top:34px}
 }
+
+/* Automated trip flow */
+.trip-commerce-card input{width:100%;border:1px solid #ddd;border-radius:12px;background:#fafafa;padding:13px 14px;font:inherit;color:#222;box-sizing:border-box}
+.trip-commerce-primary{border:0;cursor:pointer;width:100%}
+.trip-commerce-auto{background:#eef1ff;border:1px solid rgba(51,73,255,.12)}
+.trip-commerce-auto b{color:#1f2c9d}
+
+/* ===== Automated self-service layer for trip pages ===== */
+.trip-assistant{margin:54px 0 30px;background:#171a1b;color:#fff;border-radius:24px;padding:28px}
+.trip-assistant-head{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin-bottom:24px}
+.trip-assistant-head span{display:block;font-size:.68rem;letter-spacing:.14em;color:#9fa8ff;margin-bottom:7px}
+.trip-assistant-head h3{font-family:var(--font-family--inter-tight);font-size:1.8rem;line-height:1.05;font-weight:500;margin:0;letter-spacing:-.025em}
+.trip-assistant-head i{font-style:normal;font-size:.78rem;color:#8ed6ad;white-space:nowrap}
+.trip-assistant-chips{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px}
+.trip-assistant-chips button{border:1px solid rgba(255,255,255,.18);background:transparent;color:#fff;border-radius:999px;padding:10px 14px;font:inherit;font-size:.84rem;cursor:pointer}
+.trip-assistant-chips button.is-active{background:#fff;color:#111;border-color:#fff}
+.trip-assistant-answer{background:#262a2c;border-radius:18px;padding:20px 22px}
+.trip-assistant-answer b{display:block;font-size:.78rem;margin-bottom:8px;color:#aeb4ff}
+.trip-assistant-answer p{margin:0;color:#eef0f0;font-size:1rem;line-height:1.6}
+.trip-assistant-note{margin:14px 2px 0!important;color:#aeb0b0!important;font-size:.8rem!important;line-height:1.5!important;max-width:760px!important}
+.trip-service-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:64px 0 20px}
+.trip-service-card{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:20px;padding:24px}
+.trip-service-card span{font-size:.66rem;letter-spacing:.13em;color:#777}
+.trip-service-card h3{font-family:var(--font-family--inter-tight);font-size:1.35rem;line-height:1.12;font-weight:500;margin:10px 0 12px;letter-spacing:-.025em}
+.trip-service-card p{font-size:.92rem;line-height:1.55;color:#666;margin:0}
+@media(max-width:800px){.trip-service-proof{grid-template-columns:1fr}.trip-assistant-head{display:block}.trip-assistant-head i{display:block;margin-top:12px}}
