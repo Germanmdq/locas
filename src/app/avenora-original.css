@@ -19,6 +19,11 @@ html.w-mod-js:not(.w-mod-ix3) :is(.gallary-wrap, [data-wf-component-id="be3d7ba0
 }
 .home-hero-area::after{display:none!important;content:none!important;background:none!important}
 .home-hero-area > *{position:relative;z-index:1}
+.home-hero-area > .section{z-index:auto!important}
+.home-hero-area > .navbar{z-index:6!important}
+.hero-foreground-women{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important;z-index:3!important;pointer-events:none!important}
+.home-hero-area .hero-title-wrapper{position:relative!important;z-index:2!important}
+.home-hero-area .hero-wrapper{position:relative!important;z-index:5!important}
 
 /* Locas hero title: original Avenora fade. */
 .home-hero-area .hero-title-wrapper {
