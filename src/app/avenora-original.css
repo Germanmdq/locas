@@ -938,3 +938,17 @@ html.w-mod-js:not(.w-mod-ix3) :is(.gallary-wrap, [data-wf-component-id="be3d7ba0
   transform: none !important;
   filter: none !important;
 }
+
+/* Remove every Webflow/template badge from the live site. */
+.w-webflow-badge,
+a.w-webflow-badge,
+#lioSupportWidget,
+.lio-support-widget {
+  display:none!important;
+  visibility:hidden!important;
+  opacity:0!important;
+  pointer-events:none!important;
+}
+/* Hide template-only footer office block/empty secondary nav. */
+.footer-bottom-right { display:none!important; }
+.footer-bottom-grid > .footer-bottom-left:nth-child(2) { display:none!important; }

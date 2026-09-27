@@ -3,14 +3,14 @@ import "./globals.css";
 import "./avenora-original.css";
 
 export const metadata: Metadata = {
-  title: "Avenora – Webflow HTML Website Template",
-  description: "Avenora is a modern travel agency Webflow template for tours, destinations, travel planning, blogs, and adventure booking websites.",
+  title: "Locas por la aventura",
+  description: "Viajes a medida, experiencias y aventuras pensadas para mujeres que quieren viajar diferente.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="en"
+      lang="es"
       className="w-mod-js w-mod-ix3"
       data-wf-domain="avenora.webflow.io"
       data-wf-page="6a13e532999601af0ed6354a"

@@ -25,8 +25,15 @@ export default function Home() {
         (function(){
           var brand = document.querySelector('.nav-brand .nav-text');
           if (brand) brand.textContent = 'Locas por la aventura';
-          var widget = document.getElementById('lioSupportWidget');
-          if (widget) widget.remove();
+          function removeTemplateBadges(){
+            var widget = document.getElementById('lioSupportWidget');
+            if (widget) widget.remove();
+            document.querySelectorAll('.w-webflow-badge, .lio-support-widget').forEach(function(el){ el.remove(); });
+          }
+          removeTemplateBadges();
+          setTimeout(removeTemplateBadges, 250);
+          setTimeout(removeTemplateBadges, 1000);
+          new MutationObserver(removeTemplateBadges).observe(document.body,{childList:true,subtree:true});
         })();
       `}</Script>
       <Script id="avenora-reinit" strategy="lazyOnload">{`
