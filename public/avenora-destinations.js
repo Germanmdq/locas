@@ -1,4 +1,12 @@
 (function () {
+  var destinations = [
+    { title: 'Ushuaia', location: 'Tierra del Fuego, Argentina', image: '/destinations/ushuaia.jpg', href: '/viajes/ushuaia', duration: '5 días / 4 noches' },
+    { title: 'Trevelin en temporada de Tulipanes', location: 'Chubut, Argentina', image: '/destinations/trevelin.jpg', href: '#', duration: '5 días / 4 noches' },
+    { title: 'Catamarca', location: 'Catamarca, Argentina', image: '/destinations/catamarca.jpg', href: '#', duration: '7 días / 6 noches' },
+    { title: 'San Martín de los Andes', location: 'Neuquén, Argentina', image: '/destinations/san-martin.jpg', href: '#', duration: '5 días / 4 noches' },
+    { title: 'Puerto Rico', location: 'Caribe', image: '/destinations/puerto-rico.jpg', href: '#', duration: 'Aventura internacional' }
+  ];
+
   function boot(attempt) {
     var root = document.querySelector('.destionation-wrapper');
     if (!root) {
@@ -13,8 +21,12 @@
     var railItems = Array.prototype.slice.call(root.querySelectorAll('.destination-right .destination-place-item'));
     if (!sticky || !wrapper || !sourceList) return;
 
-    var sourceCards = Array.prototype.slice.call(sourceList.querySelectorAll('.destination-card'));
-    if (!sourceCards.length) return;
+    railItems.forEach(function(item, index){
+      var data = destinations[index];
+      if (!data) return;
+      var name = item.querySelector('.destination-name');
+      if (name) name.textContent = data.title;
+    });
 
     var oldStage = wrapper.querySelector('.locas-destination-stage');
     if (oldStage) oldStage.remove();
@@ -22,30 +34,19 @@
     var stage = document.createElement('div');
     stage.className = 'locas-destination-stage';
 
-    var slides = sourceCards.map(function(sourceCard, index){
-      var sourceImage = sourceCard.querySelector('.destination-image');
-      var sourceTitle = sourceCard.querySelector('.destination-card-info .font-1-large');
-      var sourceLocation = sourceCard.querySelector('.destination-location-text');
-      var sourceRating = sourceCard.querySelector('.destination-rating-wrapper .font-1-extra-small');
-
+    var slides = destinations.map(function(data, index){
       var slide = document.createElement('a');
       slide.className = 'locas-destination-slide';
-      slide.href = sourceCard.getAttribute('href') || '#';
-      slide.setAttribute('aria-label', sourceTitle ? sourceTitle.textContent.trim() : ('Destino ' + (index + 1)));
+      slide.href = data.href;
+      slide.setAttribute('aria-label', data.title);
 
       var media = document.createElement('div');
       media.className = 'locas-destination-media';
       var img = document.createElement('img');
       img.className = 'locas-destination-image';
-      img.alt = sourceImage ? (sourceImage.alt || '') : '';
+      img.alt = data.title;
       img.loading = index === 0 ? 'eager' : 'lazy';
-      if (sourceImage) {
-        img.src = sourceImage.getAttribute('src') || '';
-        var srcset = sourceImage.getAttribute('srcset');
-        if (srcset) img.setAttribute('srcset', srcset);
-        var sizes = sourceImage.getAttribute('sizes');
-        if (sizes) img.setAttribute('sizes', sizes);
-      }
+      img.src = data.image;
       media.appendChild(img);
 
       var content = document.createElement('div');
@@ -54,21 +55,19 @@
       var meta = document.createElement('div');
       meta.className = 'locas-destination-meta';
 
-      if (sourceRating) {
-        var rating = document.createElement('div');
-        rating.className = 'locas-destination-rating';
-        rating.textContent = '★ ' + sourceRating.textContent.trim();
-        meta.appendChild(rating);
-      }
+      var duration = document.createElement('div');
+      duration.className = 'locas-destination-rating';
+      duration.textContent = data.duration;
+      meta.appendChild(duration);
 
       var title = document.createElement('div');
       title.className = 'locas-destination-title';
-      title.textContent = sourceTitle ? sourceTitle.textContent.trim() : ('Destino ' + (index + 1));
+      title.textContent = data.title;
       meta.appendChild(title);
 
       var location = document.createElement('div');
       location.className = 'locas-destination-location';
-      location.textContent = sourceLocation ? sourceLocation.textContent.trim() : '';
+      location.textContent = data.location;
       meta.appendChild(location);
 
       var arrow = document.createElement('div');
@@ -133,10 +132,7 @@
     function requestRender() {
       if (ticking) return;
       ticking = true;
-      requestAnimationFrame(function(){
-        ticking = false;
-        render();
-      });
+      requestAnimationFrame(function(){ ticking = false; render(); });
     }
 
     window.addEventListener('scroll', requestRender, { passive: true });
