@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import TripEffects from "./TripEffects";
+import CommercialPanel from "./CommercialPanel";
 
 const trips = {
   ushuaia: {
@@ -9,35 +10,45 @@ const trips = {
     lead: "El fin del mundo, vivido en grupo, con paisajes australes, experiencias compartidas y una organización pensada para disfrutar sin apuro.",
     intro: "Ushuaia combina montaña, bosque, mar y esa sensación única de estar llegando al extremo sur. Locas por la aventura diseña la experiencia para que cada día tenga su propio ritmo, con momentos para descubrir, compartir y simplemente mirar alrededor.",
     included: ["Alojamiento seleccionado", "Traslados previstos", "Coordinación durante el viaje", "Experiencias incluidas según itinerario"],
-    seasons: [["Octubre — marzo", "Días más largos y mejores condiciones para recorrer al aire libre."],["Abril — junio", "Paisajes otoñales, clima frío y una experiencia más tranquila."],["Julio — septiembre", "Temporada invernal y escenarios completamente nevados."]]
+    seasons: [["Octubre — marzo", "Días más largos y mejores condiciones para recorrer al aire libre."],["Abril — junio", "Paisajes otoñales, clima frío y una experiencia más tranquila."],["Julio — septiembre", "Temporada invernal y escenarios completamente nevados."]],
+    price: "USD 1.290", deposit: "Seña para confirmar el cupo", status: "Últimos cupos", departures: ["12–16 octubre", "Consultar próxima salida"],
+    notIncluded: ["Vuelos hasta Ushuaia", "Comidas no especificadas", "Gastos personales"], docs: ["DNI o pasaporte vigente", "Datos de contacto de emergencia", "Seguro de viaje recomendado"]
   },
   trevelin: {
     title: "Trevelin en temporada de Tulipanes", location: "Chubut, Argentina", duration: "5 días / 4 noches", image: "/destinations/trevelin.jpg",
     lead: "Patagonia, tulipanes y una escapada diseñada para vivir la primavera en grupo.",
     intro: "Trevelin reúne paisajes cordilleranos, historia galesa y una de las postales más esperadas de la primavera patagónica. La propuesta combina naturaleza, tiempo compartido y recorridos pensados para disfrutar el destino con calma.",
     included: ["Alojamiento seleccionado", "Traslados previstos", "Coordinación durante el viaje", "Visitas y experiencias según itinerario"],
-    seasons: [["Octubre", "La época protagonista del campo de tulipanes y la primavera cordillerana."],["Noviembre — diciembre", "Temperaturas agradables y días largos para recorrer la zona."],["Marzo — abril", "Colores de otoño y una Patagonia más serena."]]
+    seasons: [["Octubre", "La época protagonista del campo de tulipanes y la primavera cordillerana."],["Noviembre — diciembre", "Temperaturas agradables y días largos para recorrer la zona."],["Marzo — abril", "Colores de otoño y una Patagonia más serena."]],
+    price: "Consultar", deposit: "Consultá valor y forma de reserva", status: "Nueva salida", departures: ["Temporada de tulipanes", "Consultar próxima salida"],
+    notIncluded: ["Vuelos o traslados hasta el punto de encuentro", "Comidas no especificadas", "Gastos personales"], docs: ["DNI vigente", "Datos de contacto de emergencia", "Seguro de viaje recomendado"]
   },
   catamarca: {
     title: "Catamarca", location: "Catamarca, Argentina", duration: "7 días / 6 noches", image: "/destinations/catamarca.jpg",
     lead: "Puna, volcanes y paisajes inmensos para una aventura que se siente fuera de escala.",
     intro: "Catamarca es territorio de contrastes: alturas, salares, dunas, caminos abiertos y pueblos que aparecen entre montañas. La experiencia se arma alrededor del paisaje y de los tiempos que necesita un viaje por el norte profundo.",
     included: ["Alojamiento seleccionado", "Traslados previstos", "Coordinación durante el viaje", "Excursiones según itinerario"],
-    seasons: [["Abril — junio", "Temperaturas más amables y cielos generalmente despejados."],["Agosto — octubre", "Excelente época para rutas de altura y paisajes abiertos."],["Noviembre", "Días largos antes del período de lluvias de verano."]]
+    seasons: [["Abril — junio", "Temperaturas más amables y cielos generalmente despejados."],["Agosto — octubre", "Excelente época para rutas de altura y paisajes abiertos."],["Noviembre", "Días largos antes del período de lluvias de verano."]],
+    price: "Consultar", deposit: "Consultá valor y forma de reserva", status: "Disponible", departures: ["Próxima salida", "Consultar nueva fecha"],
+    notIncluded: ["Vuelos o transporte hasta Catamarca", "Comidas no especificadas", "Gastos personales"], docs: ["DNI vigente", "Apto físico si la salida lo requiere", "Seguro de viaje recomendado"]
   },
   "san-martin-de-los-andes": {
     title: "San Martín de los Andes", location: "Neuquén, Argentina", duration: "5 días / 4 noches", image: "/destinations/san-martin.jpg",
     lead: "Lagos, bosque andino y caminos escénicos para bajar el ritmo y mirar alrededor.",
     intro: "San Martín de los Andes combina una ciudad de montaña con lagos, senderos y rutas que atraviesan algunos de los paisajes más reconocibles de la Patagonia. El viaje propone naturaleza, comodidad y experiencias compartidas.",
     included: ["Alojamiento seleccionado", "Traslados previstos", "Coordinación durante el viaje", "Actividades según itinerario"],
-    seasons: [["Diciembre — marzo", "Verano patagónico, días largos y vida al aire libre."],["Abril — mayo", "Bosques de otoño y una atmósfera más tranquila."],["Julio — septiembre", "Nieve, invierno y actividades de montaña."]]
+    seasons: [["Diciembre — marzo", "Verano patagónico, días largos y vida al aire libre."],["Abril — mayo", "Bosques de otoño y una atmósfera más tranquila."],["Julio — septiembre", "Nieve, invierno y actividades de montaña."]],
+    price: "Consultar", deposit: "Consultá valor y forma de reserva", status: "Disponible", departures: ["Próxima salida", "Consultar nueva fecha"],
+    notIncluded: ["Vuelos o transporte hasta Neuquén", "Comidas no especificadas", "Gastos personales"], docs: ["DNI vigente", "Datos de contacto de emergencia", "Seguro de viaje recomendado"]
   },
   "puerto-rico": {
     title: "Puerto Rico", location: "Caribe", duration: "Aventura internacional", image: "/destinations/puerto-rico.jpg",
     lead: "Caribe, naturaleza y cultura para una aventura internacional con mucha energía.",
     intro: "Puerto Rico mezcla playas, ciudades históricas, música, gastronomía y naturaleza tropical. La experiencia está pensada para viajar acompañadas y descubrir distintas caras de la isla dentro de un mismo recorrido.",
     included: ["Alojamiento seleccionado", "Traslados previstos", "Coordinación durante el viaje", "Experiencias según itinerario"],
-    seasons: [["Diciembre — abril", "Temporada seca y clima especialmente agradable."],["Mayo — junio", "Menos movimiento y temperaturas cálidas."],["Noviembre", "Buen momento para viajar antes de la temporada alta."]]
+    seasons: [["Diciembre — abril", "Temporada seca y clima especialmente agradable."],["Mayo — junio", "Menos movimiento y temperaturas cálidas."],["Noviembre", "Buen momento para viajar antes de la temporada alta."]],
+    price: "Consultar", deposit: "Consultá valor y forma de reserva", status: "Disponible", departures: ["Próxima salida internacional", "Consultar nueva fecha"],
+    notIncluded: ["Vuelos internacionales salvo indicación expresa", "Comidas no especificadas", "Gastos personales"], docs: ["Pasaporte vigente", "Documentación migratoria correspondiente", "Seguro de viaje recomendado"]
   }
 } as const;
 
@@ -71,6 +82,17 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
         </div>
       </section>
 
+      <section className="trip-commerce-shell">
+        <div className="trip-commerce-layout">
+          <div className="trip-commerce-intro">
+            <span className="trip-commerce-kicker">RESERVA TU VIAJE</span>
+            <h2>Todo lo que necesitás para decidir y reservar, en un solo lugar.</h2>
+            <p>Elegí salida, habitación y forma de pago. Si necesitás ayuda, la consulta sale con todos los datos del viaje ya cargados.</p>
+          </div>
+          <CommercialPanel title={trip.title} price={trip.price} deposit={trip.deposit} status={trip.status} departures={[...trip.departures]} />
+        </div>
+      </section>
+
       <section className="locas-trip-details">
         <div data-trip-reveal className="locas-trip-reveal locas-trip-facts">
           <div><span className="locas-trip-fact-icon">⌖</span><span>{trip.location}</span></div>
@@ -86,6 +108,24 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
           <div data-trip-reveal className="locas-trip-reveal locas-trip-copy-block">
             <h2>Qué incluye la experiencia</h2>
             <ul>{trip.included.map((item) => <li key={item}>{item}</li>)}</ul>
+          </div>
+          <div className="trip-commercial-grid">
+            <div data-trip-reveal className="locas-trip-reveal locas-trip-copy-block trip-commercial-mini">
+              <h2>Qué no incluye</h2>
+              <ul>{trip.notIncluded.map((item) => <li key={item}>{item}</li>)}</ul>
+            </div>
+            <div data-trip-reveal className="locas-trip-reveal locas-trip-copy-block trip-commercial-mini">
+              <h2>Documentación</h2>
+              <ul>{trip.docs.map((item) => <li key={item}>{item}</li>)}</ul>
+            </div>
+          </div>
+          <div data-trip-reveal className="locas-trip-reveal trip-coordinator-card">
+            <div className="trip-coordinator-avatar">L</div>
+            <div><span>ACOMPAÑAMIENTO</span><h3>Coordinación antes y durante el viaje</h3><p>Una persona del equipo de Locas acompaña la salida y centraliza novedades, documentación, horarios y asistencia.</p></div>
+          </div>
+          <div data-trip-reveal className="locas-trip-reveal trip-faq-commercial">
+            <span className="trip-commerce-kicker">PREGUNTAS FRECUENTES</span>
+            {['¿Puedo viajar sola?','¿Cómo se confirma mi lugar?','¿Puedo pagar en cuotas?','¿Qué pasa si se completa el cupo?','¿Dónde veo mi documentación y saldo?'].map((q) => <details key={q}><summary>{q}<b>+</b></summary><p>Escribinos desde el botón de reserva y te respondemos con la información específica de esta salida.</p></details>)}
           </div>
           <figure data-trip-reveal className="locas-trip-reveal locas-trip-wide-image locas-trip-wide-image-second"><Image src={trip.image} alt={`${trip.title} - viaje`} fill sizes="(max-width: 900px) 94vw, 72vw" /></figure>
         </article>
