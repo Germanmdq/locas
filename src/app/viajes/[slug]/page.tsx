@@ -14,7 +14,7 @@ const trips = {
     itinerary: [["Día 1", "Llegada y encuentro", "Recepción en Ushuaia, traslado, check-in y primera salida grupal para empezar a conocernos."],["Día 2", "Parque Nacional", "Día completo entre bosques, bahías y senderos del Parque Nacional Tierra del Fuego."],["Día 3", "Canal Beagle", "Navegación por el canal, fauna austral y vistas abiertas de la ciudad y la cordillera."],["Día 4", "Montaña y experiencia local", "Jornada de paisaje fueguino, gastronomía y una experiencia especial preparada para el grupo."],["Día 5", "Última mañana y regreso", "Desayuno, tiempo libre, cierre del viaje y traslado de salida."]],
     included: ["Alojamiento seleccionado", "Traslados previstos", "Coordinación durante el viaje", "Experiencias incluidas según itinerario"],
     seasons: [["Octubre — marzo", "Días más largos y mejores condiciones para recorrer al aire libre."],["Abril — junio", "Paisajes otoñales, clima frío y una experiencia más tranquila."],["Julio — septiembre", "Temporada invernal y escenarios completamente nevados."]],
-    price: "USD 1.290", deposit: "Seña para confirmar el cupo", status: "Últimos cupos", spots: 6, departures: ["12–16 octubre", "Consultar próxima salida"],
+    price: "$3.690.000", deposit: "Seña para confirmar el cupo", status: "Últimos cupos", spots: 6, departures: ["12–16 octubre", "Consultar próxima salida"],
     notIncluded: ["Vuelos hasta Ushuaia", "Comidas no especificadas", "Gastos personales"], docs: ["DNI o pasaporte vigente", "Datos de contacto de emergencia", "Seguro de viaje recomendado"]
   },
   trevelin: {
@@ -24,7 +24,7 @@ const trips = {
     itinerary: [["Día 1", "Llegada a la cordillera", "Recepción, alojamiento y encuentro del grupo para presentar el viaje."],["Día 2", "Campo de tulipanes", "Visita al campo en plena temporada, tiempo para recorrerlo y disfrutar del paisaje."],["Día 3", "Trevelin y cultura galesa", "Recorrido por el pueblo, historia local, sabores patagónicos y tarde compartida."],["Día 4", "Naturaleza patagónica", "Salida por los alrededores con lagos, bosque y miradores de la cordillera."],["Día 5", "Despedida", "Desayuno, última recorrida y regreso."]],
     included: ["Alojamiento seleccionado", "Traslados previstos", "Coordinación durante el viaje", "Visitas y experiencias según itinerario"],
     seasons: [["Octubre", "La época protagonista del campo de tulipanes y la primavera cordillerana."],["Noviembre — diciembre", "Temperaturas agradables y días largos para recorrer la zona."],["Marzo — abril", "Colores de otoño y una Patagonia más serena."]],
-    price: "Consultar", deposit: "Consultá valor y forma de reserva", status: "Nueva salida", spots: 9, departures: ["Temporada de tulipanes", "Consultar próxima salida"],
+    price: "$3.390.000", deposit: "Seña para confirmar el cupo", status: "Nueva salida", spots: 9, departures: ["Temporada de tulipanes", "Consultar próxima salida"],
     notIncluded: ["Vuelos o traslados hasta el punto de encuentro", "Comidas no especificadas", "Gastos personales"], docs: ["DNI vigente", "Datos de contacto de emergencia", "Seguro de viaje recomendado"]
   },
   catamarca: {
@@ -34,7 +34,7 @@ const trips = {
     itinerary: [["Día 1", "Llegada a Catamarca", "Recepción, alojamiento y presentación del recorrido."],["Día 2", "Ruta de paisajes", "Primer contacto con los grandes valles y caminos escénicos de la provincia."],["Día 3", "Puna catamarqueña", "Ascenso progresivo hacia paisajes de altura, volcanes y horizontes abiertos."],["Día 4", "Salares y pueblos", "Jornada entre salares, pequeñas localidades y paradas fotográficas."],["Día 5", "Antofagasta de la Sierra", "Exploración de uno de los escenarios más impactantes de la Puna."],["Día 6", "Regreso por la montaña", "Recorrido de vuelta con nuevas paradas y tarde libre."],["Día 7", "Cierre y regreso", "Desayuno, despedida y traslado de salida."]],
     included: ["Alojamiento seleccionado", "Traslados previstos", "Coordinación durante el viaje", "Excursiones según itinerario"],
     seasons: [["Abril — junio", "Temperaturas más amables y cielos generalmente despejados."],["Agosto — octubre", "Excelente época para rutas de altura y paisajes abiertos."],["Noviembre", "Días largos antes del período de lluvias de verano."]],
-    price: "Consultar", deposit: "Consultá valor y forma de reserva", status: "Disponible", spots: 12, departures: ["Próxima salida", "Consultar nueva fecha"],
+    price: "$3.840.000", deposit: "Seña para confirmar el cupo", status: "Disponible", spots: 12, departures: ["Próxima salida", "Consultar nueva fecha"],
     notIncluded: ["Vuelos o transporte hasta Catamarca", "Comidas no especificadas", "Gastos personales"], docs: ["DNI vigente", "Apto físico si la salida lo requiere", "Seguro de viaje recomendado"]
   },
   "san-martin-de-los-andes": {
@@ -44,8 +44,38 @@ const trips = {
     itinerary: [["Día 1", "Llegada a San Martín", "Recepción, alojamiento y paseo de bienvenida por la ciudad."],["Día 2", "Ruta de los Siete Lagos", "Día completo de lagos, miradores y paradas en ruta."],["Día 3", "Bosque y senderos", "Experiencia de naturaleza con caminata adaptada al grupo y tiempo libre."],["Día 4", "Lago Lácar", "Jornada junto al lago y actividad especial con el grupo."],["Día 5", "Última mañana y regreso", "Desayuno, paseo final y traslado de salida."]],
     included: ["Alojamiento seleccionado", "Traslados previstos", "Coordinación durante el viaje", "Actividades según itinerario"],
     seasons: [["Diciembre — marzo", "Verano patagónico, días largos y vida al aire libre."],["Abril — mayo", "Bosques de otoño y una atmósfera más tranquila."],["Julio — septiembre", "Nieve, invierno y actividades de montaña."]],
-    price: "Consultar", deposit: "Consultá valor y forma de reserva", status: "Disponible", spots: 8, departures: ["Próxima salida", "Consultar nueva fecha"],
+    price: "$2.490.000", deposit: "Seña para confirmar el cupo", status: "Disponible", spots: 8, departures: ["Próxima salida", "Consultar nueva fecha"],
     notIncluded: ["Vuelos o transporte hasta Neuquén", "Comidas no especificadas", "Gastos personales"], docs: ["DNI vigente", "Datos de contacto de emergencia", "Seguro de viaje recomendado"]
+  },
+  "el-calafate-el-chalten": {
+    title: "El Calafate & El Chaltén", location: "Santa Cruz, Argentina", duration: "5 días / 4 noches", image: "/packages/el-calafate.jpg",
+    lead: "Glaciares, montaña y Patagonia profunda en una salida corta, intensa y pensada para compartir cada paisaje.",
+    intro: "El Calafate y El Chaltén combinan hielo, estepa y senderos frente a algunas de las postales más impactantes de la Patagonia. La experiencia une navegación, Perito Moreno, Fitz Roy y momentos de grupo.",
+    itinerary: [["Día 1", "Llegada a El Calafate", "Recepción, alojamiento y encuentro del grupo."],["Día 2", "Glaciar Perito Moreno", "Pasarelas, miradores y tiempo para vivir el glaciar sin apuro."],["Día 3", "Navegación de glaciares", "Jornada por el Lago Argentino para conocer los grandes hielos desde el agua."],["Día 4", "El Chaltén", "Ruta escénica, caminata hacia Laguna Capri y vistas al Fitz Roy."],["Día 5", "Última mañana y regreso", "Desayuno, cierre grupal y traslado de salida."]],
+    included: ["Aéreos ida y vuelta", "Hotelería 4 estrellas", "Traslados", "Excursiones mencionadas", "Coordinación permanente"],
+    seasons: [["Marzo", "Colores patagónicos y buena temporada para caminar."],["Octubre", "Primavera austral y regreso de los días más largos."],["Noviembre — diciembre", "Más horas de luz para aprovechar las jornadas."]],
+    price: "$3.190.000", deposit: "Seña para confirmar el cupo", status: "Disponible", spots: 10, departures: ["Próxima salida", "Consultar nueva fecha"],
+    notIncluded: ["Comidas no especificadas", "Gastos personales", "Actividades opcionales"], docs: ["DNI vigente", "Datos de contacto de emergencia", "Seguro de viaje recomendado"]
+  },
+  "norte-argentino": {
+    title: "Norte Argentino", location: "Salta & Jujuy, Argentina", duration: "7 días / 6 noches", image: "/packages/norte.jpg",
+    lead: "Cerros, quebradas, pueblos y sabores para conocer un norte argentino que cambia de paisaje a cada curva.",
+    intro: "El Norte Argentino mezcla historia, cultura andina, gastronomía y una geografía que parece cambiar todo el tiempo. Es un viaje de ruta, conversaciones, mercados, pueblos y colores.",
+    itinerary: [["Día 1", "Llegada a Salta", "Recepción y primera recorrida por la ciudad."],["Día 2", "Quebrada de Humahuaca", "Ruta de pueblos, cerros y mercados del norte jujeño."],["Día 3", "Purmamarca", "Cerro de los Siete Colores, paseo y sabores locales."],["Día 4", "Salinas y altura", "Jornada de paisajes abiertos y caminos de montaña."],["Día 5", "Cafayate", "Quebrada de las Conchas, viñedos y gastronomía."],["Día 6", "Día de grupo", "Experiencia local, compras y cena compartida."],["Día 7", "Regreso", "Desayuno, despedida y traslado."]],
+    included: ["Alojamiento", "Traslados", "Excursiones mencionadas", "Coordinación permanente"],
+    seasons: [["Abril — junio", "Clima seco y temperaturas agradables."],["Agosto — noviembre", "Días despejados y grandes contrastes de paisaje."],["Marzo", "Fin del verano y rutas con menos movimiento."]],
+    price: "$2.960.000", deposit: "Seña para confirmar el cupo", status: "Disponible", spots: 11, departures: ["04 al 10 de noviembre", "Consultar nueva fecha"],
+    notIncluded: ["Comidas no especificadas", "Gastos personales", "Actividades opcionales"], docs: ["DNI vigente", "Seguro de viaje recomendado", "Apto físico si alguna excursión lo requiere"]
+  },
+  "new-york": {
+    title: "New York", location: "Nueva York, Estados Unidos", duration: "9 días / 8 noches", image: "/packages/new-york.jpeg",
+    lead: "La Gran Manzana caminada, vivida y compartida en grupo, con clásicos y rincones que hacen que cada día sea distinto.",
+    intro: "Nueva York se camina. La experiencia está pensada para conocer los puntos esenciales, recorrer barrios, tener tiempo propio y volver a encontrarse con el grupo para seguir descubriendo la ciudad juntas.",
+    itinerary: [["Día 1", "Llegada a Manhattan", "Traslado, check-in y primera caminata grupal."],["Día 2", "Midtown", "Times Square, Bryant Park, Grand Central y Rockefeller Center."],["Día 3", "Downtown", "Wall Street, memorial, Battery Park y ferry."],["Día 4", "Brooklyn", "Puente, DUMBO y barrios con tiempo para fotos y paseo."],["Día 5", "Central Park y museos", "Jornada flexible según intereses del grupo."],["Día 6", "Barrios de Nueva York", "SoHo, Village, Chelsea y High Line."],["Día 7", "Día libre acompañado", "Compras, experiencias opcionales o recorridos especiales."],["Día 8", "Último día completo", "Experiencia final y cena grupal."],["Día 9", "Regreso", "Desayuno y traslado al aeropuerto."]],
+    included: ["Alojamiento", "Traslados previstos", "Recorridos mencionados", "Coordinación permanente"],
+    seasons: [["Mayo — junio", "Primavera y días largos para caminar."],["Septiembre — octubre", "Temperaturas agradables y otoño temprano."],["Diciembre", "Ciudad iluminada y temporada festiva."]],
+    price: "USD 4.950", deposit: "Seña para confirmar el cupo", status: "Disponible", spots: 7, departures: ["11 al 20 de mayo", "Consultar nueva fecha"],
+    notIncluded: ["Comidas no especificadas", "Gastos personales", "Entradas opcionales"], docs: ["Pasaporte vigente", "Visa o autorización migratoria correspondiente", "Seguro de viaje"]
   },
   "puerto-rico": {
     title: "Puerto Rico", location: "Caribe", duration: "Aventura internacional", image: "/destinations/puerto-rico.jpg",

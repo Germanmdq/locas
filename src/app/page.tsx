@@ -21,6 +21,7 @@ export default function Home() {
       {scripts.map((src, i) => <Script key={src} src={src} strategy="afterInteractive" data-order={i} />)}
       <Script src="/avenora-inline.js" strategy="lazyOnload" />
       <Script src="/avenora-destinations.js" strategy="lazyOnload" />
+      <Script src="/locas-packages.js" strategy="lazyOnload" />
       <Script id="locas-cleanup" strategy="lazyOnload">{`
         (function(){
           var brand = document.querySelector('.nav-brand .nav-text');
