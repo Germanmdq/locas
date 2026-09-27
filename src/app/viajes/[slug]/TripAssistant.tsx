@@ -12,27 +12,27 @@ type Props = {
   included: readonly string[];
 };
 
-type Topic = "cupos" | "pagos" | "documentacion" | "incluye" | "sola";
+type Topic = "grupo" | "cupos" | "pagos" | "documentacion" | "incluye";
 
 export default function TripAssistant({ title, status, price, deposit, departures, docs, included }: Props) {
-  const [topic, setTopic] = useState<Topic>("cupos");
+  const [topic, setTopic] = useState<Topic>("grupo");
 
   const answers = useMemo(() => ({
+    grupo: `La experiencia está pensada como un viaje grupal entre mujeres. Compartís itinerario, momentos, actividades y espacios de encuentro, con coordinación antes y durante la salida. La propuesta es pertenecer a un grupo y vivir el destino en comunidad.`,
     cupos: `${status}. La salida visible es ${departures[0] || "la próxima disponible"}. Si se completa, el sistema puede pasar tu interés a lista de espera y avisarte automáticamente si se libera un lugar.`,
     pagos: price === "Consultar"
       ? `El precio de ${title} todavía figura como “Consultar”. Cuando el valor esté cargado, la misma reserva mostrará seña, pago total, pagos parciales o cuotas habilitadas sin cambiar de página.`
       : `${title} figura desde ${price}. ${deposit}. La reserva permite elegir seña, pago total o pagos parciales/cuotas cuando estén habilitados.`,
     documentacion: `Para esta salida se solicita: ${docs.join(", ")}. Después de reservar, Mi Viaje muestra qué documentación está completa, qué falta y cualquier vencimiento pendiente.`,
-    incluye: `La experiencia contempla: ${included.join(", ")}. La página separa además lo que no está incluido antes de que confirmes la reserva.`,
-    sola: `Sí. La propuesta está pensada también para mujeres que viajan solas: te incorporás al grupo de la salida y la coordinación acompaña antes y durante el viaje.`
+    incluye: `La experiencia contempla: ${included.join(", ")}. La página separa además lo que no está incluido antes de que confirmes la reserva.`
   }), [title, status, price, deposit, departures, docs, included]);
 
   const labels: Array<[Topic, string]> = [
+    ["grupo", "¿Cómo es el grupo?"],
     ["cupos", "¿Hay cupo?"],
     ["pagos", "¿Cómo pago?"],
     ["documentacion", "¿Qué documentación necesito?"],
-    ["incluye", "¿Qué incluye?"],
-    ["sola", "¿Puedo viajar sola?"]
+    ["incluye", "¿Qué incluye?"]
   ];
 
   return (

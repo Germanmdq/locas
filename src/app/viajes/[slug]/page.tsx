@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import TripEffects from "./TripEffects";
 import CommercialPanel from "./CommercialPanel";
+import LeadCapture from "./LeadCapture";
 import TripAssistant from "./TripAssistant";
 
 const trips = {
@@ -131,13 +132,27 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
           <div data-trip-reveal className="locas-trip-reveal trip-faq-commercial">
             <h2>Preguntas frecuentes</h2>
             {[
-              ['¿Puedo viajar sola?','Sí. Podés sumarte aunque viajes sola. La experiencia está pensada para integrarte al grupo y contar con coordinación antes y durante la salida.'],
+              ['¿Cómo se vive el grupo?','Cada salida se arma como una experiencia compartida entre mujeres. Hay momentos de encuentro, actividades en grupo, coordinación y espacios para que la comunidad se forme naturalmente durante el viaje.'],
+              ['¿Qué edades tiene el grupo?','Los grupos pueden ser diversos en edad. Lo importante es la afinidad, las ganas de compartir y la dinámica de la experiencia, no formar grupos idénticos entre sí.'],
               ['¿Cómo se confirma mi lugar?',`Elegís la salida y habitación, cargás tus datos y avanzás con la ${trip.deposit.toLowerCase()}. La reserva queda registrada y podés continuar el proceso desde Mi Viaje.`],
               ['¿Puedo pagar en cuotas?', trip.price === 'Consultar' ? 'Cuando el precio esté cargado, el sistema mostrará las opciones habilitadas para esa salida: seña, pago total, pagos parciales o cuotas según proveedor y política comercial.' : 'Sí, cuando la salida lo habilita podés elegir seña, pago total o pagos parciales/cuotas. La opción disponible se muestra antes de confirmar.'],
               ['¿Qué pasa si se completa el cupo?','Podés entrar en lista de espera. Tu interés queda registrado y el sistema puede avisarte automáticamente si se libera un lugar o aparece una nueva salida compatible.'],
               ['¿Dónde veo mi documentación y saldo?','Después de reservar, Mi Viaje concentra estado de reserva, señas y pagos, saldo, vencimientos, documentación pendiente, itinerario, archivos y novedades.']
             ].map(([q,a]) => <details key={q}><summary>{q}<b>+</b></summary><p>{a}</p></details>)}
           </div>
+          <section data-trip-reveal className="locas-trip-reveal trip-community-story">
+            <div className="trip-community-copy">
+              <span>COMUNIDAD LOCAS</span>
+              <h2>El viaje empieza con el grupo.</h2>
+              <p>El destino importa, pero la experiencia se construye con las mujeres que lo viven juntas. Compartir, reírse, acompañarse, descubrir lugares y volver con historias y vínculos es parte central del producto.</p>
+            </div>
+            <div className="trip-community-grid">
+              <article><b>Antes del viaje</b><p>Información clara, coordinación y un espacio para empezar a conocerse.</p></article>
+              <article><b>Durante la salida</b><p>Momentos compartidos, actividades grupales, acompañamiento y experiencias pensadas para conectar.</p></article>
+              <article><b>Después</b><p>Fotos, historias, comunidad postviaje, próximos viajes, referidos y vínculos que continúan.</p></article>
+            </div>
+          </section>
+          <LeadCapture title={trip.title} departures={[...trip.departures]} />
           <TripAssistant title={trip.title} status={trip.status} price={trip.price} deposit={trip.deposit} departures={[...trip.departures]} docs={trip.docs} included={trip.included} />
           <figure data-trip-reveal className="locas-trip-reveal locas-trip-wide-image locas-trip-wide-image-second"><Image src={trip.image} alt={`${trip.title} - viaje`} fill sizes="(max-width: 900px) 94vw, 72vw" /></figure>
           <section data-trip-reveal className="locas-trip-reveal trip-service-proof">
