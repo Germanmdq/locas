@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import TripEffects from "./TripEffects";
 import CommercialPanel from "./CommercialPanel";
+import TripAssistant from "./TripAssistant";
 
 const trips = {
   ushuaia: {
@@ -129,9 +130,21 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
           </div>
           <div data-trip-reveal className="locas-trip-reveal trip-faq-commercial">
             <h2>Preguntas frecuentes</h2>
-            {['¿Puedo viajar sola?','¿Cómo se confirma mi lugar?','¿Puedo pagar en cuotas?','¿Qué pasa si se completa el cupo?','¿Dónde veo mi documentación y saldo?'].map((q) => <details key={q}><summary>{q}<b>+</b></summary><p>Escribinos desde el botón de reserva y te respondemos con la información específica de esta salida.</p></details>)}
+            {[
+              ['¿Puedo viajar sola?','Sí. Podés sumarte aunque viajes sola. La experiencia está pensada para integrarte al grupo y contar con coordinación antes y durante la salida.'],
+              ['¿Cómo se confirma mi lugar?',`Elegís la salida y habitación, cargás tus datos y avanzás con la ${trip.deposit.toLowerCase()}. La reserva queda registrada y podés continuar el proceso desde Mi Viaje.`],
+              ['¿Puedo pagar en cuotas?', trip.price === 'Consultar' ? 'Cuando el precio esté cargado, el sistema mostrará las opciones habilitadas para esa salida: seña, pago total, pagos parciales o cuotas según proveedor y política comercial.' : 'Sí, cuando la salida lo habilita podés elegir seña, pago total o pagos parciales/cuotas. La opción disponible se muestra antes de confirmar.'],
+              ['¿Qué pasa si se completa el cupo?','Podés entrar en lista de espera. Tu interés queda registrado y el sistema puede avisarte automáticamente si se libera un lugar o aparece una nueva salida compatible.'],
+              ['¿Dónde veo mi documentación y saldo?','Después de reservar, Mi Viaje concentra estado de reserva, señas y pagos, saldo, vencimientos, documentación pendiente, itinerario, archivos y novedades.']
+            ].map(([q,a]) => <details key={q}><summary>{q}<b>+</b></summary><p>{a}</p></details>)}
           </div>
+          <TripAssistant title={trip.title} status={trip.status} price={trip.price} deposit={trip.deposit} departures={[...trip.departures]} docs={trip.docs} included={trip.included} />
           <figure data-trip-reveal className="locas-trip-reveal locas-trip-wide-image locas-trip-wide-image-second"><Image src={trip.image} alt={`${trip.title} - viaje`} fill sizes="(max-width: 900px) 94vw, 72vw" /></figure>
+          <section data-trip-reveal className="locas-trip-reveal trip-service-proof">
+            <div className="trip-service-card"><span>HOTEL</span><h3>Alojamiento centralizado en Mi Viaje</h3><p>Nombre del hotel, tipo de habitación, check-in, dirección y archivos de la reserva quedan disponibles en un solo lugar después de confirmar.</p></div>
+            <div className="trip-service-card"><span>EXPERIENCIAS</span><h3>Actividades con estado claro</h3><p>Cada experiencia puede mostrar si está incluida, opcional, confirmada o pendiente, evitando preguntas repetidas por WhatsApp.</p></div>
+            <div className="trip-service-card"><span>TESTIMONIOS</span><h3>Prueba social asociada al viaje</h3><p>Este espacio mostrará historias y testimonios de pasajeras reales de esta salida o de viajes similares.</p></div>
+          </section>
         </article>
       </section>
 
