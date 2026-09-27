@@ -19,6 +19,17 @@
 
     document.documentElement.classList.add('w-mod-ix3');
 
+    list.style.setProperty('display', 'block', 'important');
+    list.style.setProperty('visibility', 'visible', 'important');
+    list.style.setProperty('opacity', '1', 'important');
+    list.style.setProperty('transform', 'none', 'important');
+    var wrapper = root.querySelector('.destination-card-wrapper');
+    if (wrapper) {
+      wrapper.style.setProperty('display', 'flex', 'important');
+      wrapper.style.setProperty('visibility', 'visible', 'important');
+      wrapper.style.setProperty('opacity', '1', 'important');
+    }
+
     function render() {
       if (window.innerWidth < 992) {
         cards.forEach(function(card){ card.removeAttribute('style'); });
@@ -31,6 +42,10 @@
       var p = Math.min(1, Math.max(0, -rect.top / scrollable));
       var position = p * (cards.length - 1);
       var active = Math.min(cards.length - 1, Math.max(0, Math.round(position)));
+
+      list.style.setProperty('display', 'block', 'important');
+      list.style.setProperty('visibility', 'visible', 'important');
+      list.style.setProperty('opacity', '1', 'important');
 
       cards.forEach(function(card, index) {
         var innerCard = card.querySelector(".destination-card");

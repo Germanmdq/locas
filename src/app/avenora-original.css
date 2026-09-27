@@ -952,3 +952,35 @@ a.w-webflow-badge,
 /* Hide template-only footer office block/empty secondary nav. */
 .footer-bottom-right { display:none!important; }
 .footer-bottom-grid > .footer-bottom-left:nth-child(2) { display:none!important; }
+
+/* Keep the central destination slider visible while the right rail changes. */
+@media (min-width: 992px) {
+  .destionation-wrapper .destination-card-wrapper {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 4 !important;
+    overflow: hidden !important;
+  }
+
+  .destionation-wrapper .destination-card-list:not(.hide-desktop) {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    position: relative !important;
+    z-index: 5 !important;
+    overflow: visible !important;
+  }
+
+  .destionation-wrapper .destination-card-list:not(.hide-desktop) > .destination-collection-wrap {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .destionation-wrapper .destination-overlay {
+    z-index: 6 !important;
+    pointer-events: none !important;
+  }
+}
