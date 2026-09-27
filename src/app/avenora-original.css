@@ -1,0 +1,935 @@
+html.w-mod-js:not(.w-mod-ix3) :is(.gallary-wrap, [data-wf-component-id="be3d7ba0-15ae-c57a-44b0-043da6d74f60"]:is(:is([data-wf-component-id="be3d7ba0-15ae-c57a-44b0-043da6d74f60"]:is(.faq-card), [data-wf-component-id="be3d7ba0-15ae-c57a-44b0-043da6d74f60"] :is(.faq-card)) .faq-bottom), [data-wf-component-id="be3d7ba0-15ae-c57a-44b0-043da6d74f60"] :is(:is([data-wf-component-id="be3d7ba0-15ae-c57a-44b0-043da6d74f60"]:is(.faq-card), [data-wf-component-id="be3d7ba0-15ae-c57a-44b0-043da6d74f60"] :is(.faq-card)) .faq-bottom), [data-wf-component-id="be3d7ba0-15ae-c57a-44b0-043da6d74f60"]:is(:is([data-wf-component-id="be3d7ba0-15ae-c57a-44b0-043da6d74f60"]:is(.faq-card), [data-wf-component-id="be3d7ba0-15ae-c57a-44b0-043da6d74f60"] :is(.faq-card)) .faq-icon-wrapper), [data-wf-component-id="be3d7ba0-15ae-c57a-44b0-043da6d74f60"] :is(:is([data-wf-component-id="be3d7ba0-15ae-c57a-44b0-043da6d74f60"]:is(.faq-card), [data-wf-component-id="be3d7ba0-15ae-c57a-44b0-043da6d74f60"] :is(.faq-card)) .faq-icon-wrapper), [data-wf-component-id="be3d7ba0-15ae-c57a-44b0-043da6d74f60"]:is(.faq-card), [data-wf-component-id="be3d7ba0-15ae-c57a-44b0-043da6d74f60"] :is(.faq-card), .section-title-wrapper .badge-wrap, .section-title-wrapper .section-heading, .section-title-wrapper .font-1-extra-small, [data-wf-component-id="0da338ce-8a2f-b511-6f44-29571178f774"]:is(.contact-content-wrapper), [data-wf-component-id="0da338ce-8a2f-b511-6f44-29571178f774"] :is(.contact-content-wrapper), [data-wf-component-id="0da338ce-8a2f-b511-6f44-29571178f774"]:is(.contact-image), [data-wf-component-id="0da338ce-8a2f-b511-6f44-29571178f774"] :is(.contact-image), [data-wf-component-id="0da338ce-8a2f-b511-6f44-29571178f774"]:is(.field-block), [data-wf-component-id="0da338ce-8a2f-b511-6f44-29571178f774"] :is(.field-block), [data-wf-component-id="48adce3f-8d40-d8bf-fea6-d884c40d34dd"]:is(.section-heading), [data-wf-component-id="48adce3f-8d40-d8bf-fea6-d884c40d34dd"] :is(.section-heading), [data-wf-component-id="48adce3f-8d40-d8bf-fea6-d884c40d34dd"]:is(.font-1-extra-small.white), [data-wf-component-id="48adce3f-8d40-d8bf-fea6-d884c40d34dd"] :is(.font-1-extra-small.white), [data-wf-component-id="48adce3f-8d40-d8bf-fea6-d884c40d34dd"]:is(.button-wrap), [data-wf-component-id="48adce3f-8d40-d8bf-fea6-d884c40d34dd"] :is(.button-wrap), [data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"]:is(.footer-top-left), [data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"] :is(.footer-top-left), [data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"]:is(.footer-contact-wrapper), [data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"] :is(.footer-contact-wrapper), [data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"]:is(.footer-bottom-left), [data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"] :is(.footer-bottom-left), [data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"]:is([data-wf-target*='["0343b5af-13a1-d90a-443e-13e813ac2230","0343b5af-13a1-d90a-443e-13e813ac2266"]']), [data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"] :is([data-wf-target*='["0343b5af-13a1-d90a-443e-13e813ac2230","0343b5af-13a1-d90a-443e-13e813ac2266"]']), [data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"]:is(.footer-logo), [data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"] :is(.footer-logo), [data-wf-component-id="b1f5f4f7-681d-fd69-fc1c-e7dcb33d6009"]:is(.primay-button-text), [data-wf-component-id="b1f5f4f7-681d-fd69-fc1c-e7dcb33d6009"] :is(.primay-button-text), [data-wf-component-id="b1f5f4f7-681d-fd69-fc1c-e7dcb33d6009"]:is(.button-arrow-pill), [data-wf-component-id="b1f5f4f7-681d-fd69-fc1c-e7dcb33d6009"] :is(.button-arrow-pill), [data-wf-component-id="b1f5f4f7-681d-fd69-fc1c-e7dcb33d6009"]:is(.button-arrow), [data-wf-component-id="b1f5f4f7-681d-fd69-fc1c-e7dcb33d6009"] :is(.button-arrow), [data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"]:is(:is([data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"]:is(:is(.footer-page-link, .footer-page-link)), [data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"] :is(:is(.footer-page-link, .footer-page-link))) .footer-link-text), [data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"] :is(:is([data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"]:is(:is(.footer-page-link, .footer-page-link)), [data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"] :is(:is(.footer-page-link, .footer-page-link))) .footer-link-text), [data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"]:is(.footer-page-link), [data-wf-component-id="0343b5af-13a1-d90a-443e-13e813ac2230"] :is(.footer-page-link), .counter-item .counter-wrap.one, .counter-item .counter-wrap.two, .counter-item .counter-wrap.three, .counter-item .counter-wrap.six, :is(.service-card-main, .service-card-main) .service-content-bottom, :is(.service-card-main, .service-card-main) .service-image-wrapper, :is(.service-card-main, .service-card-main) .service-icon, :is(.service-grid-card, .service-grid-card) .service-image-block, :is(.service-grid-card, .service-grid-card) .card-badge, .choose-card-wrapper, .slider-item.one, .slider-item.two, .slider-item.four, .slider-item.five, .slider-main, .slider-item.three, .hero-title-wrapper, .hero-heading, .hero-button-wrap, .hero-right, .about-text, .story-top-grid .story-left-image, .story-top-grid .story-right-image, .story-card, .package-card, .package-card .package-title-wrapper, .package-card .package-icon-wrapper, .package-card .package-bottom, .package-button-wrapper, .service-card-main, .service-title-wrapper .badge-wrap, .service-title-wrapper .section-heading.night, .service-title-wrapper .font-1-extra-small, .service-grid-card, .service-grid-card .card-badge, .service-grid-card .service-image, .service-grid-card .service-content-wrapper, .choose-title-wrapper .badge-wrap, .choose-title-wrapper .section-heading.night, .choose-title-wrapper .button-wrap, :is(.package-card, .package-card) .package-image, :is(.package-card, .package-card) .package-icon, :is(.destination-card, .destination-card) .destination-image, :is(.destination-card, .destination-card) .destination-card-icon) {visibility: hidden !important;}@media not all and (max-width: 479px) and (min-width: 0px){@media not all and (max-width: 767px) and (min-width: 480px){@media not all and (max-width: 991px) and (min-width: 768px){html.w-mod-js:not(.w-mod-ix3) :is(.sticky-wrap .destination-card-list, .destination-name.one, .sticky-wrap .blue-line.one, .sticky-wrap .blue-line.two, .destination-name.two, .sticky-wrap .number.one, .sticky-wrap .number.two, .sticky-wrap .destination-name.three, .sticky-wrap .blue-line.three, .sticky-wrap .number.three, .destination-name.three, .blue-line.four, .sticky-wrap .destination-name.four, .sticky-wrap .number.four, .destination-name.four, .sticky-wrap .destination-name.five, .sticky-wrap .blue-line.five, .sticky-wrap .number.five) {visibility: hidden !important;}}}}@media not all and (min-width: 992px){html.w-mod-js:not(.w-mod-ix3) :is(.destination-card-list) {visibility: hidden !important;}}
+
+.home-hero-area{
+  position:relative!important;
+  background-image:url("/hero-airport-locas.png")!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+}
+.hero-color-shape{display:none!important}
+.home-hero-area::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  background:rgba(7,14,24,.30)!important;
+}
+.home-hero-area::after{display:none!important;content:none!important;background:none!important}
+.home-hero-area > *{position:relative;z-index:1}
+
+/* Locas hero title: original Avenora fade. */
+.home-hero-area .hero-title-wrapper {
+  -webkit-text-fill-color: transparent !important;
+  background-image: linear-gradient(185deg, #fff 50.59%, #9990 90%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+.home-hero-area .hero-title-wrapper::before {
+  content:none!important;
+  display:none!important;
+}
+
+/* Remove the original Webflow template support widget. */
+#lioSupportWidget{display:none!important}
+
+/* Force Avenora destination cards visible even if Webflow IX2 leaves stale hidden styles. */
+.destionation-wrapper .destination-card-list,
+.destionation-wrapper .destination-collection-wrap,
+.destionation-wrapper .destination-card,
+.destionation-wrapper .destination-image-wrapper,
+.destionation-wrapper .destination-image,
+.destionation-wrapper .destination-card-icon,
+.destionation-wrapper .destination-card * {
+  visibility: visible !important;
+}
+
+.destionation-wrapper .destination-image {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+@media (min-width: 992px) {
+  .destionation-wrapper .sticky-wrap { height: 500vh !important; position: relative; }
+  .destionation-wrapper .destination-main { position: sticky !important; top: 0 !important; height: 100vh; overflow: hidden; }
+  .destionation-wrapper .destination-card-wrapper { height: 100vh; max-height: none !important; justify-content: center; }
+  .destionation-wrapper .destination-card-list:not(.hide-desktop) {
+    position: relative;
+    width: 100%;
+    height: min(78vh, 760px);
+    display: block !important;
+    visibility: visible !important;
+  }
+  .destionation-wrapper .destination-card-list:not(.hide-desktop) > .destination-collection-wrap {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    will-change: transform, opacity;
+    visibility: visible !important;
+  }
+  .destionation-wrapper .destination-card,
+  .destionation-wrapper .destination-image-wrapper,
+  .destionation-wrapper .destination-image,
+  .destionation-wrapper .destination-card-icon {
+    visibility: visible !important;
+  }
+  .destionation-wrapper .destination-card {
+    display: flex !important;
+  }
+  .destionation-wrapper .destination-image-wrapper {
+    display: block !important;
+    opacity: 1 !important;
+  }
+  .destionation-wrapper .destination-image {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    opacity: 1 !important;
+  }
+  .destionation-wrapper .destination-place-item { transition: opacity .25s ease; }
+  .destionation-wrapper .destination-place-item .destination-name { transition: opacity .25s ease; }
+  .destionation-wrapper .destination-place-item .number { transition: transform .25s ease, opacity .25s ease; }
+  .destionation-wrapper .destination-place-item .blue-line { transition: width .25s ease; }
+  .destionation-wrapper .destination-place-item.is-active .destination-name { opacity: 1 !important; }
+  .destionation-wrapper .destination-place-item.is-active .number { transform: scale(1) !important; opacity: 1 !important; }
+  .destionation-wrapper .destination-place-item.is-active .blue-line { width: 100% !important; }
+}
+
+
+  [data-wf-bgvideo-fallback-img] {
+    display: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-wf-bgvideo-fallback-img] {
+      position: absolute;
+      z-index: -100;
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+
+/* =====================================================
+   BASIC SETTINGS
+===================================================== */
+
+#lioSupportWidget,
+#lioSupportWidget * {
+  box-sizing: border-box;
+}
+
+#lioSupportWidget {
+  --lio-dark-1: rgba(7, 20, 38, 0.98);
+  --lio-dark-2: rgba(12, 37, 62, 0.97);
+  --lio-white: #ffffff;
+  --lio-muted: rgba(255, 255, 255, 0.72);
+
+  position: fixed;
+  top: 50%;
+  left: 12px;
+  z-index: 2147483000;
+
+  font-family: inherit;
+
+  transform: translateY(-50%);
+}
+
+#lioSupportWidget button,
+#lioSupportWidget a {
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =====================================================
+   MAIN BUTTON
+===================================================== */
+
+#lioSupportWidget .lio-main-button {
+  position: relative;
+
+  display: flex;
+  width: 177px;
+  min-height: 46px;
+  align-items: center;
+
+  gap: 0;
+
+  margin: 0;
+  padding: 6px 7px;
+
+  overflow: hidden;
+  cursor: pointer;
+
+  color: var(--lio-white);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--lio-dark-1),
+      var(--lio-dark-2)
+    ) padding-box,
+    linear-gradient(
+      110deg,
+      #00e5ff,
+      #20e3b2,
+      #4277ff,
+      #a855f7,
+      #00e5ff
+    ) border-box;
+
+  background-size:
+    100% 100%,
+    250% 250%;
+
+  border: 1.5px solid transparent;
+  border-radius: 13px;
+
+  box-shadow:
+    0 10px 26px rgba(4, 18, 38, 0.24),
+    0 0 0 rgba(0, 229, 255, 0),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  animation: lioGradientBorder 5s linear infinite;
+
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease;
+}
+
+/* Soft background glow */
+
+#lioSupportWidget .lio-main-button::after {
+  position: absolute;
+  inset: 0;
+
+  content: "";
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 8% 25%,
+      rgba(0, 229, 255, 0.16),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(168, 85, 247, 0.13),
+      transparent 38%
+    );
+
+  opacity: 0.75;
+}
+
+/* Animated shine */
+
+#lioSupportWidget .lio-main-button::before {
+  position: absolute;
+  top: -40%;
+  left: -60%;
+
+  width: 34%;
+  height: 180%;
+
+  content: "";
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.27),
+    transparent
+  );
+
+  transform: rotate(18deg);
+  transition: left 0.65s ease;
+}
+
+#lioSupportWidget:hover .lio-main-button,
+#lioSupportWidget.is-open .lio-main-button {
+  transform: translateX(4px) translateY(-1px) scale(1.015);
+
+  box-shadow:
+    0 15px 35px rgba(4, 18, 38, 0.32),
+    0 0 22px rgba(0, 229, 255, 0.16),
+    0 0 36px rgba(66, 119, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+#lioSupportWidget:hover .lio-main-button::before,
+#lioSupportWidget.is-open .lio-main-button::before {
+  left: 130%;
+}
+
+/* =====================================================
+   MAIN ICON
+===================================================== */
+
+#lioSupportWidget .lio-main-icon {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  width: 31px;
+  height: 31px;
+  flex: 0 0 31px;
+  place-items: center;
+
+  margin-right: 9px;
+
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #12d8c2 0%,
+    #12b4e8 48%,
+    #4277ff 100%
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 9px;
+
+  box-shadow:
+    0 6px 14px rgba(0, 159, 219, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+#lioSupportWidget:hover .lio-main-icon,
+#lioSupportWidget.is-open .lio-main-icon {
+  transform: rotate(-5deg) scale(1.07);
+
+  box-shadow:
+    0 8px 18px rgba(0, 196, 225, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.27);
+}
+
+#lioSupportWidget .lio-main-icon svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+/* =====================================================
+   MAIN TEXT
+===================================================== */
+
+#lioSupportWidget .lio-main-content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+
+  text-align: left;
+  line-height: 1.12;
+}
+
+#lioSupportWidget .lio-main-label {
+  display: block;
+  margin-bottom: 3px;
+
+  color: rgba(255, 255, 255, 0.69);
+
+  font-size: 7px;
+  font-weight: 650;
+  letter-spacing: 0.065em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+#lioSupportWidget .lio-main-title {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 10.6px;
+  font-weight: 750;
+  letter-spacing: -0.012em;
+  line-height: 1.12;
+  white-space: nowrap;
+
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+}
+
+/* =====================================================
+   MAIN ARROW
+===================================================== */
+
+#lioSupportWidget .lio-main-arrow {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+  place-items: center;
+
+  margin-left: 5px;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  transition: transform 0.3s ease;
+}
+
+#lioSupportWidget.is-open .lio-main-arrow {
+  transform: rotate(180deg);
+}
+
+#lioSupportWidget .lio-main-arrow svg,
+#lioSupportWidget .lio-option-arrow svg {
+  display: block;
+  width: 12px;
+  height: 12px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* =====================================================
+   EXPANDABLE MENU
+===================================================== */
+
+#lioSupportWidget .lio-support-menu {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 8px);
+
+  display: flex;
+  width: 183px;
+  flex-direction: column;
+  gap: 6px;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translate(-10px, -50%) scale(0.96);
+  transform-origin: left center;
+
+  transition:
+    opacity 0.23s ease,
+    visibility 0.23s ease,
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#lioSupportWidget.is-open .lio-support-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translate(0, -50%) scale(1);
+}
+
+/* Desktop hover opening */
+
+@media screen and (min-width: 992px) and (hover: hover) and (pointer: fine) {
+  #lioSupportWidget:hover .lio-support-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translate(0, -50%) scale(1);
+  }
+
+  #lioSupportWidget:hover .lio-main-arrow {
+    transform: rotate(180deg);
+  }
+}
+
+/* =====================================================
+   OPTION BUTTONS
+===================================================== */
+
+#lioSupportWidget .lio-support-option {
+  --lio-color-1: #16d9b1;
+  --lio-color-2: #12aeea;
+
+  position: relative;
+
+  display: flex;
+  width: 100%;
+  min-height: 45px;
+  align-items: center;
+
+  padding: 5px 7px;
+  overflow: hidden;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(7, 20, 38, 0.98),
+      rgba(12, 37, 62, 0.97)
+    ) padding-box,
+    linear-gradient(
+      125deg,
+      var(--lio-color-1),
+      var(--lio-color-2)
+    ) border-box;
+
+  border: 1.25px solid transparent;
+  border-radius: 11px;
+
+  box-shadow:
+    0 9px 24px rgba(4, 18, 38, 0.23),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  transition:
+    transform 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.24s ease;
+}
+
+/* Shine animation */
+
+#lioSupportWidget .lio-support-option::before {
+  position: absolute;
+  top: -45%;
+  left: -55%;
+
+  width: 30%;
+  height: 190%;
+
+  content: "";
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.22),
+    transparent
+  );
+
+  transform: rotate(18deg);
+  transition: left 0.58s ease;
+}
+
+#lioSupportWidget .lio-support-option:hover {
+  color: #ffffff;
+
+  transform: translateX(4px) scale(1.012);
+
+  box-shadow:
+    0 13px 30px rgba(4, 18, 38, 0.31),
+    0 0 18px rgba(18, 174, 234, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+#lioSupportWidget .lio-support-option:hover::before {
+  left: 130%;
+}
+
+#lioSupportWidget .lio-option-customize {
+  --lio-color-1: #16d9a5;
+  --lio-color-2: #08b8da;
+}
+
+#lioSupportWidget .lio-option-figma {
+  --lio-color-1: #b155f6;
+  --lio-color-2: #ff7a45;
+}
+
+#lioSupportWidget .lio-option-templates {
+  --lio-color-1: #3a85ff;
+  --lio-color-2: #875cf4;
+}
+
+/* =====================================================
+   OPTION ICON
+===================================================== */
+
+#lioSupportWidget .lio-option-icon {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  place-items: center;
+
+  margin-right: 8px;
+
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    var(--lio-color-1),
+    var(--lio-color-2)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 8px;
+
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.19),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+  transition: transform 0.25s ease;
+}
+
+#lioSupportWidget .lio-support-option:hover .lio-option-icon {
+  transform: scale(1.07) rotate(-4deg);
+}
+
+#lioSupportWidget .lio-option-icon svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+/* =====================================================
+   OPTION TEXT
+===================================================== */
+
+#lioSupportWidget .lio-option-content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+
+  line-height: 1.12;
+}
+
+#lioSupportWidget .lio-option-label {
+  display: block;
+  margin-bottom: 3px;
+  overflow: hidden;
+
+  color: rgba(255, 255, 255, 0.67);
+
+  font-size: 6.8px;
+  font-weight: 650;
+  letter-spacing: 0.045em;
+  line-height: 1;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+#lioSupportWidget .lio-option-title {
+  display: block;
+  overflow: hidden;
+
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 720;
+  letter-spacing: -0.01em;
+  line-height: 1.12;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* =====================================================
+   OPTION ARROW
+===================================================== */
+
+#lioSupportWidget .lio-option-arrow {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  place-items: center;
+
+  margin-left: 4px;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  transition: transform 0.24s ease;
+}
+
+#lioSupportWidget .lio-support-option:hover .lio-option-arrow {
+  transform: translateX(2px);
+}
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+#lioSupportWidget .lio-main-button:focus-visible,
+#lioSupportWidget .lio-support-option:focus-visible {
+  outline: 3px solid rgba(0, 229, 255, 0.38);
+  outline-offset: 3px;
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  #lioSupportWidget {
+    left: 9px;
+  }
+
+  #lioSupportWidget .lio-main-button {
+    width: 172px;
+  }
+
+  #lioSupportWidget .lio-support-menu {
+    width: 179px;
+  }
+}
+
+/* Tablet devices with mouse/trackpad */
+
+@media screen and (min-width: 768px) and (max-width: 991px) and (hover: hover) and (pointer: fine) {
+  #lioSupportWidget:hover .lio-support-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translate(0, -50%) scale(1);
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media screen and (max-width: 767px) {
+  #lioSupportWidget {
+    top: auto;
+    right: auto;
+    bottom: 13px;
+    left: 10px;
+
+    transform: none;
+  }
+
+  #lioSupportWidget .lio-main-button {
+    width: 169px;
+    min-height: 43px;
+
+    padding: 5px 6px;
+    border-radius: 12px;
+  }
+
+  #lioSupportWidget:hover .lio-main-button,
+  #lioSupportWidget.is-open .lio-main-button {
+    transform: translateY(-2px) scale(1.01);
+  }
+
+  #lioSupportWidget .lio-main-icon {
+    width: 29px;
+    height: 29px;
+    flex-basis: 29px;
+
+    margin-right: 8px;
+  }
+
+  #lioSupportWidget .lio-main-label {
+    font-size: 6.7px;
+  }
+
+  #lioSupportWidget .lio-main-title {
+    font-size: 10.1px;
+  }
+
+  #lioSupportWidget .lio-main-arrow {
+    transform: rotate(-90deg);
+  }
+
+  #lioSupportWidget.is-open .lio-main-arrow {
+    transform: rotate(90deg);
+  }
+
+  #lioSupportWidget .lio-support-menu {
+    top: auto;
+    bottom: calc(100% + 7px);
+    left: 0;
+
+    width: min(188px, calc(100vw - 20px));
+
+    transform: translateY(10px) scale(0.96);
+    transform-origin: left bottom;
+  }
+
+  #lioSupportWidget.is-open .lio-support-menu {
+    transform: translateY(0) scale(1);
+  }
+
+  #lioSupportWidget .lio-support-option {
+    min-height: 44px;
+    padding: 5px 6px;
+  }
+
+  #lioSupportWidget .lio-option-icon {
+    width: 29px;
+    height: 29px;
+    flex-basis: 29px;
+  }
+
+  #lioSupportWidget .lio-option-title {
+    font-size: 9.8px;
+  }
+
+  #lioSupportWidget .lio-option-label {
+    font-size: 6.6px;
+  }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media screen and (max-width: 479px) {
+  #lioSupportWidget {
+    bottom: 9px;
+    left: 8px;
+  }
+
+  #lioSupportWidget .lio-main-button {
+    width: 165px;
+    min-height: 42px;
+  }
+
+  #lioSupportWidget .lio-main-icon {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+  }
+
+  #lioSupportWidget .lio-main-label {
+    font-size: 6.5px;
+  }
+
+  #lioSupportWidget .lio-main-title {
+    font-size: 9.8px;
+  }
+
+  #lioSupportWidget .lio-support-menu {
+    width: min(184px, calc(100vw - 16px));
+    gap: 5px;
+  }
+
+  #lioSupportWidget .lio-option-label {
+    display: none;
+  }
+
+  #lioSupportWidget .lio-option-title {
+    font-size: 10px;
+    white-space: normal;
+  }
+}
+
+/* iPhone safe-area */
+
+@supports (padding: env(safe-area-inset-bottom)) {
+  @media screen and (max-width: 767px) {
+    #lioSupportWidget {
+      bottom: calc(9px + env(safe-area-inset-bottom));
+    }
+  }
+}
+
+/* =====================================================
+   GRADIENT BORDER ANIMATION
+===================================================== */
+
+@keyframes lioGradientBorder {
+  0% {
+    background-position:
+      0 0,
+      0% 50%;
+  }
+
+  50% {
+    background-position:
+      0 0,
+      100% 50%;
+  }
+
+  100% {
+    background-position:
+      0 0,
+      0% 50%;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  #lioSupportWidget .lio-main-button,
+  #lioSupportWidget .lio-main-button::before,
+  #lioSupportWidget .lio-main-icon,
+  #lioSupportWidget .lio-main-arrow,
+  #lioSupportWidget .lio-support-menu,
+  #lioSupportWidget .lio-support-option,
+  #lioSupportWidget .lio-support-option::before,
+  #lioSupportWidget .lio-option-icon,
+  #lioSupportWidget .lio-option-arrow {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Destination slider: only the outer collection wrapper animates.
+   Webflow must never hide/transform the actual card content. */
+.destionation-wrapper .destination-collection-wrap > .w-dyn-list,
+.destionation-wrapper .destination-collection-wrap .destination-list,
+.destionation-wrapper .destination-collection-wrap .w-dyn-item,
+.destionation-wrapper .destination-collection-wrap .destination-card,
+.destionation-wrapper .destination-collection-wrap .destination-image-wrapper,
+.destionation-wrapper .destination-collection-wrap .destination-image,
+.destionation-wrapper .destination-collection-wrap .destinaiton-card-content {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.destionation-wrapper .destination-collection-wrap > .w-dyn-list,
+.destionation-wrapper .destination-collection-wrap .destination-list,
+.destionation-wrapper .destination-collection-wrap .w-dyn-item {
+  display: block !important;
+  width: 100% !important;
+}
+.destionation-wrapper .destination-collection-wrap .destination-card {
+  display: flex !important;
+  width: 100% !important;
+  transform: none !important;
+}
+.destionation-wrapper .destination-collection-wrap .destination-image-wrapper {
+  display: block !important;
+  width: 100% !important;
+  transform: none !important;
+}
+.destionation-wrapper .destination-collection-wrap .destination-image {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 260px !important;
+  object-fit: cover !important;
+  transform: none !important;
+  filter: none !important;
+}
