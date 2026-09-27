@@ -2,10 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 const trips = [
-  { name: "Ushuaia", region: "Patagonia", days: "5 días / 4 noches", price: "Desde USD 1.290", image: "/images/ushuaia.jpg", href: "/viajes/ushuaia", status: "Últimos cupos" },
-  { name: "Catamarca", region: "Norte argentino", days: "7 días / 6 noches", price: "Consultar", image: "/images/catamarca.jpg", href: "#", status: "Disponible" },
-  { name: "Trevelin", region: "Patagonia", days: "5 días / 4 noches", price: "Consultar", image: "/images/trevelin.jpg", href: "#", status: "Nueva salida" },
-  { name: "Puerto Rico", region: "Caribe", days: "8 días / 7 noches", price: "Consultar", image: "/images/puerto-rico.jpg", href: "#", status: "Disponible" },
+  { name: "Ushuaia", region: "Patagonia", days: "5 días / 4 noches", price: "Desde USD 1.290", image: "/destinations/ushuaia.jpg", href: "/viajes/ushuaia", status: "Últimos cupos" },
+  { name: "Catamarca", region: "Norte argentino", days: "7 días / 6 noches", price: "Consultar", image: "/destinations/catamarca.jpg", href: "/viajes/catamarca", status: "Disponible" },
+  { name: "Trevelin", region: "Patagonia", days: "5 días / 4 noches", price: "Consultar", image: "/destinations/trevelin.jpg", href: "/viajes/trevelin", status: "Nueva salida" },
+  { name: "Puerto Rico", region: "Caribe", days: "8 días / 7 noches", price: "Consultar", image: "/destinations/puerto-rico.jpg", href: "/viajes/puerto-rico", status: "Disponible" },
+  { name: "San Martín de los Andes", region: "Patagonia", days: "5 días / 4 noches", price: "Consultar", image: "/destinations/san-martin.jpg", href: "/viajes/san-martin-de-los-andes", status: "Disponible" },
 ];
 
 export default function ViajesPage() {

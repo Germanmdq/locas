@@ -1,10 +1,10 @@
 (function () {
   var destinations = [
     { title: 'Ushuaia', location: 'Tierra del Fuego, Argentina', image: '/destinations/ushuaia.jpg', href: '/viajes/ushuaia', duration: '5 días / 4 noches' },
-    { title: 'Trevelin en temporada de Tulipanes', location: 'Chubut, Argentina', image: '/destinations/trevelin.jpg', href: '#', duration: '5 días / 4 noches' },
-    { title: 'Catamarca', location: 'Catamarca, Argentina', image: '/destinations/catamarca.jpg', href: '#', duration: '7 días / 6 noches' },
-    { title: 'San Martín de los Andes', location: 'Neuquén, Argentina', image: '/destinations/san-martin.jpg', href: '#', duration: '5 días / 4 noches' },
-    { title: 'Puerto Rico', location: 'Caribe', image: '/destinations/puerto-rico.jpg', href: '#', duration: 'Aventura internacional' }
+    { title: 'Trevelin en temporada de Tulipanes', location: 'Chubut, Argentina', image: '/destinations/trevelin.jpg', href: '/viajes/trevelin', duration: '5 días / 4 noches' },
+    { title: 'Catamarca', location: 'Catamarca, Argentina', image: '/destinations/catamarca.jpg', href: '/viajes/catamarca', duration: '7 días / 6 noches' },
+    { title: 'San Martín de los Andes', location: 'Neuquén, Argentina', image: '/destinations/san-martin.jpg', href: '/viajes/san-martin-de-los-andes', duration: '5 días / 4 noches' },
+    { title: 'Puerto Rico', location: 'Caribe', image: '/destinations/puerto-rico.jpg', href: '/viajes/puerto-rico', duration: 'Aventura internacional' }
   ];
 
   function boot(attempt) {
