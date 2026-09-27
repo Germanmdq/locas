@@ -7,13 +7,14 @@ type Props = {
   price: string;
   deposit: string;
   status: string;
+  spots: number;
   departures: string[];
   whatsapp?: string;
 };
 
 type Step = "options" | "traveler";
 
-export default function CommercialPanel({ title, price, deposit, status, departures, whatsapp = "" }: Props) {
+export default function CommercialPanel({ title, price, deposit, status, spots, departures, whatsapp = "" }: Props) {
   const [departure, setDeparture] = useState(departures[0] || "Próxima salida");
   const [room, setRoom] = useState("Doble compartida");
   const [payment, setPayment] = useState("Seña para reservar");
@@ -54,7 +55,7 @@ export default function CommercialPanel({ title, price, deposit, status, departu
 
   return (
     <aside className="trip-commerce-card">
-      <div className="trip-commerce-status"><i /> {status}</div>
+      <div className="trip-commerce-status"><i /> {status} · {spots} lugares disponibles</div>
       <div className="trip-commerce-price"><span>DESDE</span><strong>{price}</strong></div>
       <p className="trip-commerce-deposit">{deposit}</p>
 

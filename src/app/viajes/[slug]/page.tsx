@@ -14,7 +14,7 @@ const trips = {
     itinerary: [["Día 1", "Llegada y encuentro", "Recepción en Ushuaia, traslado, check-in y primera salida grupal para empezar a conocernos."],["Día 2", "Parque Nacional", "Día completo entre bosques, bahías y senderos del Parque Nacional Tierra del Fuego."],["Día 3", "Canal Beagle", "Navegación por el canal, fauna austral y vistas abiertas de la ciudad y la cordillera."],["Día 4", "Montaña y experiencia local", "Jornada de paisaje fueguino, gastronomía y una experiencia especial preparada para el grupo."],["Día 5", "Última mañana y regreso", "Desayuno, tiempo libre, cierre del viaje y traslado de salida."]],
     included: ["Alojamiento seleccionado", "Traslados previstos", "Coordinación durante el viaje", "Experiencias incluidas según itinerario"],
     seasons: [["Octubre — marzo", "Días más largos y mejores condiciones para recorrer al aire libre."],["Abril — junio", "Paisajes otoñales, clima frío y una experiencia más tranquila."],["Julio — septiembre", "Temporada invernal y escenarios completamente nevados."]],
-    price: "USD 1.290", deposit: "Seña para confirmar el cupo", status: "Últimos cupos", departures: ["12–16 octubre", "Consultar próxima salida"],
+    price: "USD 1.290", deposit: "Seña para confirmar el cupo", status: "Últimos cupos", spots: 6, departures: ["12–16 octubre", "Consultar próxima salida"],
     notIncluded: ["Vuelos hasta Ushuaia", "Comidas no especificadas", "Gastos personales"], docs: ["DNI o pasaporte vigente", "Datos de contacto de emergencia", "Seguro de viaje recomendado"]
   },
   trevelin: {
@@ -24,7 +24,7 @@ const trips = {
     itinerary: [["Día 1", "Llegada a la cordillera", "Recepción, alojamiento y encuentro del grupo para presentar el viaje."],["Día 2", "Campo de tulipanes", "Visita al campo en plena temporada, tiempo para recorrerlo y disfrutar del paisaje."],["Día 3", "Trevelin y cultura galesa", "Recorrido por el pueblo, historia local, sabores patagónicos y tarde compartida."],["Día 4", "Naturaleza patagónica", "Salida por los alrededores con lagos, bosque y miradores de la cordillera."],["Día 5", "Despedida", "Desayuno, última recorrida y regreso."]],
     included: ["Alojamiento seleccionado", "Traslados previstos", "Coordinación durante el viaje", "Visitas y experiencias según itinerario"],
     seasons: [["Octubre", "La época protagonista del campo de tulipanes y la primavera cordillerana."],["Noviembre — diciembre", "Temperaturas agradables y días largos para recorrer la zona."],["Marzo — abril", "Colores de otoño y una Patagonia más serena."]],
-    price: "Consultar", deposit: "Consultá valor y forma de reserva", status: "Nueva salida", departures: ["Temporada de tulipanes", "Consultar próxima salida"],
+    price: "Consultar", deposit: "Consultá valor y forma de reserva", status: "Nueva salida", spots: 9, departures: ["Temporada de tulipanes", "Consultar próxima salida"],
     notIncluded: ["Vuelos o traslados hasta el punto de encuentro", "Comidas no especificadas", "Gastos personales"], docs: ["DNI vigente", "Datos de contacto de emergencia", "Seguro de viaje recomendado"]
   },
   catamarca: {
@@ -34,7 +34,7 @@ const trips = {
     itinerary: [["Día 1", "Llegada a Catamarca", "Recepción, alojamiento y presentación del recorrido."],["Día 2", "Ruta de paisajes", "Primer contacto con los grandes valles y caminos escénicos de la provincia."],["Día 3", "Puna catamarqueña", "Ascenso progresivo hacia paisajes de altura, volcanes y horizontes abiertos."],["Día 4", "Salares y pueblos", "Jornada entre salares, pequeñas localidades y paradas fotográficas."],["Día 5", "Antofagasta de la Sierra", "Exploración de uno de los escenarios más impactantes de la Puna."],["Día 6", "Regreso por la montaña", "Recorrido de vuelta con nuevas paradas y tarde libre."],["Día 7", "Cierre y regreso", "Desayuno, despedida y traslado de salida."]],
     included: ["Alojamiento seleccionado", "Traslados previstos", "Coordinación durante el viaje", "Excursiones según itinerario"],
     seasons: [["Abril — junio", "Temperaturas más amables y cielos generalmente despejados."],["Agosto — octubre", "Excelente época para rutas de altura y paisajes abiertos."],["Noviembre", "Días largos antes del período de lluvias de verano."]],
-    price: "Consultar", deposit: "Consultá valor y forma de reserva", status: "Disponible", departures: ["Próxima salida", "Consultar nueva fecha"],
+    price: "Consultar", deposit: "Consultá valor y forma de reserva", status: "Disponible", spots: 12, departures: ["Próxima salida", "Consultar nueva fecha"],
     notIncluded: ["Vuelos o transporte hasta Catamarca", "Comidas no especificadas", "Gastos personales"], docs: ["DNI vigente", "Apto físico si la salida lo requiere", "Seguro de viaje recomendado"]
   },
   "san-martin-de-los-andes": {
@@ -44,7 +44,7 @@ const trips = {
     itinerary: [["Día 1", "Llegada a San Martín", "Recepción, alojamiento y paseo de bienvenida por la ciudad."],["Día 2", "Ruta de los Siete Lagos", "Día completo de lagos, miradores y paradas en ruta."],["Día 3", "Bosque y senderos", "Experiencia de naturaleza con caminata adaptada al grupo y tiempo libre."],["Día 4", "Lago Lácar", "Jornada junto al lago y actividad especial con el grupo."],["Día 5", "Última mañana y regreso", "Desayuno, paseo final y traslado de salida."]],
     included: ["Alojamiento seleccionado", "Traslados previstos", "Coordinación durante el viaje", "Actividades según itinerario"],
     seasons: [["Diciembre — marzo", "Verano patagónico, días largos y vida al aire libre."],["Abril — mayo", "Bosques de otoño y una atmósfera más tranquila."],["Julio — septiembre", "Nieve, invierno y actividades de montaña."]],
-    price: "Consultar", deposit: "Consultá valor y forma de reserva", status: "Disponible", departures: ["Próxima salida", "Consultar nueva fecha"],
+    price: "Consultar", deposit: "Consultá valor y forma de reserva", status: "Disponible", spots: 8, departures: ["Próxima salida", "Consultar nueva fecha"],
     notIncluded: ["Vuelos o transporte hasta Neuquén", "Comidas no especificadas", "Gastos personales"], docs: ["DNI vigente", "Datos de contacto de emergencia", "Seguro de viaje recomendado"]
   },
   "puerto-rico": {
@@ -54,7 +54,7 @@ const trips = {
     itinerary: [["Día 1", "Llegada a San Juan", "Recepción, traslado y primera noche para empezar a vivir la isla."],["Día 2", "Viejo San Juan", "Recorrido histórico, plazas, fortalezas y sabores locales."],["Día 3", "Naturaleza tropical", "Excursión de día completo entre selva, cascadas y paisaje tropical."],["Día 4", "Costa y playa", "Día de mar con tiempo para descansar y disfrutar en grupo."],["Día 5", "Experiencia local", "Gastronomía, música y recorrido por una zona diferente de la isla."],["Día 6", "Día libre acompañado", "Tiempo para elegir actividades, compras o playa con asistencia del equipo."],["Día 7", "Última experiencia", "Salida especial de cierre y cena grupal."],["Día 8", "Regreso", "Desayuno, despedida y traslado al aeropuerto."]],
     included: ["Alojamiento seleccionado", "Traslados previstos", "Coordinación durante el viaje", "Experiencias según itinerario"],
     seasons: [["Diciembre — abril", "Temporada seca y clima especialmente agradable."],["Mayo — junio", "Menos movimiento y temperaturas cálidas."],["Noviembre", "Buen momento para viajar antes de la temporada alta."]],
-    price: "Consultar", deposit: "Consultá valor y forma de reserva", status: "Disponible", departures: ["Próxima salida internacional", "Consultar nueva fecha"],
+    price: "Consultar", deposit: "Consultá valor y forma de reserva", status: "Disponible", spots: 10, departures: ["Próxima salida internacional", "Consultar nueva fecha"],
     notIncluded: ["Vuelos internacionales salvo indicación expresa", "Comidas no especificadas", "Gastos personales"], docs: ["Pasaporte vigente", "Documentación migratoria correspondiente", "Seguro de viaje recomendado"]
   }
 } as const;
@@ -92,8 +92,8 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
       <section className="locas-trip-details">
         <div data-trip-reveal className="locas-trip-reveal locas-trip-facts">
           <div><span className="locas-trip-fact-icon">⌖</span><span>{trip.location}</span></div>
-          <div><span className="locas-trip-fact-icon">◷</span><span>Próxima salida</span></div>
-          <div><span className="locas-trip-fact-icon">◷</span><span>{trip.duration}</span></div>
+          <div><span className="locas-trip-fact-icon">◷</span><span><b>Próxima salida</b><small>{trip.departures[0]}</small></span></div>
+          <div><span className="locas-trip-fact-icon">◎</span><span><b>{trip.spots} lugares disponibles</b><small>{trip.duration}</small></span></div>
         </div>
         <article className="locas-trip-editorial">
           <div data-trip-reveal className="locas-trip-reveal locas-trip-copy-block">
@@ -103,13 +103,18 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
           <section data-trip-reveal className="locas-trip-reveal trip-itinerary">
             <div className="trip-itinerary-head"><h2>Así se vive el viaje</h2><p>Una planificación provisoria para mostrarte el ritmo de la experiencia. Los horarios y actividades finales se confirman antes de la salida.</p></div>
             <div className="trip-itinerary-list">
-              {trip.itinerary.map(([day, title, text]) => (
-                <article key={day} className="trip-itinerary-day">
-                  <span>{day}</span><div><h3>{title}</h3><p>{text}</p></div>
+              {trip.itinerary.map(([day, title, text], index) => (
+                <article key={day} className="trip-itinerary-day trip-itinerary-day-photo">
+                  <span>{day}</span><div className="trip-itinerary-day-copy"><h3>{title}</h3><p>{text}</p><small>Un día pensado para vivir el destino en grupo, compartir el momento y volver con una historia.</small></div>
+                  <figure><Image src={trip.image} alt={`${trip.title} · ${day}`} fill sizes="(max-width: 700px) 92vw, 300px" style={{objectPosition: `${50 + (index % 3) * 10}% center`}} /></figure>
                 </article>
               ))}
             </div>
           </section>
+          <Link href={`/blog/${slug}`} data-trip-reveal className="locas-trip-reveal trip-blog-card">
+            <div><span>REVISTA LOCAS</span><h3>Qué nos enamora de {trip.title}</h3><p>Una guía para imaginar el viaje antes de salir: lugares, momentos, sabores, historias y por qué este destino funciona tan bien para vivirlo en grupo.</p><b>Leer la historia completa →</b></div>
+            <figure><Image src={trip.image} alt={`Guía de ${trip.title}`} fill sizes="(max-width: 800px) 92vw, 420px" /></figure>
+          </Link>
           <figure data-trip-reveal className="locas-trip-reveal locas-trip-wide-image"><Image src={trip.image} alt={trip.title} fill sizes="(max-width: 900px) 94vw, 72vw" /></figure>
           <div data-trip-reveal className="locas-trip-reveal locas-trip-copy-block">
             <h2>Qué incluye la experiencia</h2>
@@ -152,7 +157,7 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
               <article><b>Después</b><p>Fotos, historias, comunidad postviaje, próximos viajes, referidos y vínculos que continúan.</p></article>
             </div>
           </section>
-          <LeadCapture title={trip.title} departures={[...trip.departures]} />
+          <LeadCapture title={trip.title} departures={[...trip.departures]} alternatives={tripEntries.filter(([key]) => key !== slug).map(([,item]) => item.title)} />
           <TripAssistant title={trip.title} status={trip.status} price={trip.price} deposit={trip.deposit} departures={[...trip.departures]} docs={trip.docs} included={trip.included} />
           <figure data-trip-reveal className="locas-trip-reveal locas-trip-wide-image locas-trip-wide-image-second"><Image src={trip.image} alt={`${trip.title} - viaje`} fill sizes="(max-width: 900px) 94vw, 72vw" /></figure>
           <section data-trip-reveal className="locas-trip-reveal trip-service-proof">
@@ -175,7 +180,7 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
               <div><b>Seguimiento automático</b><span>Recordatorios de pago, documentación pendiente y cambios sin perseguir mensajes.</span></div>
             </div>
           </div>
-          <CommercialPanel title={trip.title} price={trip.price} deposit={trip.deposit} status={trip.status} departures={[...trip.departures]} />
+          <CommercialPanel title={trip.title} price={trip.price} deposit={trip.deposit} status={trip.status} spots={trip.spots} departures={[...trip.departures]} />
         </div>
       </section>
 
