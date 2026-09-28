@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 import {
   LayoutDashboard, UsersRound, MessageSquareText, Map, CreditCard,
   ListTodo, Workflow, Settings, Search, Bell, CalendarDays, PanelLeft,
@@ -15,10 +16,10 @@ const items=[
   {href:"/crm",label:"CRM",icon:UsersRound},
   {href:"/crm/mensajes",label:"Mensajes",icon:MessageSquareText,badge:"5"},
   {href:"/catalogo",label:"Viajes",icon:Map},
-  {href:"/control#reservas",label:"Reservas",icon:CalendarDays},
-  {href:"/control#pagos",label:"Pagos",icon:CreditCard},
-  {href:"/control#tareas",label:"Tareas",icon:ListTodo,badge:"12"},
-  {href:"/control#automatizaciones",label:"Automatizaciones",icon:Workflow},
+  {href:"/reservas",label:"Reservas",icon:CalendarDays},
+  {href:"/pagos",label:"Pagos",icon:CreditCard},
+  {href:"/tareas",label:"Tareas",icon:ListTodo,badge:"12"},
+  {href:"/automatizaciones",label:"Automatizaciones",icon:Workflow},
 ];
 
 export default function AdminShell({children,title,subtitle,actions}:Props){
@@ -34,19 +35,19 @@ export default function AdminShell({children,title,subtitle,actions}:Props){
          return <Link key={label} href={href} className={active?"active":""}><Icon size={18}/><span>{label}</span>{badge&&<em>{badge}</em>}</Link>
        })}
        <span className="opsNavGroup secondary">Sistema</span>
-       <Link href="/control#datos"><Database size={18}/><span>Datos</span></Link>
-       <Link href="/control#configuracion"><Settings size={18}/><span>Configuración</span></Link>
+       <Link href="/datos"><Database size={18}/><span>Datos</span></Link>
+       <Link href="/configuracion"><Settings size={18}/><span>Configuración</span></Link>
      </nav>
      <div className="opsSidebarBottom">
        <Link href="/" className="opsSiteLink"><PlaneTakeoff size={17}/><span>Ver sitio público</span></Link>
-       <button className="opsProfile"><span>GG</span><div><b>Administración</b><small>Operaciones</small></div><ChevronDown size={15}/></button>
+       <div className="opsProfileWrap"><button className="opsProfile" onClick={()=>setProfile(v=>!v)}><span>GG</span><div><b>Administración</b><small>Operaciones</small></div><ChevronDown size={15}/></button>{profile&&<div className="opsPopover opsProfileMenu"><Link href="/configuracion">Configuración</Link><Link href="/">Ver sitio público</Link></div>}</div>
      </div>
    </aside>
    <section className="opsMain">
      <header className="opsTopbar">
        <button className="opsIconBtn opsMobileTrigger"><PanelLeft size={18}/></button>
-       <div className="opsSearch"><Search size={17}/><input placeholder="Buscar contacto, viaje, reserva..."/><kbd>⌘ K</kbd></div>
-       <div className="opsTopActions"><button className="opsIconBtn"><Bell size={18}/><i/></button><button className="opsToday">Hoy · 28 sep</button></div>
+       <form className="opsSearch" onSubmit={e=>{e.preventDefault(); if(search.trim()) router.push(`/crm?search=${encodeURIComponent(search.trim())}`)}}><Search size={17}/><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Buscar contacto, viaje, reserva..."/><kbd>↵</kbd></form>
+       <div className="opsTopActions"><div className="opsBellWrap"><button className="opsIconBtn" onClick={()=>setNotifs(v=>!v)}><Bell size={18}/><i/></button>{notifs&&<div className="opsPopover opsNotifications"><b>Notificaciones</b><span>5 mensajes sin leer</span><span>3 tareas vencidas</span><span>2 pagos próximos a vencer</span></div>}</div><button className="opsToday" onClick={()=>router.push("/tareas")}>Hoy · 28 sep</button></div>
      </header>
      <main className="opsContent">
        <div className="opsPageHead"><div><h1>{title}</h1>{subtitle&&<p>{subtitle}</p>}</div>{actions&&<div className="opsPageActions">{actions}</div>}</div>
