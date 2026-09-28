@@ -1,15 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getPublishedTrips } from "@/lib/trips";
 
-const trips = [
-  { name: "Ushuaia", region: "Patagonia", days: "5 días / 4 noches", price: "Desde USD 1.290", image: "/destinations/ushuaia.jpg", href: "/viajes/ushuaia", status: "Últimos cupos" },
-  { name: "Catamarca", region: "Norte argentino", days: "7 días / 6 noches", price: "Consultar", image: "/destinations/catamarca.jpg", href: "/viajes/catamarca", status: "Disponible" },
-  { name: "Trevelin", region: "Patagonia", days: "5 días / 4 noches", price: "Consultar", image: "/destinations/trevelin.jpg", href: "/viajes/trevelin", status: "Nueva salida" },
-  { name: "Puerto Rico", region: "Caribe", days: "8 días / 7 noches", price: "Consultar", image: "/destinations/puerto-rico.jpg", href: "/viajes/puerto-rico", status: "Disponible" },
-  { name: "San Martín de los Andes", region: "Patagonia", days: "5 días / 4 noches", price: "Consultar", image: "/destinations/san-martin.jpg", href: "/viajes/san-martin-de-los-andes", status: "Disponible" },
-];
+export const dynamic = "force-dynamic";
 
-export default function ViajesPage() {
+export default async function ViajesPage() {
+  const trips=await getPublishedTrips(false);
   return (
     <main className="subPage">
       <header className="subNav shell">
@@ -29,12 +25,12 @@ export default function ViajesPage() {
 
       <section className="tripCatalog shell">
         {trips.map((trip) => (
-          <Link className="tripCatalogCard" href={trip.href} key={trip.name}>
-            <div className="tripCatalogImage"><Image src={trip.image} alt={trip.name} fill sizes="(max-width: 800px) 100vw, 50vw" /></div>
+          <Link className="tripCatalogCard" href={`/viajes/${trip.slug}`} key={trip.id}>
+            <div className="tripCatalogImage"><Image src={trip.heroImage} alt={trip.title} fill sizes="(max-width: 800px) 100vw, 50vw" /></div>
             <div className="tripCatalogCopy">
-              <div><span>{trip.region}</span><b>{trip.status}</b></div>
-              <h2>{trip.name}</h2>
-              <p>{trip.days}</p>
+              <div><span>{trip.destination}</span><b>{trip.status}</b></div>
+              <h2>{trip.title}</h2>
+              <p>{trip.duration} · {trip.spots} lugares disponibles</p>
               <strong>{trip.price}</strong>
             </div>
           </Link>
