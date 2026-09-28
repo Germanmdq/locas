@@ -124,7 +124,7 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
         <div className="locas-trip-overlay" />
         <header className="locas-trip-nav">
           <Link href="/" className="locas-trip-brand">Locas por la aventura</Link>
-          <nav><Link href="/">Inicio</Link><Link href="/viajes">Viajes</Link><Link href={`/blog/${slug}`}>Revista</Link><Link href="/mi-locas">Mi Locas</Link><Link href="/mi-viaje">Mi Viaje</Link></nav>
+          <nav><Link href="/">Inicio</Link><Link href="/viajes">Viajes</Link><Link href={`/blog/${slug}`}>Revista</Link><Link href="/mi-locas">Mi Locas</Link><Link href="/mi-viaje">Mi Viaje</Link><Link href="/catalogo">Catálogo</Link></nav>
           <Link href="/viajes" className="locas-trip-nav-cta">Comenzá a explorar <span>→</span></Link>
         </header>
         <div className="locas-trip-hero-grid">
