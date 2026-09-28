@@ -105,11 +105,17 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
     "/destinations/ushuaia.jpg",
     "/destinations/ushuaia/laguna-esmeralda.jpg",
     "/destinations/ushuaia/community.webp"
+  ] : slug === "trevelin" ? [
+    "/destinations/trevelin/dia-1.jpg",
+    "/destinations/trevelin/dia-2.jpg",
+    "/destinations/trevelin/dia-3.jpg",
+    "/destinations/trevelin/dia-4.jpg",
+    "/destinations/trevelin/dia-5.jpg"
   ] : trip.itinerary.map(() => trip.image);
-  const blogCardImage = slug === "ushuaia" ? "/destinations/ushuaia/community.webp" : trip.image;
-  const editorialImage = slug === "ushuaia" ? "/destinations/ushuaia/park.jpg" : trip.image;
-  const communityImage = slug === "ushuaia" ? "/destinations/ushuaia/community.webp" : trip.image;
-  const closingImage = slug === "ushuaia" ? "/destinations/ushuaia/laguna-esmeralda.jpg" : trip.image;
+  const blogCardImage = slug === "ushuaia" ? "/destinations/ushuaia/community.webp" : slug === "trevelin" ? "/destinations/trevelin/dia-2.jpg" : trip.image;
+  const editorialImage = slug === "ushuaia" ? "/destinations/ushuaia/park.jpg" : slug === "trevelin" ? "/destinations/trevelin/dia-4.jpg" : trip.image;
+  const communityImage = slug === "ushuaia" ? "/destinations/ushuaia/community.webp" : slug === "trevelin" ? "/destinations/trevelin/dia-1.jpg" : trip.image;
+  const closingImage = slug === "ushuaia" ? "/destinations/ushuaia/laguna-esmeralda.jpg" : slug === "trevelin" ? "/destinations/trevelin/dia-3.jpg" : trip.image;
 
   return (
     <main className="locas-trip-page">
