@@ -23,8 +23,9 @@ const items=[
 ];
 
 export default function AdminShell({children,title,subtitle,actions}:Props){
- const pathname=usePathname();
- return <div className="opsApp">
+ const pathname=usePathname(); const router=useRouter();
+ const [search,setSearch]=useState(""); const [notifs,setNotifs]=useState(false); const [profile,setProfile]=useState(false); const [mobileOpen,setMobileOpen]=useState(false);
+ return <div className={`opsApp ${mobileOpen?"mobileOpen":""}`}>
    <aside className="opsSidebar">
      <div className="opsLogo"><div className="opsLogoMark">L</div><div><b>Locas</b><span>por la aventura</span></div></div>
      <nav className="opsNav">
@@ -45,7 +46,7 @@ export default function AdminShell({children,title,subtitle,actions}:Props){
    </aside>
    <section className="opsMain">
      <header className="opsTopbar">
-       <button className="opsIconBtn opsMobileTrigger"><PanelLeft size={18}/></button>
+       <button className="opsIconBtn opsMobileTrigger" onClick={()=>setMobileOpen(v=>!v)} aria-label="Abrir menú"><PanelLeft size={18}/></button>
        <form className="opsSearch" onSubmit={e=>{e.preventDefault(); if(search.trim()) router.push(`/crm?search=${encodeURIComponent(search.trim())}`)}}><Search size={17}/><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Buscar contacto, viaje, reserva..."/><kbd>↵</kbd></form>
        <div className="opsTopActions"><div className="opsBellWrap"><button className="opsIconBtn" onClick={()=>setNotifs(v=>!v)}><Bell size={18}/><i/></button>{notifs&&<div className="opsPopover opsNotifications"><b>Notificaciones</b><span>5 mensajes sin leer</span><span>3 tareas vencidas</span><span>2 pagos próximos a vencer</span></div>}</div><button className="opsToday" onClick={()=>router.push("/tareas")}>Hoy · 28 sep</button></div>
      </header>

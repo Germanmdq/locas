@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 export type Lead = {
   id:string; name:string; channel:string; campaign:string; trip:string; stage:string;
@@ -14,7 +15,8 @@ export type WebSession={session_id:string;anonymous_id:string;identified:boolean
 const sourceClass=(name:string)=>({Instagram:"ig",Facebook:"fb",WhatsApp:"wa",Google:"gg","Web orgánica":"web",Web:"web",Referido:"ref"}[name]||"web");
 
 export default function CRMClient({leads,channelStats,trackingStats,webSessions}:{leads:Lead[];channelStats:ChannelStat[];trackingStats:TrackingStat[];webSessions:WebSession[]}){
-  const [query,setQuery]=useState(""); const [channel,setChannel]=useState("Todos"); const [selected,setSelected]=useState(leads[0]?.id||"");
+  const params=useSearchParams();
+  const [query,setQuery]=useState(params.get("search")||""); const [channel,setChannel]=useState("Todos"); const [selected,setSelected]=useState(leads[0]?.id||"");
   const current=leads.find(l=>l.id===selected)||leads[0];
   const filtered=useMemo(()=>leads.filter(l=>(channel==="Todos"||l.channel===channel)&&(`${l.name} ${l.trip} ${l.campaign}`.toLowerCase().includes(query.toLowerCase()))),[query,channel,leads]);
   const total=channelStats.reduce((a,c)=>a+Number(c.leads||0),0); const customers=channelStats.reduce((a,c)=>a+Number(c.customers||0),0);
