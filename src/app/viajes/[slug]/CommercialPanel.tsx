@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { identifyContact, trackEvent, tripSlugFromPath } from "@/lib/tracking";
 
 type Props = {
   title: string;
@@ -29,19 +30,24 @@ export default function CommercialPanel({ title, price, deposit, status, spots, 
   const waHref = `https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`;
 
   async function shareTrip() {
+    void trackEvent("share_click", { trip: title, method: typeof navigator.share === "function" ? "native" : "clipboard" });
     const data = { title: `Locas por la aventura · ${title}`, text: `Mirá este viaje: ${title}`, url: window.location.href };
     if (navigator.share) await navigator.share(data);
     else await navigator.clipboard.writeText(window.location.href);
   }
 
-  function continueReservation() {
+  async function continueReservation() {
     if (step === "options") {
+      await trackEvent("checkout_start", { trip: title, departure, room, payment });
+      await trackEvent("reservation_start", { trip: title, departure, room, payment });
       setStep("traveler");
       return;
     }
 
     if (!traveler.name.trim() || !traveler.email.trim()) return;
 
+    await identifyContact({ fullName: traveler.name, email: traveler.email, phone: traveler.phone, whatsappOptIn: Boolean(traveler.phone), tripSlug: tripSlugFromPath(), interest: `Reserva iniciada: ${title}`, properties: { departure, room, payment } });
+    await trackEvent("checkout_step", { trip: title, step: "traveler_identified", departure, room, payment });
     localStorage.setItem("locas.reservationDraft", JSON.stringify({
       title,
       departure,
@@ -50,6 +56,7 @@ export default function CommercialPanel({ title, price, deposit, status, spots, 
       traveler,
       createdAt: new Date().toISOString(),
     }));
+    await trackEvent("reservation_complete", { trip: title, mode: "demo_draft", departure, room, payment });
     window.location.href = "/mi-viaje";
   }
 
@@ -116,7 +123,7 @@ export default function CommercialPanel({ title, price, deposit, status, spots, 
 
       {step === "traveler" && <button className="trip-commerce-secondary" type="button" onClick={() => setStep("options")}>← Cambiar opciones</button>}
 
-      <button className="trip-commerce-secondary" type="button" onClick={() => setSaved((v) => !v)}>
+      <button className="trip-commerce-secondary" type="button" onClick={() => setSaved((v) => { const next=!v; void trackEvent(next ? "favorite_add" : "favorite_remove", { trip: title }); return next; })}>
         {saved ? "♥ Guardado en favoritos" : "♡ Guardar viaje"}
       </button>
       <button className="trip-commerce-secondary" type="button" onClick={shareTrip}>↗ Compartir</button>
@@ -126,7 +133,7 @@ export default function CommercialPanel({ title, price, deposit, status, spots, 
         <p>Mi Viaje centraliza estado, pagos, saldo, vencimientos, documentación, itinerario y novedades.</p>
       </div>
 
-      {whatsapp && <a className="trip-commerce-secondary" href={waHref} target="_blank" rel="noreferrer">Necesito ayuda humana</a>}
+      {whatsapp && <a className="trip-commerce-secondary" href={waHref} target="_blank" rel="noreferrer" data-track="whatsapp_click">Necesito ayuda humana</a>}
     </aside>
   );
 }

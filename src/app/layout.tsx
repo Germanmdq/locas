@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import WebTracker from "./WebTracker";
 import "./globals.css";
 import "./avenora-original.css";
 
@@ -26,7 +28,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body>{children}</body>
+      <body><Suspense fallback={null}><WebTracker /></Suspense>{children}</body>
     </html>
   );
 }

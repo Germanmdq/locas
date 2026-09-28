@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function ControlPage() {
   return (
     <main className="controlPage">
-      <header className="controlHeader"><Link href="/">LOCAS CONTROL</Link><nav><Link href="/catalogo">Catálogo</Link><Link href="/crm">CRM</Link></nav><span>Resumen ejecutivo · Hoy</span></header>
+      <header className="controlHeader"><Link href="/">LOCAS CONTROL</Link><nav><Link href="/catalogo">Catálogo</Link><Link href="/crm">CRM</Link><Link href="/crm/mensajes">Mensajes</Link></nav><span>Resumen ejecutivo · Hoy</span></header>
       <section className="controlShell">
         <div className="controlTitle"><div><span>DIRECCIÓN</span><h1>Así está el negocio ahora.</h1></div><button>Preguntar al agente</button></div>
         <div className="kpiGrid">

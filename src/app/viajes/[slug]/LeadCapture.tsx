@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { identifyContact, trackEvent, tripSlugFromPath } from "@/lib/tracking";
 
 type Props = { title: string; departures: string[]; alternatives: string[] };
 
@@ -12,14 +13,30 @@ export default function LeadCapture({ title, departures, alternatives }: Props) 
     stories: "Sí, quiero ver experiencias", consent: true
   });
   const [saved, setSaved] = useState(false);
+  const started = useRef(false);
 
-  function submit(e: React.FormEvent) {
+  function markStarted() {
+    if (started.current) return;
+    started.current = true;
+    void trackEvent("lead_form_start", { trip: title });
+  }
+
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!form.name.trim() || !form.email.trim()) return;
     const payload = { ...form, trip: title, source: "trip-page-rich-lead", createdAt: new Date().toISOString() };
     const current = JSON.parse(localStorage.getItem("locas.leads") || "[]");
     localStorage.setItem("locas.leads", JSON.stringify([payload, ...current]));
     localStorage.setItem("locas.lastLead", JSON.stringify(payload));
+    await identifyContact({
+      fullName: form.name, email: form.email, phone: form.phone,
+      whatsappOptIn: form.consent && Boolean(form.phone), emailOptIn: form.consent,
+      tripSlug: tripSlugFromPath(), interest: form.interest,
+      properties: { timing: form.timing, other_destination: form.otherDestination, dream: form.dream, traveled_before: form.traveledBefore, stories: form.stories }
+    });
+    await trackEvent("lead_form_submit", { trip: title, timing: form.timing, interest: form.interest, other_destination: form.otherDestination, traveled_before: form.traveledBefore });
+    if (form.interest.includes("lista de espera") || form.interest.includes("queda un lugar")) await trackEvent("waitlist_join", { trip: title, timing: form.timing });
+    if (form.interest.includes("nueva fecha")) await trackEvent("alert_create", { trip: title, alert_type: "new_departure" });
     setSaved(true);
   }
 
@@ -35,7 +52,7 @@ export default function LeadCapture({ title, departures, alternatives }: Props) 
           <div><b>Comunidad desde antes</b><small>También sabemos si ya viajaste con Locas y si querés conocer historias del grupo.</small></div>
         </div>
       </div>
-      <form className="trip-lead-form" onSubmit={submit}>
+      <form className="trip-lead-form" onSubmit={submit} onFocus={markStarted}>
         {saved ? <div className="trip-lead-success"><b>Listo. Ya sabemos qué te interesa.</b><p>Guardamos tu interés en {title} y tus preferencias para alertas, lista de espera y recomendaciones compatibles.</p></div> : <>
           <label><span>Nombre y apellido</span><input value={form.name} onChange={(e)=>setForm(v=>({...v,name:e.target.value}))} placeholder="Tu nombre" /></label>
           <label><span>Email</span><input type="email" value={form.email} onChange={(e)=>setForm(v=>({...v,email:e.target.value}))} placeholder="tu@email.com" /></label>
