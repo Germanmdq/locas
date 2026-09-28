@@ -1,0 +1,1 @@
+import AdminShell from "@/app/admin/AdminShell";export default function Page(){return <AdminShell title="Configuración" subtitle="Canales, responsables, etapas, monedas y reglas."><div className="opsCard"><p>Configuración general del sistema operativo de Locas.</p></div></AdminShell>}

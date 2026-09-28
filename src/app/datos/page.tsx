@@ -1,0 +1,1 @@
+import AdminShell from "@/app/admin/AdminShell";export default function Page(){return <AdminShell title="Datos" subtitle="Fuentes, tracking y estructura de información."><div className="opsCard"><p>Supabase conectado. Web tracking, contactos, campañas, conversaciones, viajes, reservas, pagos y tareas comparten la misma base.</p></div></AdminShell>}
