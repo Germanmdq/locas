@@ -1,5 +1,8 @@
 "use client";
 import Link from "next/link";
+import AdminShell from "@/app/admin/AdminShell";
+import { createSupabaseClient } from "@/lib/supabase/client";
+import { Plus, X } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { IconBrandInstagram, IconBrandFacebook, IconBrandWhatsapp, IconBrandGoogle, IconWorld, IconUsersGroup, IconHelpCircle, IconAdjustmentsHorizontal } from "@tabler/icons-react";
@@ -19,6 +22,8 @@ const channelIcon=(name:string)=>{const props={size:16,stroke:1.8};switch(name){
 export default function CRMClient({leads,channelStats,trackingStats,webSessions}:{leads:Lead[];channelStats:ChannelStat[];trackingStats:TrackingStat[];webSessions:WebSession[]}){
   const params=useSearchParams();
   const [query,setQuery]=useState(params.get("search")||""); const [channel,setChannel]=useState("Todos"); const [selected,setSelected]=useState(leads[0]?.id||"");
+  const [showNew,setShowNew]=useState(false); const [newName,setNewName]=useState(""); const [newEmail,setNewEmail]=useState(""); const [newPhone,setNewPhone]=useState(""); const [savingNew,setSavingNew]=useState(false);
+  const supabase=createSupabaseClient();
   const current=leads.find(l=>l.id===selected)||leads[0];
   const filtered=useMemo(()=>leads.filter(l=>(channel==="Todos"||l.channel===channel)&&(`${l.name} ${l.trip} ${l.campaign}`.toLowerCase().includes(query.toLowerCase()))),[query,channel,leads]);
   const total=channelStats.reduce((a,c)=>a+Number(c.leads||0),0); const customers=channelStats.reduce((a,c)=>a+Number(c.customers||0),0);
@@ -29,11 +34,14 @@ export default function CRMClient({leads,channelStats,trackingStats,webSessions}
   const identifiedSessions=webSessions.filter(s=>s.identified).length;
   const topEvents=Object.entries(trackingStats.reduce((a,r)=>{a[r.event_name]=(a[r.event_name]||0)+r.events;return a},{} as Record<string,number>)).sort((a,b)=>b[1]-a[1]).slice(0,8);
   const topSources=Object.entries(trackingStats.reduce((a,r)=>{a[r.source]=(a[r.source]||0)+r.sessions;return a},{} as Record<string,number>)).sort((a,b)=>b[1]-a[1]).slice(0,6);
-  if(!current) return <main className="crmPage"><section className="crmShell"><h1>CRM sin datos</h1></section></main>;
-  return <main className="crmPage">
-    <header className="crmTopbar"><Link href="/" className="crmBrand">Locas por la aventura</Link><nav><Link href="/">Sitio</Link><Link href="/catalogo">Catálogo</Link><Link href="/crm" className="isActive">CRM</Link><Link href="/crm/mensajes">Mensajes</Link><Link href="/control">Control</Link></nav><div className="crmUser"><span>GG</span><div><b>Administración</b><small>Supabase conectado</small></div></div></header>
-    <section className="crmShell">
-      <div className="crmTitleRow"><div><span>CRM / ATRIBUCIÓN REAL</span><h1>De dónde viene cada persona y qué hacemos después.</h1><p>Origen, campaña, viaje, etapa, valor, historial y próxima acción, leyendo la base de datos.</p></div><button>＋ Nuevo contacto</button></div>
+  async function createContact(){
+    const parts=newName.trim().split(/\s+/); if(!parts[0]||savingNew)return; setSavingNew(true);
+    const {error}=await supabase.from("contacts").insert({first_name:parts[0],last_name:parts.slice(1).join(" ")||null,email:newEmail.trim()||null,phone:newPhone.trim()||null,lifecycle_stage:"lead"});
+    setSavingNew(false); if(!error){setShowNew(false);window.location.reload();}
+  }
+  if(!current) return <AdminShell title="CRM" subtitle="Contactos, oportunidades y seguimiento comercial."><div className="opsCard crmEmptyState">Todavía no hay contactos cargados.</div></AdminShell>;
+  return <AdminShell title="CRM" subtitle="Contactos, atribución y próximas acciones del equipo." actions={<button className="opsPrimaryBtn" onClick={()=>setShowNew(true)}><Plus size={16}/> Nuevo contacto</button>}>
+    <div className="crmOperationalSurface">
       <div className="crmKpis"><article><span>Leads cargados</span><strong>{total}</strong><small>base demo Supabase</small></article><article><span>Oportunidades calientes</span><strong>{hot}</strong><small>score y pipeline</small></article><article><span>Conversión</span><strong>{conversion}%</strong><small>lead → cliente</small></article><article><span>Ventas atribuidas</span><strong>ARS {Math.round(revenue).toLocaleString("es-AR")}</strong><small>reservas vinculadas a origen</small></article></div>
       <div className="crmTrackingStrip"><article><span>TRACKING WEB</span><strong>{webSessionCount}</strong><small>sesiones registradas</small></article><article><span>EVENTOS</span><strong>{webEvents}</strong><small>acciones capturadas</small></article><article><span>IDENTIFICADAS</span><strong>{identifiedSessions}</strong><small>sesiones unidas a contacto</small></article><article><span>IDENTIFICACIÓN</span><strong>{webSessionCount?Math.round(identifiedSessions*100/webSessionCount):0}%</strong><small>anónimo → CRM</small></article></div>
       <div className="crmTrackingPanels"><section className="crmPanel"><div className="crmPanelHead"><div><span>COMPORTAMIENTO WEB</span><h2>Eventos capturados</h2></div><b>Tiempo real</b></div><div className="crmEventList">{topEvents.length?topEvents.map(([name,count])=><div key={name}><span>{name.replaceAll("_"," ")}</span><b>{count}</b></div>):<p className="crmEmpty">Todavía no hay eventos.</p>}</div></section><section className="crmPanel"><div className="crmPanelHead"><div><span>FIRST TOUCH</span><h2>Sesiones por origen</h2></div><b>UTM / referrer</b></div><div className="crmEventList">{topSources.length?topSources.map(([name,count])=><div key={name}><span>{name}</span><b>{count}</b></div>):<p className="crmEmpty">Sin sesiones atribuidas todavía.</p>}</div></section></div>
@@ -43,6 +51,8 @@ export default function CRMClient({leads,channelStats,trackingStats,webSessions}
       <div className="crmWorkspace"><section className="crmListPanel"><div className="crmTableHead"><span>Persona</span><span>Origen</span><span>Viaje</span><span>Etapa</span><span>Próxima acción</span></div>{filtered.map(l=><button className={`crmLeadRow ${selected===l.id?"selected":""}`} key={l.id} onClick={()=>setSelected(l.id)}><span className="crmPerson"><i>{l.name.split(' ').map(x=>x[0]).slice(0,2).join('')}</i><span><b>{l.name}</b><small>{l.last}</small></span>{l.hot&&<em>HOT</em>}</span><span><span className={`crmSource ${sourceClass(l.channel)}`}>{l.channel}</span><small>{l.campaign}</small></span><span><b>{l.trip}</b><small>{l.value}</small></span><span><span className="crmStage">{l.stage}</span></span><span><b>{l.next}</b><small>{l.owner}</small></span></button>)}</section>
         <aside className="crmDetail"><div className="crmDetailTop"><div className="crmAvatar">{current.name.split(' ').map(x=>x[0]).slice(0,2).join('')}</div><div><span>CONTACTO · SCORE {current.score}</span><h2>{current.name}</h2><p>{current.email}<br/>{current.phone}</p></div></div><div className="crmDetailGrid"><div><span>Origen</span><b>{current.channel}</b><small>{current.campaign}</small></div><div><span>Viaje</span><b>{current.trip}</b><small>{current.value}</small></div><div><span>Etapa</span><b>{current.stage}</b></div><div><span>Responsable</span><b>{current.owner}</b></div></div><div className="crmNext"><span>PRÓXIMA ACCIÓN</span><h3>{current.next}</h3><button>Marcar como realizada</button></div><div className="crmTimeline"><h3>Historial real</h3>{current.interactions.length?current.interactions.map((i,idx)=><div key={idx}><i/><p><b>{i.subject||i.channel}</b><small>{i.body}</small></p><time>{new Date(i.occurred_at).toLocaleDateString("es-AR")}</time></div>):<div><i/><p><b>Sin interacciones todavía</b><small>El contacto ya existe en el CRM.</small></p></div>}</div><div className="crmTags"><span>Notas</span><div><b>{current.notes||"Sin notas"}</b></div></div></aside>
       </div>
-    </section>
-  </main>
+
+    </div>
+    {showNew&&<div className="opsDrawerBackdrop" onClick={()=>setShowNew(false)}><aside className="opsDrawer" onClick={e=>e.stopPropagation()}><header><div><small>CRM</small><h2>Nuevo contacto</h2></div><button className="opsIconBtn" onClick={()=>setShowNew(false)}><X size={17}/></button></header><div className="opsDrawerForm"><label>Nombre y apellido<input value={newName} onChange={e=>setNewName(e.target.value)} placeholder="Nombre completo"/></label><label>Email<input value={newEmail} onChange={e=>setNewEmail(e.target.value)} placeholder="email@ejemplo.com"/></label><label>Teléfono<input value={newPhone} onChange={e=>setNewPhone(e.target.value)} placeholder="+54 ..."/></label><button className="opsPrimaryBtn" disabled={savingNew} onClick={createContact}>{savingNew?"Guardando...":"Crear contacto"}</button></div></aside></div>}
+  </AdminShell>
 }
