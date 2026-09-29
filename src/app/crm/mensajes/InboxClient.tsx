@@ -3,20 +3,19 @@
 import Link from "next/link";
 import { useMemo,useRef,useState } from "react";
 import { Mail, Clock3, CheckCircle2, Search, SlidersHorizontal, UserPlus, MoreHorizontal, Send, Paperclip, CircleAlert } from "lucide-react";
-import { IconBrandWhatsapp, IconBrandInstagram, IconBrandMessenger, IconBrandTelegram } from "@tabler/icons-react";
+import { IconBrandWhatsapp, IconBrandInstagram, IconBrandMessenger } from "@tabler/icons-react";
 import AdminShell from "@/app/admin/AdminShell";
 import { createSupabaseClient } from "@/lib/supabase/client";
 
 type Thread={id:string;contact_id:string|null;channel:string;subject:string|null;status:string;unread_count:number;last_message_at:string;contact_name:string|null;email:string|null;phone:string|null;last_message:string|null;intent:string|null;sentiment:string|null;assigned_to?:string|null};
 type Message={id:string;conversation_id:string;channel:string;direction:string;sender_name:string|null;body:string|null;subject:string|null;status:string|null;sent_at:string;message_type:string};
 type Owner={id:string;name:string};
-type ChannelKey="whatsapp"|"instagram"|"messenger"|"telegram"|"email";
-const channelLabel:Record<string,string>={whatsapp:"WhatsApp",instagram:"Instagram",messenger:"Messenger",telegram:"Telegram",email:"Email"};
+type ChannelKey="whatsapp"|"instagram"|"messenger"|"email";
+const channelLabel:Record<string,string>={whatsapp:"WhatsApp",instagram:"Instagram",messenger:"Messenger",email:"Email"};
 const channelIcon=(channel:string,size=20)=>{
   if(channel==="whatsapp") return <IconBrandWhatsapp size={size}/>;
   if(channel==="instagram") return <IconBrandInstagram size={size}/>;
   if(channel==="messenger") return <IconBrandMessenger size={size}/>;
-  if(channel==="telegram") return <IconBrandTelegram size={size}/>;
   return <Mail size={size}/>;
 };
 
@@ -35,7 +34,7 @@ export default function InboxClient({threads:initialThreads,messages:initialMess
  const open=threads.filter(t=>t.status==="open").length;
  const classified=threads.filter(t=>Boolean(t.intent)).length;
  const responseDue=threads.filter(t=>t.status==="open"&&t.unread_count>0).length;
- const channels:[ChannelKey,string][]=[["whatsapp","WhatsApp"],["instagram","Instagram"],["messenger","Messenger"],["telegram","Telegram"],["email","Email"]];
+ const channels:[ChannelKey,string][]=[["whatsapp","WhatsApp"],["instagram","Instagram"],["messenger","Messenger"],["email","Email"]];
 
  async function chooseThread(id:string){setSelected(id);const t=threads.find(x=>x.id===id);if(t&&t.unread_count>0){await supabase.from("conversations").update({unread_count:0,updated_at:new Date().toISOString()}).eq("id",id);setThreads(v=>v.map(x=>x.id===id?{...x,unread_count:0}:x));}}
  async function sendReply(){if(!current||(!reply.trim()&&!attachment))return;setNotice("Enviando...");const now=new Date().toISOString();const body=reply.trim()||(attachment?`Adjunto: ${attachment.name}`:"");const {data,error}=await supabase.from("messages").insert({conversation_id:current.id,contact_id:current.contact_id,channel:current.channel,direction:"outbound",sender_name:"Administración",message_type:attachment?"file":"text",body,status:"queued",sent_at:now,metadata:attachment?{filename:attachment.name,size:attachment.size,type:attachment.type}:{} }).select("id,conversation_id,channel,direction,sender_name,body,subject,status,sent_at,message_type").single();if(error){setNotice(error.message);return;}await supabase.from("conversations").update({last_message_at:now,last_outbound_at:now,updated_at:now,status:"open"}).eq("id",current.id);setMessages(v=>[...v,data as Message]);setThreads(v=>v.map(x=>x.id===current.id?{...x,last_message:body,last_message_at:now,status:"open"}:x));setReply("");setAttachment(null);setNotice("Mensaje encolado. Se enviará por el canal conectado.");}
@@ -43,7 +42,7 @@ export default function InboxClient({threads:initialThreads,messages:initialMess
  async function assign(owner:Owner){if(!current)return;const {error}=await supabase.from("conversations").update({assigned_to:owner.id,updated_at:new Date().toISOString()}).eq("id",current.id);if(!error){setThreads(v=>v.map(x=>x.id===current.id?{...x,assigned_to:owner.id}:x));setNotice(`Conversación asignada a ${owner.name}.`);setAssignOpen(false)}else setNotice(error.message)}
  async function closeConversation(){if(!current)return;const {error}=await supabase.from("conversations").update({status:"closed",updated_at:new Date().toISOString()}).eq("id",current.id);if(!error){setThreads(v=>v.map(x=>x.id===current.id?{...x,status:"closed"}:x));setNotice("Conversación cerrada.");setMoreOpen(false)}else setNotice(error.message)}
 
- return <AdminShell title="Centro de mensajes" subtitle="Operación diaria de WhatsApp, Instagram, Messenger, Telegram y email desde una sola bandeja." actions={<><Link className="opsSecondaryBtn" href="/automatizaciones"><SlidersHorizontal size={16}/> Reglas</Link><div className="opsActionWrap"><button className="opsPrimaryBtn" onClick={()=>setAssignOpen(v=>!v)}><UserPlus size={16}/> Asignar</button>{assignOpen&&<div className="opsPopover opsAssignMenu">{owners.map(o=><button key={o.id} onClick={()=>assign(o)}>{o.name}</button>)}</div>}</div></>}>
+ return <AdminShell title="Centro de mensajes" subtitle="Operación diaria de WhatsApp, Instagram, Messenger y email desde una sola bandeja." actions={<><Link className="opsSecondaryBtn" href="/automatizaciones"><SlidersHorizontal size={16}/> Reglas</Link><div className="opsActionWrap"><button className="opsPrimaryBtn" onClick={()=>setAssignOpen(v=>!v)}><UserPlus size={16}/> Asignar</button>{assignOpen&&<div className="opsPopover opsAssignMenu">{owners.map(o=><button key={o.id} onClick={()=>assign(o)}>{o.name}</button>)}</div>}</div></>}>
    {notice&&<div className="opsNotice" onClick={()=>setNotice("")}>{notice}</div>}
    <section className="opsMetricGrid inboxOpsMetrics">
      <article><div className="opsMetricIcon"><Mail size={19}/></div><div><span>Sin leer</span><strong>{unread}</strong><small>{open} conversaciones abiertas</small></div></article>
@@ -61,7 +60,7 @@ export default function InboxClient({threads:initialThreads,messages:initialMess
    <section className="opsCard inboxOpsCard">
      <div className="opsCardToolbar">
        <div className="opsInlineSearch"><Search size={16}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Buscar contacto, asunto o mensaje..."/></div>
-       <div className="opsFilterTabs">{["Todos","whatsapp","instagram","messenger","telegram","email"].map(c=><button key={c} onClick={()=>setChannel(c)} className={channel===c?"active":""}>{c==="Todos"?"Todos":channelLabel[c]}</button>)}</div>
+       <div className="opsFilterTabs">{["Todos","whatsapp","instagram","messenger","email"].map(c=><button key={c} onClick={()=>setChannel(c)} className={channel===c?"active":""}>{c==="Todos"?"Todos":channelLabel[c]}</button>)}</div>
      </div>
      <div className="opsInboxGrid">
        <aside className="opsThreadList">

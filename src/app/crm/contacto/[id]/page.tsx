@@ -3,13 +3,13 @@ import { notFound } from "next/navigation";
 import AdminShell from "@/app/admin/AdminShell";
 import { createSupabaseClient } from "@/lib/supabase/client";
 import { Mail, Phone, MapPin, CalendarDays, Star, MessageSquareText, ListTodo, CreditCard, FileText, Eye, Heart, ArrowLeft, ExternalLink, CircleDollarSign } from "lucide-react";
-import { IconBrandWhatsapp, IconBrandInstagram, IconBrandMessenger, IconBrandTelegram } from "@tabler/icons-react";
+import { IconBrandWhatsapp, IconBrandInstagram, IconBrandMessenger } from "@tabler/icons-react";
 
 export const dynamic="force-dynamic";
 
 const fmtMoney=(n:any,c="ARS")=>`${c} ${Number(n||0).toLocaleString("es-AR")}`;
 const fmtDate=(d:any)=>d?new Date(d).toLocaleString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"}):"—";
-const channelIcon=(c:string)=>c==="whatsapp"?<IconBrandWhatsapp size={16}/>:c==="instagram"?<IconBrandInstagram size={16}/>:c==="messenger"?<IconBrandMessenger size={16}/>:c==="telegram"?<IconBrandTelegram size={16}/>:<Mail size={16}/>;
+const channelIcon=(c:string)=>c==="whatsapp"?<IconBrandWhatsapp size={16}/>:c==="instagram"?<IconBrandInstagram size={16}/>:c==="messenger"?<IconBrandMessenger size={16}/>:<Mail size={16}/>;
 
 export default async function Contact360Page({params}:{params:Promise<{id:string}>}){
  const {id}=await params; const supabase=createSupabaseClient();
@@ -18,11 +18,11 @@ export default async function Contact360Page({params}:{params:Promise<{id:string
  const [{data:opps},{data:events},{data:messages},{data:tasks},{data:reservations},{data:docs},{data:interactions},{data:tags},{data:sessions}] = await Promise.all([
   supabase.from("opportunities").select("*,trips(name,slug),departures(starts_on)").eq("contact_id",id).order("created_at",{ascending:false}),
   supabase.from("web_events").select("id,event_name,page_url,page_title,utm_source,utm_campaign,trip_id,occurred_at,properties,trips(name,slug)").eq("contact_id",id).order("occurred_at",{ascending:false}).limit(200),
-  supabase.from("messages").select("id,channel,direction,body,subject,status,sent_at,conversation_id").eq("contact_id",id).order("sent_at",{ascending:false}).limit(100),
+  supabase.from("messages").select("id,channel,direction,body,subject,status,sent_at,conversation_id").eq("contact_id",id).in("channel",["whatsapp","instagram","messenger","email"]).order("sent_at",{ascending:false}).limit(100),
   supabase.from("tasks").select("id,title,task_type,due_at,priority,status,completed_at,created_at").eq("contact_id",id).order("created_at",{ascending:false}),
   supabase.from("reservations").select("id,status,travelers,room_type,total_amount,paid_amount,currency,reserved_at,departures(starts_on,trips(name,slug)),payments(id,payment_type,provider,amount,currency,status,due_at,paid_at)").eq("contact_id",id).order("reserved_at",{ascending:false}),
   supabase.from("contact_documents").select("id,document_type,status,expires_on,received_at,notes").eq("contact_id",id),
-  supabase.from("interactions").select("id,channel,direction,interaction_type,subject,body,occurred_at").eq("contact_id",id).order("occurred_at",{ascending:false}).limit(100),
+  supabase.from("interactions").select("id,channel,direction,interaction_type,subject,body,occurred_at").eq("contact_id",id).in("channel",["whatsapp","instagram","messenger","email"]).order("occurred_at",{ascending:false}).limit(100),
   supabase.from("contact_tags").select("tags(name,color)").eq("contact_id",id),
   supabase.from("web_sessions").select("session_id,landing_page,last_page,utm_source,utm_campaign,referrer,event_count,started_at,last_seen_at,device_type").eq("contact_id",id).order("last_seen_at",{ascending:false})
  ]);

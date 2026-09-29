@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import {
   LayoutDashboard, UsersRound, MessageSquareText, Map, CreditCard,
   ListTodo, Workflow, Settings, Search, Bell, CalendarDays, PanelLeft,
-  PlaneTakeoff, Database, ChevronDown, Sun, Moon
+  PlaneTakeoff, Database, ChevronDown, Sun, Moon, Columns3
 } from "lucide-react";
 
 type Props={children:React.ReactNode; title:string; subtitle?:string; actions?:React.ReactNode};
@@ -45,11 +45,15 @@ html body .opsApp.theme-dark .crmEventList>div{border-color:#2b313a!important}
 html body .opsApp.theme-dark .crmFunnel>div{background:#11151a!important;color:#eef2f6!important;border:1px solid #303640!important}
 html body .opsApp.theme-dark .crmFunnel>div span,html body .opsApp.theme-dark .crmFunnel>div b{color:#eef2f6!important}
 html body .opsApp.theme-dark .crmChannels>div>div>i{background:#7c6cff!important}
+html body .opsApp.theme-dark .pipelineColumn,html body .opsApp.theme-dark .pipelineCard,html body .opsApp.theme-dark .pipelineSummaryCard{background:#171b21!important;border-color:#2b313a!important;color:#eef2f6!important}
+html body .opsApp.theme-dark .pipelineColumnHead{border-color:#2b313a!important}html body .opsApp.theme-dark .pipelineColumnHead small,html body .opsApp.theme-dark .pipelineCard small,html body .opsApp.theme-dark .pipelineCardMeta{color:#929bab!important}
+html body .opsApp.theme-dark .pipelineCard:hover{background:#1d222a!important}html body .opsApp.theme-dark .pipelineDropActive{background:#202631!important;border-color:#6d5dfc!important}
 `;
 
 const items=[
   {href:"/control",label:"Dashboard",icon:LayoutDashboard},
   {href:"/crm",label:"CRM",icon:UsersRound},
+  {href:"/crm/pipeline",label:"Pipeline",icon:Columns3},
   {href:"/crm/mensajes",label:"Mensajes",icon:MessageSquareText},
   {href:"/catalogo",label:"Viajes",icon:Map},
   {href:"/reservas",label:"Reservas",icon:CalendarDays},

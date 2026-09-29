@@ -2,7 +2,7 @@ import AdminShell from "@/app/admin/AdminShell";
 import { MessageSquareText, UsersRound, Tags, BadgeDollarSign, Workflow, ShieldCheck } from "lucide-react";
 
 const groups=[
- {icon:MessageSquareText,title:"Canales",desc:"WhatsApp, Instagram, Messenger, Telegram y email conectados al centro de mensajes."},
+ {icon:MessageSquareText,title:"Canales",desc:"WhatsApp, Instagram, Messenger y email conectados al centro de mensajes."},
  {icon:UsersRound,title:"Responsables",desc:"Equipo comercial y operativo disponible para asignación de contactos, conversaciones y tareas."},
  {icon:Tags,title:"Etapas y etiquetas",desc:"Pipeline, estados comerciales y clasificación de contactos y oportunidades."},
  {icon:BadgeDollarSign,title:"Monedas y cobros",desc:"ARS, USD y reglas de seguimiento de señas, cuotas, saldos y vencimientos."},

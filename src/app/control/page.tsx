@@ -2,17 +2,17 @@ import Link from "next/link";
 import { createSupabaseClient } from "@/lib/supabase/client";
 import AdminShell from "@/app/admin/AdminShell";
 import { MessageSquareText, ListTodo, CalendarCheck2, CreditCard, ArrowUpRight, Clock3, CircleDollarSign, UsersRound, PlaneTakeoff, ChevronRight } from "lucide-react";
-import { IconBrandWhatsapp, IconBrandInstagram, IconBrandMessenger, IconBrandTelegram } from "@tabler/icons-react";
+import { IconBrandWhatsapp, IconBrandInstagram, IconBrandMessenger } from "@tabler/icons-react";
 
 export const dynamic="force-dynamic";
 
 const fmt=(n:number,c="ARS")=>c==="USD"?`USD ${Math.round(n).toLocaleString("es-AR")}`:`$ ${Math.round(n).toLocaleString("es-AR")}`;
-const channelIcon=(c:string)=>c==="whatsapp"?<IconBrandWhatsapp size={20}/>:c==="instagram"?<IconBrandInstagram size={20}/>:c==="messenger"?<IconBrandMessenger size={20}/>:c==="telegram"?<IconBrandTelegram size={20}/>:<MessageSquareText size={20}/>;
+const channelIcon=(c:string)=>c==="whatsapp"?<IconBrandWhatsapp size={20}/>:c==="instagram"?<IconBrandInstagram size={20}/>:c==="messenger"?<IconBrandMessenger size={20}/>:<MessageSquareText size={20}/>;
 
 export default async function ControlPage(){
  const supabase=createSupabaseClient();
  const [{data:conversations},{data:tasks},{data:reservations},{data:payments},{data:departures},{count:contactCount}] = await Promise.all([
-  supabase.from("conversations").select("id,channel,status,unread_count,last_message_at,intent,response_due_at"),
+  supabase.from("conversations").select("id,channel,status,unread_count,last_message_at,intent,response_due_at").in("channel",["whatsapp","instagram","messenger","email"]),
   supabase.from("tasks").select("id,title,due_at,priority,status,contacts(first_name,last_name)").eq("status","open").order("due_at",{ascending:true}).limit(8),
   supabase.from("reservations").select("id,status,total_amount,paid_amount,currency,reserved_at,contacts(first_name,last_name),departures(starts_on,trips(name))").order("reserved_at",{ascending:false}).limit(8),
   supabase.from("payments").select("id,status,amount,currency,due_at,paid_at,payment_type,provider").order("due_at",{ascending:true}).limit(20),
@@ -25,7 +25,7 @@ export default async function ControlPage(){
  const confirmed=r.filter((x:any)=>["confirmed","deposit_paid","reserved"].includes(String(x.status))).length;
  const pendingPayments=p.filter((x:any)=>["pending","due","overdue"].includes(String(x.status))).length;
  const pendingAmount=p.filter((x:any)=>["pending","due","overdue"].includes(String(x.status))&&x.currency!=="USD").reduce((a:any,x:any)=>a+Number(x.amount||0),0);
- const channels=["whatsapp","instagram","messenger","telegram","email"].map(channel=>({channel,count:conv.filter((x:any)=>x.channel===channel).length,unread:conv.filter((x:any)=>x.channel===channel).reduce((a:any,x:any)=>a+Number(x.unread_count||0),0)}));
+ const channels=["whatsapp","instagram","messenger","email"].map(channel=>({channel,count:conv.filter((x:any)=>x.channel===channel).length,unread:conv.filter((x:any)=>x.channel===channel).reduce((a:any,x:any)=>a+Number(x.unread_count||0),0)}));
  return <AdminShell title="Dashboard operativo" subtitle="Lo que el equipo necesita resolver hoy: mensajes, tareas, reservas, cobros y salidas." actions={<><Link className="opsSecondaryBtn" href="/crm/mensajes"><MessageSquareText size={16}/> Abrir mensajes</Link><Link className="opsPrimaryBtn" href="/catalogo"><PlaneTakeoff size={16}/> Gestionar viajes</Link></>}>
    <section className="opsMetricGrid dashboardMetrics">
     <article><div className="opsMetricIcon"><MessageSquareText size={19}/></div><div><span>Mensajes sin leer</span><strong>{unread}</strong><small>{conv.filter((x:any)=>x.status==="open").length} conversaciones abiertas</small></div></article>
