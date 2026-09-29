@@ -1678,3 +1678,48 @@ html body .opsApp.theme-dark button:disabled,
 html body .opsApp.theme-dark .opsButton:disabled,
 html body .opsApp.theme-dark .opsPrimaryBtn:disabled,
 html body .opsApp.theme-dark .opsSecondaryBtn:disabled{background:#20252c!important;border-color:#343b45!important;color:#8f99a8!important;-webkit-text-fill-color:#8f99a8!important;opacity:1!important}
+
+/* ===== Public site contrast guard: never white headings on cream/light surfaces ===== */
+.subPage,
+.accountPage:not(.darkAccount),
+.locas-blog-page,
+.locas-trip-page,
+.locas-related,
+.trip-commerce-shell{
+  --public-heading:#171717;
+}
+
+.subPage h1,.subPage h2,.subPage h3,
+.accountPage:not(.darkAccount) h1,.accountPage:not(.darkAccount) h2,.accountPage:not(.darkAccount) h3,
+.locas-blog-page h1,.locas-blog-page h2,.locas-blog-page h3,
+.locas-trip-details h1,.locas-trip-details h2,.locas-trip-details h3,
+.trip-commerce-shell h1,.trip-commerce-shell h2,.trip-commerce-shell h3,
+.locas-related h1,.locas-related h2,.locas-related h3{
+  color:var(--public-heading)!important;
+  -webkit-text-fill-color:var(--public-heading)!important;
+}
+
+/* Explicit light cards / editorial surfaces */
+.locas-trip-fact-card h1,.locas-trip-fact-card h2,.locas-trip-fact-card h3,.locas-trip-fact-card b,
+.trip-blog-card h3,
+.trip-commercial-mini h2,
+.trip-service-card h3,
+.trip-community-grid h3,.trip-community-grid b,
+.locas-blog-facts h2,.locas-blog-facts h3,.locas-blog-facts b,
+.locas-blog-likes h2,.locas-blog-likes h3,.locas-blog-likes b,
+.locas-blog-do h2,.locas-blog-do h3,.locas-blog-do b,
+.locas-blog-practical h2,.locas-blog-practical h3,.locas-blog-practical b{
+  color:#171717!important;
+  -webkit-text-fill-color:#171717!important;
+}
+
+/* Keep white only where the surface is intentionally dark / photographic */
+.locas-trip-hero h1,.locas-trip-hero h2,.locas-trip-hero h3,
+.locas-trip-seasons h1,.locas-trip-seasons h2,.locas-trip-seasons h3,
+.trip-coordinator-card h1,.trip-coordinator-card h2,.trip-coordinator-card h3,
+.trip-assistant h1,.trip-assistant h2,.trip-assistant h3,
+.trip-lead-capture .trip-lead-copy h1,.trip-lead-capture .trip-lead-copy h2,.trip-lead-capture .trip-lead-copy h3,
+.darkAccount h1,.darkAccount h2,.darkAccount h3{
+  color:#f7f7f4!important;
+  -webkit-text-fill-color:#f7f7f4!important;
+}
