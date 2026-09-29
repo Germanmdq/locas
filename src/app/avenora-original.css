@@ -1736,3 +1736,130 @@ html body .opsApp.theme-dark .opsSecondaryBtn:disabled{background:#20252c!import
 @media(max-width:1050px){.memberOverview{grid-template-columns:1fr 1fr}.memberFeedPreview{grid-template-columns:1fr 1fr}.communityLayout{grid-template-columns:200px 1fr}.communityRight{display:none}}
 @media(max-width:760px){.memberNav{align-items:flex-start;padding-top:20px;padding-bottom:20px;gap:20px}.memberNav nav{gap:12px;flex-wrap:wrap;justify-content:flex-end}.memberHero{grid-template-columns:1fr;gap:28px;padding-top:48px}.memberOverview,.memberFeedPreview{grid-template-columns:1fr}.memberSectionHead,.communityHero{align-items:flex-start;flex-direction:column}.communityLayout{grid-template-columns:1fr}.communitySidebar{position:relative;display:flex;overflow:auto;padding-bottom:8px}.communitySidebar>b,.communityMemberMini{display:none}.communitySidebar>button{flex:0 0 auto;background:#fff}.communitySidebar button small{display:none}.communityPost{padding:18px}.memberHero h1,.communityHero h1{font-size:3.6rem}}
 @media(max-width:520px){.memberNav{display:block}.memberNav nav{margin-top:18px;justify-content:flex-start}.memberOverview{padding-bottom:50px}.memberHero h1,.communityHero h1{font-size:3rem}.communityShell{padding-top:42px}.communityModalBackdrop{padding:10px}.communityModal,.communityThread{border-radius:18px;padding:18px}}
+
+/* ===== Mi Locas / Community polish: breathing room, hierarchy, density ===== */
+.memberHub>.shell,
+.communityPage>.shell,
+.communityShell.shell{
+  width:min(1240px,calc(100% - 64px))!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.memberNav.shell{
+  padding-left:0!important;
+  padding-right:0!important;
+}
+.memberHero{
+  padding-top:88px!important;
+  padding-bottom:52px!important;
+  gap:72px!important;
+}
+.memberHero>div:first-child{max-width:760px}
+.memberHero p{max-width:620px!important;margin-bottom:0!important}
+.memberCommunityCta{
+  min-height:122px!important;
+  padding:28px!important;
+  border-radius:26px!important;
+}
+.memberOverview{
+  gap:20px!important;
+  padding-top:12px!important;
+  padding-bottom:96px!important;
+}
+.memberOverview article{
+  min-height:220px!important;
+  padding:28px!important;
+  border-radius:24px!important;
+}
+.memberOverview strong{font-size:2.15rem!important;margin-top:30px!important}
+.memberOverview p{font-size:.9rem!important;line-height:1.6!important;max-width:240px}
+.memberCommunityPreview{
+  padding-top:18px!important;
+  padding-bottom:120px!important;
+}
+.memberSectionHead{
+  margin-bottom:34px!important;
+  padding-top:8px!important;
+}
+.memberSectionHead h2{
+  max-width:820px!important;
+  font-size:clamp(2.9rem,5vw,5.2rem)!important;
+}
+.memberFeedPreview{gap:20px!important}
+.memberFeedCard{
+  padding:28px!important;
+  min-height:300px!important;
+  border-radius:24px!important;
+  box-shadow:0 12px 30px rgba(17,24,39,.045)!important;
+}
+.memberFeedCard h3{font-size:1.6rem!important;margin-top:24px!important}
+.memberFeedCard p{font-size:.92rem!important;line-height:1.65!important}
+.memberFeedCard footer{padding-top:18px!important}
+
+.communityShell{
+  padding-top:82px!important;
+  padding-bottom:120px!important;
+}
+.communityHero{
+  margin-bottom:52px!important;
+  gap:64px!important;
+}
+.communityHero>div{max-width:860px!important}
+.communityHero p{margin-bottom:0!important}
+.communityLayout{
+  grid-template-columns:250px minmax(0,1fr) 240px!important;
+  gap:28px!important;
+}
+.communitySidebar{top:28px!important;padding-right:4px}
+.communitySidebar>button{
+  padding:14px!important;
+  border-radius:15px!important;
+}
+.communitySearch{
+  height:54px!important;
+  border-radius:17px!important;
+  padding:0 18px!important;
+  margin-bottom:18px!important;
+}
+.communityPost{
+  padding:28px!important;
+  border-radius:24px!important;
+  margin-bottom:18px!important;
+}
+.communityPost h2{font-size:1.75rem!important;margin-top:10px!important}
+.communityPost p{font-size:.94rem!important;line-height:1.68!important}
+.communityPost footer{padding-top:18px!important;margin-top:22px!important}
+.communityRight{top:28px!important;gap:16px!important}
+.communityRight>div{
+  padding:22px!important;
+  border-radius:20px!important;
+}
+
+@media(max-width:1100px){
+  .memberHub>.shell,.communityPage>.shell,.communityShell.shell{width:min(100% - 48px,1240px)!important}
+  .memberHero{grid-template-columns:1fr!important;gap:30px!important}
+  .memberCommunityCta{max-width:620px}
+  .communityLayout{grid-template-columns:210px minmax(0,1fr)!important}
+}
+@media(max-width:760px){
+  .memberHub>.shell,.communityPage>.shell,.communityShell.shell{width:calc(100% - 32px)!important}
+  .memberHero{padding-top:58px!important;padding-bottom:34px!important}
+  .memberOverview{gap:14px!important;padding-bottom:72px!important}
+  .memberOverview article{padding:22px!important;min-height:190px!important}
+  .memberCommunityPreview{padding-bottom:88px!important}
+  .memberSectionHead{margin-bottom:24px!important}
+  .memberFeedCard{padding:22px!important;min-height:250px!important}
+  .communityShell{padding-top:52px!important;padding-bottom:90px!important}
+  .communityHero{gap:24px!important;margin-bottom:34px!important}
+  .communityLayout{grid-template-columns:1fr!important;gap:20px!important}
+  .communitySidebar{padding:0 0 6px!important;gap:8px!important}
+  .communitySidebar>button{padding:12px 14px!important}
+  .communityPost{padding:22px!important}
+}
+@media(max-width:520px){
+  .memberHub>.shell,.communityPage>.shell,.communityShell.shell{width:calc(100% - 24px)!important}
+  .memberHero h1,.communityHero h1{font-size:2.85rem!important}
+  .memberHero{padding-top:42px!important}
+  .memberCommunityCta{padding:20px!important;border-radius:20px!important}
+  .memberOverview article,.memberFeedCard,.communityPost{border-radius:20px!important}
+}
