@@ -35,7 +35,7 @@ export default async function Page(){
   return <AdminShell title="Datos" subtitle="Fuentes, tracking y estructura de información del sistema.">
     <section className="dataHealthBar">
       <div className={allOk?"ok":"warn"}><CheckCircle2 size={18}/><span><b>{allOk?"Supabase conectado":"Revisar conexión"}</b><small>{allOk?"Base operativa y accesible":"Hay módulos con error de lectura"}</small></span></div>
-      <div><Database size={18}/><span><b>{Object.values(stats).reduce((a:any,x:any)=>a+Number(x.count||0),0)}</b><small>registros principales</small></span></div>
+      <div><Database size={18}/><span><b>{(Object.values(stats) as any[]).reduce((a:number,x:any)=>a+Number(x.count||0),0)}</b><small>registros principales</small></span></div>
       <div><Globe2 size={18}/><span><b>{sessionCount}</b><small>sesiones recientes</small></span></div>
       <div><UsersRound size={18}/><span><b>{identified}</b><small>sesiones identificadas</small></span></div>
     </section>
