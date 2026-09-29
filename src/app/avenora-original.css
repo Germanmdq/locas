@@ -1598,3 +1598,71 @@ a.w-webflow-badge,
 .opsApp.theme-dark .cmsLiveTripList button{background:transparent!important;border-color:#2b313a!important;color:#e9edf2!important}.opsApp.theme-dark .cmsLiveTripList button.active{background:#242a32!important}.opsApp.theme-dark .cmsLiveTabs{border-color:#2b313a!important}.opsApp.theme-dark .cmsLiveTabs button{color:#9aa3b1!important}.opsApp.theme-dark .cmsLiveTabs button.active{color:#f4f6f8!important;border-color:#f4f6f8!important}.opsApp.theme-dark .cmsLiveStats>div{background:#11151a!important;border-color:#2b313a!important}.opsApp.theme-dark .cmsHeroPreview>div{background:rgba(17,21,26,.86)!important;color:#e7ebf1!important}
 .opsApp.theme-dark .crmOperationalSurface .crmTrackingStrip article{background:#090c10!important;border:1px solid #2a3038!important}.opsApp.theme-dark .crmOperationalSurface .crmSearch{background:#171b21!important;border-color:#303640!important}.opsApp.theme-dark .crmOperationalSurface .crmSearch input{color:#eef2f6!important}.opsApp.theme-dark .crmOperationalSurface .crmChannelCard{filter:saturate(.82) brightness(.78);border-color:#313844!important}.opsApp.theme-dark .crmOperationalSurface .crmChannelCard.active{background:#eef2f6!important;border-color:#eef2f6!important;color:#12151a!important;filter:none!important}.opsApp.theme-dark .crmOperationalSurface .crmChannelCard.active small{color:#4b5565!important}.opsApp.theme-dark .crmOperationalSurface .crmDetail{background:#090c10!important;border:1px solid #2b313a!important}.opsApp.theme-dark .crmOperationalSurface .crmDetailGrid>div{background:#171b21!important}.opsApp.theme-dark .crmOperationalSurface .crmNext{background:#f4f6f8!important;color:#12151a!important}.opsApp.theme-dark .crmOperationalSurface .crmNext h3,.opsApp.theme-dark .crmOperationalSurface .crmNext span{color:#12151a!important}.opsApp.theme-dark .crmOperationalSurface .crmNext button{background:#11151a!important;color:#fff!important}
 .opsApp.theme-dark .opsDrawer,.opsApp.theme-dark .taskDrawer{background:#171b21!important;color:#eef2f6!important}.opsApp.theme-dark .opsDrawer>header h2,.opsApp.theme-dark .taskDrawer h2{color:#eef2f6!important}.opsApp.theme-dark .opsDrawerForm label,.opsApp.theme-dark .taskDrawerForm label{color:#b6beca!important}.opsApp.theme-dark .settingsOpsCard>span{background:#222831!important;color:#cad2de!important}.opsApp.theme-dark .dataFlow span{background:#171b21!important;border-color:#303640!important;color:#dce2ea!important}.opsApp.theme-dark .opsEmptyRow,.opsApp.theme-dark .crmEmpty,.opsApp.theme-dark .taskOpsEmpty{color:#858e9d!important}
+
+/* ===== GLOBAL ADMIN BUTTON CONTRAST ===== */
+html body .opsApp .opsPrimaryBtn,
+html body .opsApp .opsButton:not(.secondary),
+html body .opsApp .opsSend,
+html body .opsApp .opsContextActions button:not(.secondary){background:#111827!important;border:1px solid #111827!important;color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important}
+html body .opsApp .opsSecondaryBtn,
+html body .opsApp a.opsSecondaryBtn,
+html body .opsApp .opsButton.secondary,
+html body .opsApp .cmsLiveCardHead button,
+html body .opsApp .cmsDayPhoto label,
+html body .opsApp .opsConversationActions a,
+html body .opsApp .opsConversationActions button,
+html body .opsApp .opsAttach,
+html body .opsApp .opsContextActions button.secondary{background:#fff!important;border:1px solid #cfd5dd!important;color:#1f2937!important;-webkit-text-fill-color:#1f2937!important;opacity:1!important}
+html body .opsApp .opsPrimaryBtn svg,
+html body .opsApp .opsButton svg,
+html body .opsApp .opsSend svg,
+html body .opsApp .opsSecondaryBtn svg,
+html body .opsApp .cmsLiveCardHead button svg,
+html body .opsApp .cmsDayPhoto label svg{color:currentColor!important;opacity:1!important}
+html body .opsApp .opsPrimaryBtn:hover,
+html body .opsApp .opsButton:not(.secondary):hover,
+html body .opsApp .opsSend:hover{background:#202938!important;border-color:#202938!important}
+html body .opsApp .opsSecondaryBtn:hover,
+html body .opsApp .opsButton.secondary:hover,
+html body .opsApp .cmsLiveCardHead button:hover,
+html body .opsApp .cmsDayPhoto label:hover,
+html body .opsApp .opsConversationActions a:hover,
+html body .opsApp .opsConversationActions button:hover,
+html body .opsApp .opsAttach:hover{background:#f3f4f6!important;border-color:#b8c0cc!important;color:#111827!important;-webkit-text-fill-color:#111827!important}
+html body .opsApp button:disabled,
+html body .opsApp .opsButton:disabled,
+html body .opsApp .opsPrimaryBtn:disabled,
+html body .opsApp .opsSecondaryBtn:disabled{cursor:not-allowed!important;opacity:1!important;background:#e5e7eb!important;border-color:#d1d5db!important;color:#6b7280!important;-webkit-text-fill-color:#6b7280!important}
+html body .opsApp .cmsLiveStatus button{min-height:32px!important;border:1px solid #d7dce2!important;border-radius:8px!important;background:#fff!important;color:#374151!important;-webkit-text-fill-color:#374151!important;padding:6px 10px!important;font-weight:600!important;opacity:1!important}
+html body .opsApp .cmsLiveTabs button{color:#596273!important;-webkit-text-fill-color:#596273!important;opacity:1!important;font-weight:600!important}
+html body .opsApp .cmsLiveTabs button.active{color:#111827!important;-webkit-text-fill-color:#111827!important;border-bottom-color:#111827!important}
+html body .opsApp .cmsDayPhoto label{min-height:38px!important;justify-content:center!important;font-weight:650!important}
+html body .opsApp .cmsLiveCardHead button{min-height:36px!important;font-weight:650!important}
+html body .opsApp.theme-dark .opsPrimaryBtn,
+html body .opsApp.theme-dark .opsButton:not(.secondary),
+html body .opsApp.theme-dark .opsSend,
+html body .opsApp.theme-dark .opsContextActions button:not(.secondary){background:#f3f4f6!important;border-color:#f3f4f6!important;color:#111827!important;-webkit-text-fill-color:#111827!important}
+html body .opsApp.theme-dark .opsSecondaryBtn,
+html body .opsApp.theme-dark a.opsSecondaryBtn,
+html body .opsApp.theme-dark .opsButton.secondary,
+html body .opsApp.theme-dark .cmsLiveCardHead button,
+html body .opsApp.theme-dark .cmsDayPhoto label,
+html body .opsApp.theme-dark .opsConversationActions a,
+html body .opsApp.theme-dark .opsConversationActions button,
+html body .opsApp.theme-dark .opsAttach,
+html body .opsApp.theme-dark .opsContextActions button.secondary,
+html body .opsApp.theme-dark .cmsLiveStatus button{background:#242a32!important;border-color:#46505e!important;color:#f4f6f8!important;-webkit-text-fill-color:#f4f6f8!important;opacity:1!important}
+html body .opsApp.theme-dark .opsSecondaryBtn:hover,
+html body .opsApp.theme-dark .opsButton.secondary:hover,
+html body .opsApp.theme-dark .cmsLiveCardHead button:hover,
+html body .opsApp.theme-dark .cmsDayPhoto label:hover,
+html body .opsApp.theme-dark .opsConversationActions a:hover,
+html body .opsApp.theme-dark .opsConversationActions button:hover,
+html body .opsApp.theme-dark .opsAttach:hover,
+html body .opsApp.theme-dark .cmsLiveStatus button:hover{background:#303741!important;border-color:#647083!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+html body .opsApp.theme-dark .cmsLiveTabs button{color:#aeb7c5!important;-webkit-text-fill-color:#aeb7c5!important;opacity:1!important}
+html body .opsApp.theme-dark .cmsLiveTabs button.active{color:#fff!important;-webkit-text-fill-color:#fff!important;border-bottom-color:#fff!important}
+html body .opsApp.theme-dark button:disabled,
+html body .opsApp.theme-dark .opsButton:disabled,
+html body .opsApp.theme-dark .opsPrimaryBtn:disabled,
+html body .opsApp.theme-dark .opsSecondaryBtn:disabled{background:#20252c!important;border-color:#343b45!important;color:#8f99a8!important;-webkit-text-fill-color:#8f99a8!important;opacity:1!important}
