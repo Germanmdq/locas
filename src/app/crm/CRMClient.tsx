@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { IconBrandInstagram, IconBrandFacebook, IconBrandWhatsapp, IconBrandGoogle, IconWorld, IconUsersGroup, IconCircleHelp, IconAdjustmentsHorizontal } from "@tabler/icons-react";
+import { IconBrandInstagram, IconBrandFacebook, IconBrandWhatsapp, IconBrandGoogle, IconWorld, IconUsersGroup, IconHelpCircle, IconAdjustmentsHorizontal } from "@tabler/icons-react";
 
 export type Lead = {
   id:string; name:string; channel:string; campaign:string; trip:string; stage:string;
@@ -14,7 +14,7 @@ export type TrackingStat={source:string;event_name:string;events:number;sessions
 export type WebSession={session_id:string;anonymous_id:string;identified:boolean;source:string;campaign:string;landing_page:string;last_page:string;event_count:number;last_seen_at:string};
 
 const sourceClass=(name:string)=>({Instagram:"ig",Facebook:"fb",WhatsApp:"wa",Google:"gg","Web orgánica":"web",Web:"web",Referido:"ref"}[name]||"web");
-const channelIcon=(name:string)=>{const props={size:16,stroke:1.8};switch(name){case "Instagram":return <IconBrandInstagram {...props}/>;case "Facebook":return <IconBrandFacebook {...props}/>;case "WhatsApp":return <IconBrandWhatsapp {...props}/>;case "Google":return <IconBrandGoogle {...props}/>;case "Web orgánica":case "Web":return <IconWorld {...props}/>;case "Referido":return <IconUsersGroup {...props}/>;case "Sin origen":return <IconCircleHelp {...props}/>;default:return <IconAdjustmentsHorizontal {...props}/>}};
+const channelIcon=(name:string)=>{const props={size:16,stroke:1.8};switch(name){case "Instagram":return <IconBrandInstagram {...props}/>;case "Facebook":return <IconBrandFacebook {...props}/>;case "WhatsApp":return <IconBrandWhatsapp {...props}/>;case "Google":return <IconBrandGoogle {...props}/>;case "Web orgánica":case "Web":return <IconWorld {...props}/>;case "Referido":return <IconUsersGroup {...props}/>;case "Sin origen":return <IconHelpCircle {...props}/>;default:return <IconAdjustmentsHorizontal {...props}/>}};
 
 export default function CRMClient({leads,channelStats,trackingStats,webSessions}:{leads:Lead[];channelStats:ChannelStat[];trackingStats:TrackingStat[];webSessions:WebSession[]}){
   const params=useSearchParams();
