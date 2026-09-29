@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { CalendarDays, MapPin, UsersRound } from "lucide-react";
 import TripEffects from "./TripEffects";
 import CommercialPanel from "./CommercialPanel";
 import LeadCapture from "./LeadCapture";
@@ -42,9 +43,18 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
 
       <section className="locas-trip-details">
         <div data-trip-reveal className="locas-trip-reveal locas-trip-facts">
-          <div><span className="locas-trip-fact-icon">⌖</span><span>{trip.location}</span></div>
-          <div><span className="locas-trip-fact-icon">◷</span><span><b>Próxima salida</b><small>{trip.departures[0]}</small></span></div>
-          <div><span className="locas-trip-fact-icon">◎</span><span><b>{trip.spots} lugares disponibles</b><small>{trip.duration}</small></span></div>
+          <article className="locas-trip-fact-card">
+            <span className="locas-trip-fact-icon"><MapPin size={20} strokeWidth={1.8}/></span>
+            <div><small>Destino</small><b>{trip.location}</b><em>{trip.title}</em></div>
+          </article>
+          <article className="locas-trip-fact-card">
+            <span className="locas-trip-fact-icon"><CalendarDays size={20} strokeWidth={1.8}/></span>
+            <div><small>Próxima salida</small><b>{trip.departures[0]}</b><em>{trip.duration}</em></div>
+          </article>
+          <article className="locas-trip-fact-card locas-trip-fact-card-spots">
+            <span className="locas-trip-fact-icon"><UsersRound size={20} strokeWidth={1.8}/></span>
+            <div><small>Lugares disponibles</small><b>{trip.spots} {trip.spots===1?"cupo":"cupos"}</b><em>Grupo confirmado</em></div>
+          </article>
         </div>
         <article className="locas-trip-editorial">
           <div data-trip-reveal className="locas-trip-reveal locas-trip-copy-block">
