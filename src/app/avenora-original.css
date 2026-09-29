@@ -1328,3 +1328,23 @@ a.w-webflow-badge,
 @media(max-width:980px){.crmToolbar{grid-template-columns:1fr!important}.crmToolbar label{max-width:none!important}.crmToolbar>div{width:100%!important}}
 @media(max-width:720px){.crmToolbar{display:grid!important}.crmToolbar>div{margin-top:0!important}.crmToolbar button{min-height:44px!important;padding:0 15px!important;font-size:.86rem!important}}
 .crmToolbar button{display:inline-flex!important;align-items:center!important;gap:7px!important;white-space:nowrap!important}.crmToolbar button svg{flex:0 0 auto}.crmToolbar button span{display:inline-block}
+
+/* CRM toolbar: aire, color representativo y scroll limpio */
+.crmToolbar{display:grid!important;grid-template-columns:minmax(320px,.95fr) minmax(0,1.65fr)!important;gap:28px!important;align-items:center!important;margin:34px 0 30px!important;padding:0 2px!important}
+.crmSearch{display:flex!important;align-items:center!important;gap:10px!important;height:58px!important;padding:0 18px!important;border:1px solid #d9d9d9!important;border-radius:18px!important;background:#fff!important;width:auto!important;min-width:0!important;box-sizing:border-box!important}
+.crmSearch input{padding:0!important;font-size:16px!important;font-weight:600!important;color:#222!important;min-width:0!important}
+.crmSearch input::placeholder{color:#929292!important}
+.crmChannelScroller{display:flex!important;align-items:center!important;gap:12px!important;overflow-x:auto!important;overflow-y:hidden!important;white-space:nowrap!important;flex-wrap:nowrap!important;padding:5px 4px 7px!important;min-width:0!important;scrollbar-width:none!important}
+.crmChannelScroller::-webkit-scrollbar{display:none!important}
+.crmChannelChip{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:9px!important;min-height:52px!important;padding:0 18px!important;border:1px solid!important;border-radius:18px!important;font-size:15px!important;font-weight:600!important;white-space:nowrap!important;flex:0 0 auto!important;box-shadow:0 1px 0 rgba(0,0,0,.02)!important;transition:transform .15s ease,box-shadow .15s ease!important}
+.crmChannelChip:hover{transform:translateY(-1px)!important;box-shadow:0 4px 12px rgba(16,24,40,.06)!important}
+.crmChannelIcon{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:20px!important;height:20px!important;flex:0 0 auto!important}
+.crmWorkspace{gap:26px!important;margin-top:4px!important}
+.crmListPanel{border-radius:22px!important}
+.crmTableHead{padding:17px 20px!important}
+.crmLeadRow{padding:18px 20px!important;min-height:78px!important}
+.crmDetail{padding:28px!important;border-radius:24px!important}
+.crmAttribution,.crmTrackingPanels{gap:24px!important;margin-bottom:28px!important}
+.crmPanel{padding:28px!important}
+@media(max-width:1180px){.crmToolbar{grid-template-columns:1fr!important;gap:16px!important}.crmSearch{width:100%!important}.crmChannelScroller{width:100%!important}}
+@media(max-width:760px){.crmToolbar{margin:24px 0!important;gap:12px!important}.crmSearch{height:54px!important;border-radius:16px!important}.crmChannelChip{min-height:48px!important;padding:0 16px!important;font-size:14px!important}.crmWorkspace{gap:18px!important}.crmLeadRow{padding:16px!important}}
