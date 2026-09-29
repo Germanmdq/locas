@@ -1388,3 +1388,18 @@ a.w-webflow-badge,
   background:transparent!important;
   border:0!important;
 }
+
+/* CRM: filtros por canal como cards grandes, sin scroll */
+.crmToolbar.crmToolbarCards{display:grid!important;grid-template-columns:minmax(300px,420px) minmax(0,1fr)!important;gap:22px!important;align-items:stretch!important;margin:30px 0 34px!important;overflow:visible!important}
+.crmToolbarCards .crmSearch{height:auto!important;min-height:92px!important;border-radius:18px!important;padding:0 20px!important;align-self:stretch!important}
+.crmChannelCards{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px!important;min-width:0!important;overflow:visible!important;padding:0!important}
+.crmChannelCard{min-width:0!important;min-height:92px!important;border:1px solid #dfe3e8!important;border-radius:18px!important;background:#fff!important;padding:16px!important;display:grid!important;grid-template-columns:38px minmax(0,1fr)!important;gap:12px!important;align-items:center!important;text-align:left!important;cursor:pointer!important;color:#344054!important;box-shadow:0 1px 2px rgba(16,24,40,.03)!important;transition:.15s ease!important}
+.crmChannelCard>svg{width:30px!important;height:30px!important;stroke-width:1.7!important}
+.crmChannelCard>span{min-width:0!important;display:block!important}.crmChannelCard b{display:block!important;font-size:.9rem!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}.crmChannelCard small{display:block!important;margin-top:5px!important;color:#7f8897!important;font-size:.68rem!important}
+.crmChannelCard:hover{transform:translateY(-1px)!important;box-shadow:0 6px 18px rgba(16,24,40,.06)!important}
+.crmChannelCard.active{background:#111827!important;border-color:#111827!important;color:#fff!important}.crmChannelCard.active small{color:#c7ced9!important}
+.crmChannelCard.ig{background:#fff5fb!important;border-color:#f5c9e7!important;color:#c13584!important}.crmChannelCard.fb{background:#f3f8ff!important;border-color:#c8dcff!important;color:#1877f2!important}.crmChannelCard.wa{background:#f0fbf4!important;border-color:#bfe9cf!important;color:#159c5a!important}.crmChannelCard.gg{background:#fff7f2!important;border-color:#f6d5c3!important;color:#d94b37!important}.crmChannelCard.web{background:#f5f7fa!important;border-color:#dce1e8!important;color:#475467!important}.crmChannelCard.ref{background:#fff9eb!important;border-color:#f2d796!important;color:#a86800!important}
+.crmChannelCard.ig.active,.crmChannelCard.fb.active,.crmChannelCard.wa.active,.crmChannelCard.gg.active,.crmChannelCard.web.active,.crmChannelCard.ref.active{background:#111827!important;border-color:#111827!important;color:#fff!important}
+@media(max-width:1180px){.crmToolbar.crmToolbarCards{grid-template-columns:1fr!important}.crmChannelCards{grid-template-columns:repeat(4,minmax(0,1fr))!important}.crmToolbarCards .crmSearch{min-height:64px!important}}
+@media(max-width:860px){.crmChannelCards{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:520px){.crmChannelCards{grid-template-columns:1fr!important}.crmChannelCard{min-height:78px!important}}
