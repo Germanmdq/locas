@@ -1370,3 +1370,21 @@ a.w-webflow-badge,
 .crmPage .crmTableHead{padding:16px 20px!important}
 @media(max-width:1180px){.crmPage .crmToolbar{grid-template-columns:1fr!important;overflow:visible!important}.crmPage .crmChannelScroller{padding-bottom:10px!important}}
 @media(max-width:760px){.crmPage .crmToolbar{margin:28px 0!important;row-gap:14px!important}.crmPage .crmSearch{height:50px!important}.crmPage .crmChannelChip{height:44px!important;min-height:44px!important;padding:0 13px!important;font-size:13px!important}.crmPage .crmWorkspace{gap:20px!important}}
+
+/* CRM: ocultar scrollbar visual de filtros manteniendo scroll horizontal */
+.crmChannelScroller{
+  scrollbar-width:none!important;
+  -ms-overflow-style:none!important;
+  padding-bottom:2px!important;
+}
+.crmChannelScroller::-webkit-scrollbar{
+  width:0!important;
+  height:0!important;
+  display:none!important;
+  background:transparent!important;
+}
+.crmChannelScroller::-webkit-scrollbar-track,
+.crmChannelScroller::-webkit-scrollbar-thumb{
+  background:transparent!important;
+  border:0!important;
+}
