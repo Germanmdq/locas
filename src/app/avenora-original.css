@@ -1403,3 +1403,68 @@ a.w-webflow-badge,
 @media(max-width:1180px){.crmToolbar.crmToolbarCards{grid-template-columns:1fr!important}.crmChannelCards{grid-template-columns:repeat(4,minmax(0,1fr))!important}.crmToolbarCards .crmSearch{min-height:64px!important}}
 @media(max-width:860px){.crmChannelCards{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media(max-width:520px){.crmChannelCards{grid-template-columns:1fr!important}.crmChannelCard{min-height:78px!important}}
+
+/* CRM filter layout: full-width search, cards below */
+.crmToolbar.crmToolbarCards{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:18px!important;
+  margin:30px 0 30px!important;
+  width:100%!important;
+}
+.crmToolbar.crmToolbarCards .crmSearch{
+  width:100%!important;
+  max-width:none!important;
+  box-sizing:border-box!important;
+  height:64px!important;
+  border-radius:18px!important;
+  padding:0 20px!important;
+}
+.crmToolbar.crmToolbarCards .crmSearch input{
+  font-size:18px!important;
+}
+.crmChannelCards{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:14px!important;
+  width:100%!important;
+  overflow:visible!important;
+}
+.crmChannelCard{
+  min-width:0!important;
+  width:100%!important;
+  min-height:92px!important;
+  border-radius:18px!important;
+  padding:16px 18px!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:14px!important;
+  justify-content:flex-start!important;
+  box-sizing:border-box!important;
+}
+.crmChannelCard svg{
+  width:28px!important;
+  height:28px!important;
+  flex:0 0 auto!important;
+}
+.crmChannelCard>span{
+  min-width:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+}
+.crmChannelCard b{
+  font-size:16px!important;
+  line-height:1.1!important;
+}
+.crmChannelCard small{
+  margin-top:6px!important;
+  font-size:12px!important;
+}
+@media(max-width:1050px){
+  .crmChannelCards{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:620px){
+  .crmChannelCards{grid-template-columns:1fr!important}
+  .crmToolbar.crmToolbarCards .crmSearch{height:58px!important}
+}
