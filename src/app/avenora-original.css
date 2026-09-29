@@ -1327,3 +1327,4 @@ a.w-webflow-badge,
 .crmToolbar button.active{background:#111!important;color:#fff!important;border-color:#111!important}
 @media(max-width:980px){.crmToolbar{grid-template-columns:1fr!important}.crmToolbar label{max-width:none!important}.crmToolbar>div{width:100%!important}}
 @media(max-width:720px){.crmToolbar{display:grid!important}.crmToolbar>div{margin-top:0!important}.crmToolbar button{min-height:44px!important;padding:0 15px!important;font-size:.86rem!important}}
+.crmToolbar button{display:inline-flex!important;align-items:center!important;gap:7px!important;white-space:nowrap!important}.crmToolbar button svg{flex:0 0 auto}.crmToolbar button span{display:inline-block}
