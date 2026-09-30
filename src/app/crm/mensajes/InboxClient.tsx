@@ -2,10 +2,14 @@
 
 import Link from "next/link";
 import { useMemo,useRef,useState } from "react";
-import { Mail, Search, UserPlus, MoreHorizontal, Send, Paperclip, PanelRight } from "lucide-react";
+import { Mail, MoreHorizontal, Send, Paperclip, PanelRight } from "lucide-react";
 import { IconBrandWhatsapp, IconBrandInstagram, IconBrandMessenger } from "@tabler/icons-react";
 import AdminShell from "@/app/admin/AdminShell";
 import { createSupabaseClient } from "@/lib/supabase/client";
+import {TextInput} from "@astryxdesign/core/TextInput";
+import {Button} from "@astryxdesign/core/Button";
+import {IconButton} from "@astryxdesign/core/IconButton";
+import {Badge} from "@astryxdesign/core/Badge";
 
 type Thread={id:string;contact_id:string|null;channel:string;subject:string|null;status:string;unread_count:number;last_message_at:string;contact_name:string|null;email:string|null;phone:string|null;last_message:string|null;intent:string|null;sentiment:string|null;assigned_to?:string|null};
 type Message={id:string;conversation_id:string;channel:string;direction:string;sender_name:string|null;body:string|null;subject:string|null;status:string|null;sent_at:string;message_type:string};
@@ -42,15 +46,13 @@ export default function InboxClient({threads:initialThreads,messages:initialMess
 
  return <AdminShell title="Mensajes" subtitle="Una sola bandeja para responder, asignar y seguir conversaciones.">
    {notice&&<div className="opsNotice" onClick={()=>setNotice("")}>{notice}</div>}
-   <section className="inboxFocusToolbar">
-     <div className="opsInlineSearch inboxFocusSearch"><Search size={17}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Buscar persona o mensaje..."/></div>
-     <div className="inboxChannelTabs">
-       <button onClick={()=>setChannel("Todos")} className={channel==="Todos"?"active":""}><span>Todos</span><small>{threads.length}</small></button>
-       {channels.map(([key,label])=><button key={key} onClick={()=>setChannel(key)} className={channel===key?`active ${key}`:key}>{channelIcon(key,17)}<span>{label}</span><small>{unreadByChannel[key]||counts[key]||0}</small></button>)}
+   <section className="inboxFocusToolbar astryxInboxToolbar">
+     <div className="astryxInboxSearch"><TextInput label="Buscar conversaciones" isLabelHidden value={query} onChange={value=>setQuery(value)} placeholder="Buscar persona o mensaje..." hasClear width="100%"/></div>
+     <div className="astryxInboxChannels">
+       <Button label="Todos" size="sm" variant={channel==="Todos"?"primary":"ghost"} onClick={()=>setChannel("Todos")} endContent={<Badge variant="neutral" label={threads.length}/>}/>
+       {channels.map(([key,label])=><Button key={key} label={label} size="sm" variant={channel===key?"primary":"ghost"} onClick={()=>setChannel(key)} icon={channelIcon(key,17)} endContent={<Badge variant="neutral" label={unreadByChannel[key]||counts[key]||0}/>}/>)}
      </div>
-     <div className="inboxQuickState"><b>{unread}</b><span>sin leer</span><i/>
-       <b>{open}</b><span>abiertas</span>
-     </div>
+     <div className="inboxQuickState"><b>{unread}</b><span>sin leer</span><i/><b>{open}</b><span>abiertas</span></div>
    </section>
 
    <section className="opsCard inboxOpsCard inboxFocusCard">
@@ -66,9 +68,9 @@ export default function InboxClient({threads:initialThreads,messages:initialMess
 
        <section className="opsConversation">
          {current?<>
-           <header><div className={`opsCurrentChannel ${current.channel}`}>{channelIcon(current.channel,19)}</div><div className="opsConversationPerson"><h2>{current.contact_name||"Contacto"}</h2><p>{channelLabel[current.channel]||current.channel} · {current.email||current.phone||"Sin dato de contacto"}</p></div><div className="opsConversationActions"><button className={showContext?"is-active":""} onClick={()=>setShowContext(v=>!v)}><PanelRight size={16}/> Contexto</button><Link href={`/crm/contacto/${current.contact_id||""}`}>Ficha CRM</Link><div className="opsMoreWrap"><button onClick={()=>setMoreOpen(v=>!v)}><MoreHorizontal size={18}/></button>{moreOpen&&<div className="opsPopover opsMoreMenu"><button onClick={closeConversation}>Cerrar conversación</button><button onClick={createTask}>Crear seguimiento</button></div>}</div></div></header>
+           <header><div className={`opsCurrentChannel ${current.channel}`}>{channelIcon(current.channel,19)}</div><div className="opsConversationPerson"><h2>{current.contact_name||"Contacto"}</h2><p>{channelLabel[current.channel]||current.channel} · {current.email||current.phone||"Sin dato de contacto"}</p></div><div className="opsConversationActions astryxConversationActions"><Button label="Contexto" variant={showContext?"primary":"secondary"} size="sm" icon={<PanelRight size={16}/>} onClick={()=>setShowContext(v=>!v)}/><Button label="Ficha CRM" variant="secondary" size="sm" href={`/crm/contacto/${current.contact_id||""}`} as={Link}/><div className="opsMoreWrap"><IconButton label="Más acciones" tooltip="Más acciones" variant="ghost" size="sm" icon={<MoreHorizontal size={18}/>} onClick={()=>setMoreOpen(v=>!v)}/>{moreOpen&&<div className="opsPopover opsMoreMenu"><button onClick={closeConversation}>Cerrar conversación</button><button onClick={createTask}>Crear seguimiento</button></div>}</div></div></header>
            <div className="opsMessageStream">{conversation.length?conversation.map(m=><article key={m.id} className={m.direction==="outbound"?"outbound":"inbound"}><span>{m.sender_name||channelLabel[m.channel]||m.channel}</span>{m.subject&&<b>{m.subject}</b>}<p>{m.body}</p><small>{new Date(m.sent_at).toLocaleString("es-AR")} · {m.status||""}</small></article>):<div className="opsNoMessages">No hay mensajes cargados en este hilo.</div>}</div>
-           <footer><input ref={fileRef} type="file" hidden onChange={e=>setAttachment(e.target.files?.[0]||null)}/><button className="opsAttach" onClick={()=>fileRef.current?.click()} title="Adjuntar archivo"><Paperclip size={18}/></button><div className="opsReplyBox">{attachment&&<small>Adjunto: {attachment.name}</small>}<textarea value={reply} onChange={e=>setReply(e.target.value)} placeholder={`Responder por ${channelLabel[current.channel]||current.channel}...`}/></div><button className="opsSend" onClick={sendReply}><Send size={17}/> Enviar</button></footer>
+           <footer className="astryxComposer"><input ref={fileRef} type="file" hidden onChange={e=>setAttachment(e.target.files?.[0]||null)}/><IconButton label="Adjuntar archivo" tooltip="Adjuntar archivo" variant="ghost" icon={<Paperclip size={18}/>} onClick={()=>fileRef.current?.click()}/><div className="opsReplyBox">{attachment&&<small>Adjunto: {attachment.name}</small>}<textarea value={reply} onChange={e=>setReply(e.target.value)} placeholder={`Responder por ${channelLabel[current.channel]||current.channel}...`}/></div><Button label="Enviar" variant="primary" icon={<Send size={17}/>} onClick={sendReply}/></footer>
          </>:<div className="opsNoMessages">Seleccioná una conversación.</div>}
        </section>
 
