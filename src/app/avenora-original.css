@@ -1907,3 +1907,23 @@ html body .opsApp.theme-dark .opsSecondaryBtn:disabled{background:#20252c!import
 .inboxFocusCard .opsThreadCopy p{white-space:normal!important;display:-webkit-box!important;-webkit-line-clamp:1!important;-webkit-box-orient:vertical!important;overflow:hidden!important;line-height:1.35!important;max-height:1.35em!important}
 .opsToday{min-height:40px!important}
 @media(max-width:560px){.inboxFocusCard .opsConversationActions>button:first-child{width:40px!important;padding:0!important}.inboxFocusCard .opsConversationActions>button:first-child svg{margin:0!important}.inboxFocusCard .opsConversation>header{height:70px!important}}
+
+/* ===== Messages workbench dark-mode contrast + toolbar fit ===== */
+.opsApp.theme-dark .inboxFocusCard .opsMessageStream article.inbound p,
+.opsApp.theme-dark .inboxFocusCard .opsMessageStream article.inbound b,
+.opsApp.theme-dark .inboxFocusCard .opsMessageStream article.inbound{color:#f3f5f7!important;-webkit-text-fill-color:#f3f5f7!important}
+.opsApp.theme-dark .inboxFocusCard .opsMessageStream article.inbound>span,
+.opsApp.theme-dark .inboxFocusCard .opsMessageStream article.inbound small{color:#9ca6b4!important;-webkit-text-fill-color:#9ca6b4!important}
+.opsApp.theme-dark .inboxFocusCard .opsMessageStream article.outbound p,
+.opsApp.theme-dark .inboxFocusCard .opsMessageStream article.outbound b{color:#111827!important;-webkit-text-fill-color:#111827!important}
+.opsApp.theme-dark .inboxFocusCard .opsMessageStream article.outbound>span,
+.opsApp.theme-dark .inboxFocusCard .opsMessageStream article.outbound small{color:#667085!important;-webkit-text-fill-color:#667085!important}
+.inboxChannelTabs{min-width:0!important;display:grid!important;grid-template-columns:repeat(5,minmax(max-content,1fr))!important;gap:4px!important}
+.inboxChannelTabs button{min-width:0!important;justify-content:center!important;padding:0 8px!important;white-space:nowrap!important}
+.inboxChannelTabs button span{overflow:visible!important;text-overflow:clip!important}
+.inboxFocusToolbar{grid-template-columns:minmax(260px,.95fr) minmax(500px,1.65fr) auto!important}
+.inboxFocusCard .opsConversationActions{gap:8px!important}
+.inboxFocusCard .opsConversationActions>a{min-width:86px!important}
+.inboxFocusCard .opsConversationActions>button:first-child{min-width:104px!important}
+@media(max-width:1180px){.inboxFocusToolbar{grid-template-columns:minmax(240px,.9fr) minmax(0,1.8fr)!important}.inboxChannelTabs{grid-template-columns:repeat(5,max-content)!important;justify-content:start!important;overflow-x:auto!important;scrollbar-width:none!important}.inboxChannelTabs::-webkit-scrollbar{display:none!important}}
+@media(max-width:560px){.inboxFocusToolbar{grid-template-columns:1fr!important}.inboxChannelTabs{display:flex!important;overflow-x:auto!important}.inboxChannelTabs button{flex:0 0 auto!important}.inboxFocusCard .opsConversationPerson p{max-width:190px!important;white-space:normal!important;line-height:1.25!important}.inboxFocusCard .opsConversationActions>button:first-child{min-width:40px!important}}
