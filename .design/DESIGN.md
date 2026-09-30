@@ -1,28 +1,9 @@
-# DESIGN
+# Design — Messages workbench
 
-## Estructura
-- Sidebar global 240–248px.
-- Topbar 60–64px.
-- Page header compacto: título + subtítulo + acciones.
-- Contenido por prioridad: alertas/KPIs -> filtros -> lista/tabla -> detalle/acciones.
+Structure: AdminShell → compact inbox toolbar → conversation workbench.
 
-## Patrones
-- `shadcn-dashboard-shell`: AdminShell para todos los módulos operativos.
-- `customer-list-detail`: CRM lista + panel 360 resumido.
-- `faceted-filter-table`: búsqueda y filtros como controles, no como decoración.
+Desktop default: 340px list + flexible chat. Optional 280px context.
+Tablet: 300px list + chat; context overlay.
+Mobile: stacked list + chat; context overlay.
 
-## Desktop
-- contenido máximo utilizable sin hero.
-- tablas 44–52px por fila.
-- detail panel CRM 340–400px.
-- cards con radius 8–10px y sombra mínima.
-
-## Mobile
-- sidebar drawer.
-- CRM detalle debajo/lista primero.
-- cards 1–2 columnas.
-- sin overflow horizontal de toolbars/filtros.
-
-## Estados
-- empty/error/loading visibles por módulo.
-- selected/active claramente identificados.
+Primary actions stay in the conversation header. External send remains user-triggered; no automatic bulk send is introduced.
