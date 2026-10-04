@@ -6,134 +6,177 @@ import "./viaje-3d.css";
 
 declare global {
   interface Window {
-    Cesium?: any;
+    maplibregl?: any;
   }
 }
 
-const OBELISCO = { lon: -58.381592, lat: -34.603738, height: 1800 };
-const USHUAIA = { lon: -68.303, lat: -54.8019, height: 3000 };
+const OBELISCO = { center: [-58.381592, -34.603738] as [number, number], zoom: 13.8, pitch: 62, bearing: 18 };
+const PATAGONIA = { center: [-67.2, -45.8] as [number, number], zoom: 3.9, pitch: 42, bearing: 178 };
+const USHUAIA = { center: [-68.303, -54.8019] as [number, number], zoom: 11.8, pitch: 67, bearing: 205 };
 
 export default function Viaje3DPage() {
   const mountRef = useRef<HTMLDivElement | null>(null);
-  const widgetRef = useRef<any>(null);
-  const cesiumRef = useRef<any>(null);
+  const mapRef = useRef<any>(null);
   const [ready, setReady] = useState(false);
-  const [message, setMessage] = useState("Cargando motor 3D…");
-  const [cesiumLoaded, setCesiumLoaded] = useState(false);
+  const [maplibreLoaded, setMaplibreLoaded] = useState(false);
+  const [message, setMessage] = useState("Cargando mapa satelital…");
 
   useEffect(() => {
-    if (!cesiumLoaded) return;
-    let disposed = false;
+    if (!maplibreLoaded || !mountRef.current || !window.maplibregl) return;
 
-    async function init() {
-      const key = process.env.NEXT_PUBLIC_GOOGLE_MAP_TILES_API_KEY;
-      if (!key) {
-        setMessage("Falta NEXT_PUBLIC_GOOGLE_MAP_TILES_API_KEY");
-        return;
-      }
-
-      const Cesium = window.Cesium;
-      if (!Cesium) {
-        setMessage("No se pudo cargar CesiumJS");
-        return;
-      }
-      if (disposed || !mountRef.current) return;
-      cesiumRef.current = Cesium;
-
-      const widget = new Cesium.CesiumWidget(mountRef.current, {
-        baseLayer: false,
-        globe: false,
-        skyBox: false,
-        requestRenderMode: false,
-      });
-      widgetRef.current = widget;
-
-      try {
-        const tileset = await Cesium.createGooglePhotorealistic3DTileset({ key });
-        widget.scene.primitives.add(tileset);
-      } catch (error) {
-        console.error(error);
-        setMessage("No se pudieron cargar los tiles 3D de Google. Revisá la API key y Map Tiles API.");
-        return;
-      }
-
-      widget.camera.setView({
-        destination: Cesium.Cartesian3.fromDegrees(OBELISCO.lon, OBELISCO.lat, OBELISCO.height),
-        orientation: {
-          heading: Cesium.Math.toRadians(10),
-          pitch: Cesium.Math.toRadians(-48),
-          roll: 0,
+    const maplibregl = window.maplibregl;
+    const map = new maplibregl.Map({
+      container: mountRef.current,
+      center: OBELISCO.center,
+      zoom: OBELISCO.zoom,
+      pitch: OBELISCO.pitch,
+      bearing: OBELISCO.bearing,
+      maxPitch: 85,
+      attributionControl: true,
+      style: {
+        version: 8,
+        projection: { type: "globe" },
+        sources: {
+          satellite: {
+            type: "raster",
+            tiles: [
+              "https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2020_3857/default/g/{z}/{y}/{x}.jpg"
+            ],
+            tileSize: 256,
+            attribution: "Sentinel-2 cloudless · EOX"
+          },
+          terrain: {
+            type: "raster-dem",
+            url: "https://tiles.mapterhorn.com/tilejson.json",
+            tileSize: 512,
+            maxzoom: 12
+          }
         },
-      });
+        layers: [
+          {
+            id: "satellite",
+            type: "raster",
+            source: "satellite"
+          },
+          {
+            id: "hillshade",
+            type: "hillshade",
+            source: "terrain",
+            paint: {
+              "hillshade-exaggeration": 0.28
+            }
+          }
+        ],
+        terrain: {
+          source: "terrain",
+          exaggeration: 1.35
+        },
+        sky: {
+          "sky-color": "#07111f",
+          "horizon-color": "#56718f",
+          "fog-color": "#0d1420",
+          "sky-horizon-blend": 0.08,
+          "fog-ground-blend": 0.65
+        }
+      }
+    });
 
+    mapRef.current = map;
+
+    map.on("load", () => {
       setReady(true);
       setMessage("Obelisco → Ushuaia listo para probar");
-    }
+    });
 
-    init();
+    map.on("error", (event: any) => {
+      console.error("MapLibre error", event?.error || event);
+    });
+
     return () => {
-      disposed = true;
-      widgetRef.current?.destroy();
-      widgetRef.current = null;
+      map.remove();
+      mapRef.current = null;
     };
-  }, [cesiumLoaded]);
+  }, [maplibreLoaded]);
+
+  function fly(map: any, options: any) {
+    return new Promise<void>((resolve) => {
+      map.once("moveend", () => resolve());
+      map.flyTo({ ...options, essential: true });
+    });
+  }
 
   async function volarAUshuaia() {
-    const widget = widgetRef.current;
-    const Cesium = cesiumRef.current;
-    if (!widget || !Cesium) return;
+    const map = mapRef.current;
+    if (!map) return;
 
-    setMessage("Despegando de Buenos Aires…");
+    setReady(false);
+    setMessage("Despegando del Obelisco…");
 
-    await new Promise<void>((resolve) => {
-      widget.camera.flyTo({
-        destination: Cesium.Cartesian3.fromDegrees(-61.2, -41.7, 900000),
-        orientation: {
-          heading: Cesium.Math.toRadians(175),
-          pitch: Cesium.Math.toRadians(-72),
-          roll: 0,
-        },
-        duration: 2.4,
-        complete: resolve,
-      });
+    await fly(map, {
+      center: [-59.5, -36.6],
+      zoom: 7.3,
+      pitch: 70,
+      bearing: 175,
+      duration: 2200,
+      curve: 1.55
     });
 
     setMessage("Cruzando Patagonia…");
 
-    await new Promise<void>((resolve) => {
-      widget.camera.flyTo({
-        destination: Cesium.Cartesian3.fromDegrees(USHUAIA.lon, USHUAIA.lat, USHUAIA.height),
-        orientation: {
-          heading: Cesium.Math.toRadians(205),
-          pitch: Cesium.Math.toRadians(-42),
-          roll: 0,
-        },
-        duration: 4.8,
-        complete: resolve,
-      });
+    await fly(map, {
+      ...PATAGONIA,
+      duration: 2600,
+      curve: 1.25
+    });
+
+    setMessage("Descendiendo hacia Ushuaia…");
+
+    await fly(map, {
+      ...USHUAIA,
+      duration: 4200,
+      curve: 1.45
     });
 
     setMessage("Llegamos a Ushuaia");
+    setReady(true);
+  }
+
+  function volver() {
+    const map = mapRef.current;
+    if (!map) return;
+    map.flyTo({ ...OBELISCO, duration: 3200, essential: true });
+    setMessage("Volviendo al Obelisco…");
   }
 
   return (
     <>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cesium@1.133.0/Build/Cesium/Widgets/widgets.css" />
+      <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.11.2/dist/maplibre-gl.css" />
       <Script
-        src="https://cdn.jsdelivr.net/npm/cesium@1.133.0/Build/Cesium/Cesium.js"
+        src="https://unpkg.com/maplibre-gl@6.11.2/dist/maplibre-gl.js"
         strategy="afterInteractive"
-        onLoad={() => setCesiumLoaded(true)}
+        onLoad={() => setMaplibreLoaded(true)}
       />
+
       <main className="travel3d">
         <div ref={mountRef} className="travel3d-map" />
         <div className="travel3d-shade" />
+
+        <div className="travel3d-top">
+          <span>LOCAS POR LA AVENTURA</span>
+          <span className="travel3d-badge">SATÉLITE + RELIEVE 3D · SIN GOOGLE</span>
+        </div>
+
         <div className="travel3d-ui">
           <div>
-            <p className="travel3d-kicker">LOCAS POR LA AVENTURA · PRUEBA 3D</p>
+            <p className="travel3d-kicker">VUELO AUTOMÁTICO</p>
             <h1>Buenos Aires <span>→</span> Ushuaia</h1>
             <p className="travel3d-status">{message}</p>
           </div>
-          <button onClick={volarAUshuaia} disabled={!ready}>Iniciar viaje</button>
+
+          <div className="travel3d-actions">
+            <button className="travel3d-secondary" onClick={volver}>Reiniciar</button>
+            <button onClick={volarAUshuaia} disabled={!ready}>Iniciar viaje</button>
+          </div>
         </div>
       </main>
     </>
