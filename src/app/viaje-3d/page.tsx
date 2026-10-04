@@ -25,7 +25,7 @@ export default function Viaje3DPage() {
       pitch: OBELISCO.pitch,
       bearing: OBELISCO.bearing,
       maxPitch: 85,
-      attributionControl: true,
+      attributionControl: {},
       style: {
         version: 8,
         sources: {
