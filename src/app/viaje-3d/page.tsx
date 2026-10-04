@@ -19,7 +19,7 @@ export default function Viaje3DPage() {
   const mapRef = useRef<any>(null);
   const [ready, setReady] = useState(false);
   const [maplibreLoaded, setMaplibreLoaded] = useState(false);
-  const [message, setMessage] = useState("Cargando mapa satelital…");
+  const [message, setMessage] = useState("Cargando mapa…");
 
   useEffect(() => {
     if (!maplibreLoaded || !mountRef.current || !window.maplibregl) return;
@@ -33,26 +33,30 @@ export default function Viaje3DPage() {
       bearing: OBELISCO.bearing,
       maxPitch: 85,
       attributionControl: true,
-      style: "https://demotiles.maplibre.org/style.json"
+      style: {
+        version: 8,
+        sources: {
+          osm: {
+            type: "raster",
+            tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+            tileSize: 256,
+            maxzoom: 19,
+            attribution: "© OpenStreetMap contributors"
+          }
+        },
+        layers: [
+          {
+            id: "osm",
+            type: "raster",
+            source: "osm"
+          }
+        ]
+      }
     });
 
     mapRef.current = map;
 
     map.on("load", () => {
-      try {
-        map.addSource("terrain", {
-          type: "raster-dem",
-          tiles: [
-            "https://demotiles.maplibre.org/terrain-tiles/{z}/{x}/{y}.png"
-          ],
-          tileSize: 256,
-          maxzoom: 12
-        });
-        map.setTerrain({ source: "terrain", exaggeration: 1.15 });
-      } catch (error) {
-        console.warn("Terrain fallback unavailable", error);
-      }
-
       setReady(true);
       setMessage("Obelisco → Ushuaia listo para probar");
     });
@@ -131,7 +135,7 @@ export default function Viaje3DPage() {
 
         <div className="travel3d-top">
           <span>LOCAS POR LA AVENTURA</span>
-          <span className="travel3d-badge">SATÉLITE + RELIEVE 3D · SIN GOOGLE</span>
+          <span className="travel3d-badge">VUELO GEOGRÁFICO · SIN GOOGLE</span>
         </div>
 
         <div className="travel3d-ui">
