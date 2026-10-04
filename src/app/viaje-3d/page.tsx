@@ -150,9 +150,9 @@ export default function Viaje3DPage() {
 
   return (
     <>
-      <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.11.2/dist/maplibre-gl.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@6.11.2/dist/maplibre-gl.css" />
       <Script
-        src="https://unpkg.com/maplibre-gl@6.11.2/dist/maplibre-gl.js"
+        src="https://cdn.jsdelivr.net/npm/maplibre-gl@6.11.2/dist/maplibre-gl.js"
         strategy="afterInteractive"
         onLoad={() => setMaplibreLoaded(true)}
       />
