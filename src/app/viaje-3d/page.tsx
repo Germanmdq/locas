@@ -35,7 +35,6 @@ export default function Viaje3DPage() {
       attributionControl: true,
       style: {
         version: 8,
-        projection: { type: "globe" },
         sources: {
           satellite: {
             type: "raster",
@@ -44,12 +43,6 @@ export default function Viaje3DPage() {
             ],
             tileSize: 256,
             attribution: "Sentinel-2 cloudless · EOX"
-          },
-          terrain: {
-            type: "raster-dem",
-            url: "https://tiles.mapterhorn.com/tilejson.json",
-            tileSize: 512,
-            maxzoom: 12
           }
         },
         layers: [
@@ -57,33 +50,25 @@ export default function Viaje3DPage() {
             id: "satellite",
             type: "raster",
             source: "satellite"
-          },
-          {
-            id: "hillshade",
-            type: "hillshade",
-            source: "terrain",
-            paint: {
-              "hillshade-exaggeration": 0.28
-            }
           }
-        ],
-        terrain: {
-          source: "terrain",
-          exaggeration: 1.35
-        },
-        sky: {
-          "sky-color": "#07111f",
-          "horizon-color": "#56718f",
-          "fog-color": "#0d1420",
-          "sky-horizon-blend": 0.08,
-          "fog-ground-blend": 0.65
-        }
+        ]
       }
     });
 
     mapRef.current = map;
 
     map.on("load", () => {
+      try {
+        map.addSource("terrain", {
+          type: "raster-dem",
+          url: "https://demotiles.maplibre.org/terrain-tiles/tiles.json",
+          tileSize: 256
+        });
+        map.setTerrain({ source: "terrain", exaggeration: 1.25 });
+      } catch (error) {
+        console.warn("Terrain fallback unavailable", error);
+      }
+
       setReady(true);
       setMessage("Obelisco → Ushuaia listo para probar");
     });
