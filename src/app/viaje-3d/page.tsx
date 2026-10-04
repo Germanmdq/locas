@@ -1,10 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import maplibregl from "maplibre-gl";
+import Script from "next/script";
 import "./viaje-3d.css";
 
-const OBELISCO/ = { center: [-58.381592, -34.603738] as [number, number], zoom: 13.8, pitch: 62, bearing: 18 };
+declare global {
+  interface Window {
+    maplibregl?: any;
+  }
+}
+
+const OBELISCO = { center: [-58.381592, -34.603738] as [number, number], zoom: 13.8, pitch: 62, bearing: 18 };
 const PATAGONIA = { center: [-67.2, -45.8] as [number, number], zoom: 3.9, pitch: 42, bearing: 178 };
 const USHUAIA = { center: [-68.303, -54.8019] as [number, number], zoom: 11.8, pitch: 67, bearing: 205 };
 
@@ -12,11 +18,13 @@ export default function Viaje3DPage() {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<any>(null);
   const [ready, setReady] = useState(false);
+  const [maplibreLoaded, setMaplibreLoaded] = useState(false);
   const [message, setMessage] = useState("Cargando mapa satelital…");
 
   useEffect(() => {
-    if (!mountRef.current) return;
+    if (!maplibreLoaded || !mountRef.current || !window.maplibregl) return;
 
+    const maplibregl = window.maplibregl;
     const map = new maplibregl.Map({
       container: mountRef.current,
       center: OBELISCO.center,
@@ -57,7 +65,7 @@ export default function Viaje3DPage() {
       map.remove();
       mapRef.current = null;
     };
-  }, []);
+  }, [maplibreLoaded]);
 
   function fly(map: any, options: any) {
     return new Promise<void>((resolve) => {
@@ -111,7 +119,12 @@ export default function Viaje3DPage() {
 
   return (
     <>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@6.11.2/dist/maplibre-gl.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.7.1/dist/maplibre-gl.css" />
+      <Script
+        src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.7.1/dist/maplibre-gl.js"
+        strategy="afterInteractive"
+        onLoad={() => setMaplibreLoaded(true)}
+      />
       <main className="travel3d">
         <div ref={mountRef} className="travel3d-map" />
         <div className="travel3d-shade" />
