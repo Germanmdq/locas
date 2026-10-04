@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowDown, ArrowRight, CalendarDays, Check, Clock3, MapPin, Menu, Plane, ShieldCheck, Sparkles, Users, X } from "lucide-react";
+import { ArrowDown, ArrowRight, CalendarDays, Clock3, MapPin, Menu, Plane, ShieldCheck, Sparkles, Users, X } from "lucide-react";
 import styles from "./home-premium.module.css";
 
 const destinations = [
@@ -135,8 +135,8 @@ export default function HomePremium() {
       </section>
 
       <section className={styles.skyBridge} aria-hidden="true">
-        <div className={styles.cloud cloudOne} />
-        <div className={styles.cloud cloudTwo} />
+        <div className={`${styles.cloud} ${styles.cloudOne}`} />
+        <div className={`${styles.cloud} ${styles.cloudTwo}`} />
         <span>El mundo se ve distinto cuando viajás acompañada</span>
       </section>
 
