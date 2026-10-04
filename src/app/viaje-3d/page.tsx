@@ -7,7 +7,7 @@ import "./viaje-3d.css";
 
 const OBELISCO = { center: [-58.381592, -34.603738] as [number, number], zoom: 13.8, pitch: 62, bearing: 18 };
 const PATAGONIA = { center: [-67.2, -45.8] as [number, number], zoom: 3.9, pitch: 42, bearing: 178 };
-const USHUAIA = { center: [-68.303, -54.8019] as [number, number], zoom: 11.8, pitch: 67, bearing: 205 };
+const USHUAIA = { center: [-68.303, -54.8019] as [number, number], zoom: 12.8, pitch: 72, bearing: 208 };
 
 export default function Viaje3DPage() {
   const mountRef = useRef<HTMLDivElement | null>(null);
@@ -35,6 +35,13 @@ export default function Viaje3DPage() {
             tileSize: 256,
             maxzoom: 19,
             attribution: "Tiles © Esri — Source: Esri, Maxar, Earthstar Geographics"
+          },
+          terrain: {
+            type: "raster-dem",
+            tiles: ["https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"],
+            tileSize: 256,
+            maxzoom: 15,
+            encoding: "terrarium"
           }
         },
         layers: [
@@ -43,7 +50,11 @@ export default function Viaje3DPage() {
             type: "raster",
             source: "osm"
           }
-        ]
+        ],
+        terrain: {
+          source: "terrain",
+          exaggeration: 1.45
+        }
       }
     });
 
