@@ -13,7 +13,7 @@ export default function Viaje3DPage() {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<any>(null);
   const [ready, setReady] = useState(false);
-  const [message, setMessage] = useState("Cargando mapa…");
+  const [message, setMessage] = useState("Cargando imagen satelital…");
 
   useEffect(() => {
     if (!mountRef.current) return;
@@ -31,10 +31,10 @@ export default function Viaje3DPage() {
         sources: {
           osm: {
             type: "raster",
-            tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+            tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"],
             tileSize: 256,
             maxzoom: 19,
-            attribution: "© OpenStreetMap contributors"
+            attribution: "Tiles © Esri — Source: Esri, Maxar, Earthstar Geographics"
           }
         },
         layers: [
@@ -122,7 +122,7 @@ export default function Viaje3DPage() {
 
         <div className="travel3d-top">
           <span>LOCAS POR LA AVENTURA</span>
-          <span className="travel3d-badge">VUELO GEOGRÁFICO · SIN GOOGLE</span>
+          <span className="travel3d-badge">IMAGEN SATELITAL · SIN GOOGLE</span>
         </div>
 
         <div className="travel3d-ui">
