@@ -1,5 +1,5 @@
-import HomePremium from "./HomePremium";
+import JeskoClone from "./JeskoClone";
 
 export default function Home() {
-  return <HomePremium />;
+  return <JeskoClone />;
 }
