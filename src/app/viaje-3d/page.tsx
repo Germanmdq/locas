@@ -25,26 +25,7 @@ export default function Viaje3DPage() {
       bearing: OBELISCO.bearing,
       maxPitch: 85,
       attributionControl: true,
-      style: {
-        version: 8,
-        sources: {
-          satellite: {
-            type: "raster",
-            tiles: [
-              "https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2020_3857/default/g/{z}/{y}/{x}.jpg"
-            ],
-            tileSize: 256,
-            attribution: "Sentinel-2 cloudless · EOX"
-          }
-        },
-        layers: [
-          {
-            id: "satellite",
-            type: "raster",
-            source: "satellite"
-          }
-        ]
-      }
+      style: "https://demotiles.maplibre.org/style.json"
     });
 
     mapRef.current = map;
@@ -53,10 +34,13 @@ export default function Viaje3DPage() {
       try {
         map.addSource("terrain", {
           type: "raster-dem",
-          url: "https://demotiles.maplibre.org/terrain-tiles/tiles.json",
-          tileSize: 256
+          tiles: [
+            "https://demotiles.maplibre.org/terrain-tiles/{z}/{x}/{y}.png"
+          ],
+          tileSize: 256,
+          maxzoom: 12
         });
-        map.setTerrain({ source: "terrain", exaggeration: 1.25 });
+        map.setTerrain({ source: "terrain", exaggeration: 1.15 });
       } catch (error) {
         console.warn("Terrain fallback unavailable", error);
       }
